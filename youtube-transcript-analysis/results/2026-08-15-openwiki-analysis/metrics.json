@@ -6,8 +6,9 @@
       "elapsed_seconds": 44.463679406791925,
       "prompt_tokens": 92745,
       "completion_tokens": 3162,
-      "cost_usd": 0.0105393,
-      "output_file": "openwiki-analysis-gemini-flash-lite-latest.md"
+      "cost_usd": 0.0357,
+      "output_file": "openwiki-analysis-gemini-flash-lite-latest.md",
+      "cost_note": "corrected: alias resolves to gemini-3.5-flash-lite ($0.30/$2.50); original estimate used $0.10/$0.40"
     },
     {
       "model": "gemini-2.5-flash",
@@ -17,6 +18,52 @@
       "completion_tokens": 8003,
       "cost_usd": 0.10976480000000001,
       "output_file": "openwiki-analysis-gemini-2.5-flash.md"
+    },
+    {
+      "model": "gemini-flash-latest",
+      "model_version": "gemini-3.7-flash",
+      "elapsed_seconds": 55.30913393199444,
+      "prompt_tokens": 92745,
+      "completion_tokens": 4224,
+      "cost_usd": 0.08539875,
+      "output_file": "openwiki-analysis-gemini-flash-latest.md"
+    },
+    {
+      "model": "gemini-2.5-pro",
+      "model_version": "gemini-2.5-pro",
+      "elapsed_seconds": 92.1304672062397,
+      "prompt_tokens": 299191,
+      "completion_tokens": 4515,
+      "cost_usd": 0.41913875,
+      "output_file": "openwiki-analysis-gemini-2.5-pro.md"
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "model_version": "gemini-3.1-flash-lite",
+      "elapsed_seconds": 40.45185463875532,
+      "prompt_tokens": 92745,
+      "completion_tokens": 1628,
+      "cost_usd": 0.02562825,
+      "output_file": "openwiki-analysis-gemini-3.1-flash-lite.md"
+    },
+    {
+      "model": "gemini-3.5-flash",
+      "model_version": "gemini-3.5-flash",
+      "elapsed_seconds": 112.43725971132517,
+      "prompt_tokens": 92745,
+      "completion_tokens": 3905,
+      "cost_usd": 0.1742625,
+      "output_file": "openwiki-analysis-gemini-3.5-flash.md"
+    },
+    {
+      "model": "gemini-3.7-flash",
+      "model_version": "gemini-3.7-flash",
+      "elapsed_seconds": 48.684749476611614,
+      "prompt_tokens": 92745,
+      "completion_tokens": 4170,
+      "cost_usd": 0.08519625,
+      "output_file": "openwiki-analysis-gemini-3.7-flash.md"
     }
-  ]
+  ],
+  "notes": ""
 }

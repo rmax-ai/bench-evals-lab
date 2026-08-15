@@ -18,7 +18,12 @@ PRICING_PER_MILLION: dict[str, tuple[float, float]] = {
     "gemini-2.5-flash": (0.30, 2.50),
     "gemini-2.5-flash-lite": (0.10, 0.40),  # Deprecated; retained for old runs.
     "gemini-flash-lite-latest": (0.10, 0.40),
+    "gemini-3.1-flash-lite": (0.25, 1.50),
+    "gemini-3.5-flash-lite": (0.30, 2.50),
     "gemini-3.5-flash": (1.50, 9.00),
+    "gemini-3.7-flash": (0.75, 3.75),  # scheduled: 1.50/7.50 from 2027-01-01
+    "gemini-2.5-pro": (1.25, 10.00),
+    "gemini-3.1-pro-preview": (2.00, 12.00),
 }
 
 
@@ -66,9 +71,14 @@ def safe_model_name(model: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]+", "-", model).strip("-.")
 
 
-def estimate_cost(model: str, prompt_tokens: int | None, completion_tokens: int | None) -> float:
-    """Estimate request cost from the documented model pricing table."""
+def estimate_cost(model: str, prompt_tokens: int | None,
+                  completion_tokens: int | None,
+                  model_version: str | None = None) -> float:
+    """Estimate request cost; fall back to the resolved model_version for aliases."""
     prices = PRICING_PER_MILLION.get(model)
+    if prices is None and model_version and model_version in PRICING_PER_MILLION:
+        prices = PRICING_PER_MILLION[model_version]
+        print(f"note: priced alias {model} at {model_version} rates", file=sys.stderr)
     if prices is None:
         print(f"warning: no price configured for {model}; reporting cost as $0", file=sys.stderr)
         return 0.0
@@ -125,7 +135,8 @@ def run_analysis(
         elapsed_seconds=elapsed_seconds,
         prompt_tokens=prompt_tokens,
         completion_tokens=completion_tokens,
-        cost_usd=estimate_cost(model, prompt_tokens, completion_tokens),
+        cost_usd=estimate_cost(model, prompt_tokens, completion_tokens,
+                               getattr(response, "model_version", None)),
         output_file=output_path.name,
     )
 

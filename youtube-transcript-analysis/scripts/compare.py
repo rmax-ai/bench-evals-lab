@@ -42,6 +42,7 @@ def main(argv: list[str] | None = None) -> int:
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     prompt_file = EVAL_DIR / config["prompt_file"]
     all_runs: list[tuple[str, RunMetrics, Path]] = []
+    failures: list[tuple[str, str, str]] = []
 
     for video in config["videos"]:
         output_dir = EVAL_DIR / "results" / f"{date.today().isoformat()}-{video['slug']}"
@@ -60,12 +61,18 @@ def main(argv: list[str] | None = None) -> int:
                     slug=video["slug"],
                 )
             except (OSError, RuntimeError, ValueError) as error:
+                failures.append((model, video["slug"], str(error)))
                 print(f"error: {model} / {video['slug']}: {error}", file=sys.stderr)
-                return 2
+                continue
             append_metrics(output_dir, run)
             all_runs.append((video["slug"], run, output_path))
 
     print_table(all_runs)
+    if failures:
+        print(f"\n{len(failures)} failed pair(s):", file=sys.stderr)
+        for model, slug, err in failures:
+            print(f"  - {model} / {slug}: {err}", file=sys.stderr)
+        return 2
     return 0
 
 
