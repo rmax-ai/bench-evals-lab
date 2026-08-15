@@ -1,0 +1,28 @@
+{
+  "date": "2026-08-15",
+  "video": {
+    "id": "XNX-1h2K-9U",
+    "title": "Building Docs for Agents, Not Humans: Inside OpenWiki",
+    "channel": "LangChain"
+  },
+  "prompt": "prompt.md",
+  "notes": "prompt_tokens unavailable in the original CLI run output; compare.py records full usage on future runs.",
+  "runs": [
+    {
+      "model": "gemini-flash-lite-latest",
+      "elapsed_seconds": 48.0,
+      "completion_tokens": 3801,
+      "prompt_tokens": null,
+      "cost_usd": 0.010795,
+      "output_file": "flashlite-analysis.md"
+    },
+    {
+      "model": "gemini-2.5-flash",
+      "elapsed_seconds": 100.3,
+      "completion_tokens": 6736,
+      "prompt_tokens": null,
+      "cost_usd": 0.106597,
+      "output_file": "flash25-analysis.md"
+    }
+  ]
+}

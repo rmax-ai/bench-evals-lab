@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Node.js
+node_modules/
+
+# Environment and OS files
+.env
+.DS_Store
+
+# Build outputs
+dist/
+build/

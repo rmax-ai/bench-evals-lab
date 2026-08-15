@@ -1,0 +1,8 @@
+{
+  "name": "example-eval",
+  "models": ["provider/model-a", "provider/model-b"],
+  "metrics": {
+    "accuracy": "proportion of correct responses",
+    "latency_ms": "end-to-end response latency in milliseconds"
+  }
+}

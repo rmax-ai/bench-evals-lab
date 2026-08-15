@@ -1,0 +1,22 @@
+{
+  "runs": [
+    {
+      "model": "gemini-flash-lite-latest",
+      "model_version": "gemini-3.5-flash-lite",
+      "elapsed_seconds": 44.463679406791925,
+      "prompt_tokens": 92745,
+      "completion_tokens": 3162,
+      "cost_usd": 0.0105393,
+      "output_file": "openwiki-analysis-gemini-flash-lite-latest.md"
+    },
+    {
+      "model": "gemini-2.5-flash",
+      "model_version": "gemini-2.5-flash",
+      "elapsed_seconds": 90.37348347902298,
+      "prompt_tokens": 299191,
+      "completion_tokens": 8003,
+      "cost_usd": 0.10976480000000001,
+      "output_file": "openwiki-analysis-gemini-2.5-flash.md"
+    }
+  ]
+}
