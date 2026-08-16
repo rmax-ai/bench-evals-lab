@@ -16,8 +16,10 @@ from urllib.parse import parse_qs, urlparse
 
 PRICING_PER_MILLION: dict[str, tuple[float, float]] = {
     "gemini-2.5-flash": (0.30, 2.50),
+    # "gemini-flash-lite-latest" deliberately omitted: the alias resolves to
+    # gemini-3.5-flash-lite, so pricing must come from model_version, not a
+    # stale alias entry.
     "gemini-2.5-flash-lite": (0.10, 0.40),  # Deprecated; retained for old runs.
-    "gemini-flash-lite-latest": (0.10, 0.40),
     "gemini-3.1-flash-lite": (0.25, 1.50),
     "gemini-3.5-flash-lite": (0.30, 2.50),
     "gemini-3.5-flash": (1.50, 9.00),

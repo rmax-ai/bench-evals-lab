@@ -1,0 +1,23 @@
+{
+  "judged_model": "gemini-flash-latest",
+  "judge_model": "gemini-2.5-pro",
+  "judge_model_version": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 4.6,
+  "rationale": "The analysis is excellent in structure, coverage, precision, and compression, using tables and diagrams to present information densely and accurately capturing the video's key concepts. The faithfulness score is reduced due to two errors: 1) A quote attributed to the speaker is a close paraphrase, not a verbatim statement. 2) The list of supported LLM providers in the summary incorrectly includes \"Groq\" and \"Ollama\" while omitting \"Baseten\" and \"NVIDIA NIM,\" which were shown on a slide.",
+  "hallucinations": [
+    "\"You're probably not writing a ton of code manually anymore; your agents are probably doing a lot of that. Which means these docs should be built specifically for agents to consume.\" \u2014 Brace Sproul (`02:03`)",
+    "Multi-provider support (OpenAI, Anthropic, Gemini, Bedrock, Fireworks, Groq, Ollama)"
+  ],
+  "elapsed_seconds": 62.94026321545243,
+  "prompt_tokens": 307612,
+  "completion_tokens": 254,
+  "cost_usd": 0.387055,
+  "output_file": "openwiki-analysis-gemini-flash-latest.judge.json"
+}

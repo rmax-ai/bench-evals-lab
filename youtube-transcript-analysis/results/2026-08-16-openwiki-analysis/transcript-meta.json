@@ -1,0 +1,10 @@
+{
+  "video_slug": "openwiki-analysis",
+  "model": "gemini-2.5-flash",
+  "model_version": "gemini-2.5-flash",
+  "elapsed_seconds": 95.97084350138903,
+  "prompt_tokens": 298591,
+  "completion_tokens": 4485,
+  "cost_usd": 0.1007898,
+  "output_file": "transcript.md"
+}

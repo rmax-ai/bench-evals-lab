@@ -1,0 +1,20 @@
+{
+  "judged_model": "gemini-flash-lite-latest",
+  "judge_model": "gemini-2.5-pro",
+  "judge_model_version": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The analysis is near-perfect across all dimensions. It correctly includes all 9 required sections with clear, logical formatting. Every statistic, name, and quote is directly verifiable from the video's slides or spoken content. The topic map and detailed sections comprehensively cover the presentation's motivation, technical implementation (OKF, CLI commands), evaluation metrics (DeepSWE), and future roadmap. The analysis is highly precise, using specific numbers (e.g., \"24% reduction in search commands\") and terminology. Finally, it is extremely compressed, with no repetition or filler prose.",
+  "hallucinations": [],
+  "elapsed_seconds": 65.71329407393932,
+  "prompt_tokens": 305937,
+  "completion_tokens": 184,
+  "cost_usd": 0.38426125,
+  "output_file": "openwiki-analysis-gemini-flash-lite-latest.judge.json"
+}

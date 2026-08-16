@@ -1,0 +1,20 @@
+{
+  "judged_model": "gemini-2.5-pro",
+  "judge_model": "gemini-2.5-pro",
+  "judge_model_version": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The analysis is excellent across all dimensions. It perfectly adheres to the required 9-part structure. All claims, quotes, and statistics are faithfully reproduced from the source material. It provides comprehensive coverage of all key topics, from the project's motivation to its technical implementation and future plans. The language is precise, using specific terminology and data from the video. Finally, it is highly compressed and information-dense, with no wasted prose.",
+  "hallucinations": [],
+  "elapsed_seconds": 65.3359880708158,
+  "prompt_tokens": 306820,
+  "completion_tokens": 155,
+  "cost_usd": 0.385075,
+  "output_file": "openwiki-analysis-gemini-2.5-pro.judge.json"
+}

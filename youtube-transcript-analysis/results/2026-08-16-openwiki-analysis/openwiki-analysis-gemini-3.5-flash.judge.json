@@ -1,0 +1,20 @@
+{
+  "judged_model": "gemini-3.5-flash",
+  "judge_model": "gemini-2.5-pro",
+  "judge_model_version": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The analysis is a near-perfect example. It correctly identifies all key concepts, frameworks (OKF, update process), and specific metrics (e.g., 24% fewer search commands from the DeepSWE benchmark). The structure is flawless, and all claims and quotes are directly supported by the video's slides or spoken content. The information is presented with high precision and density, avoiding any repetition or filler.",
+  "hallucinations": [],
+  "elapsed_seconds": 62.44102143868804,
+  "prompt_tokens": 307412,
+  "completion_tokens": 151,
+  "cost_usd": 0.385775,
+  "output_file": "openwiki-analysis-gemini-3.5-flash.judge.json"
+}

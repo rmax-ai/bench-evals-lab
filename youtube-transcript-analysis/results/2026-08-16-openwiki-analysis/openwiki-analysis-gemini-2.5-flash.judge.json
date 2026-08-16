@@ -1,0 +1,20 @@
+{
+  "judged_model": "gemini-2.5-flash",
+  "judge_model": "gemini-2.5-pro",
+  "judge_model_version": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The analysis is near-perfect across all dimensions. It correctly includes all 9 required sections with clear, logical organization. Every claim, statistic, and quote is faithfully sourced from the video's spoken content or slides. The coverage is comprehensive, capturing all key topics from the motivation behind OpenWiki to its technical implementation and future roadmap. The use of specific terminology (e.g., 'OKF', 'DeepSwe', 'Mermaid') and precise data points from the presentation is excellent. Finally, the analysis is highly compressed, presenting a large amount of information with minimal repetition or filler.",
+  "hallucinations": [],
+  "elapsed_seconds": 60.514856446534395,
+  "prompt_tokens": 310429,
+  "completion_tokens": 186,
+  "cost_usd": 0.38989625,
+  "output_file": "openwiki-analysis-gemini-2.5-flash.judge.json"
+}

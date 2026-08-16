@@ -1,0 +1,20 @@
+{
+  "judged_model": "gemini-3.7-flash",
+  "judge_model": "gemini-2.5-pro",
+  "judge_model_version": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 4,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 4.8,
+  "rationale": "The faithfulness score is a 4 because two quotes are not verbatim. The analysis presents synthesized paraphrases of slide text and spoken words as direct quotes, which is a minor but distinct error against a strict standard. For example, the quote attributed to `00:39` is a mashup of ideas from the corresponding slide, not a direct transcription.",
+  "hallucinations": [],
+  "elapsed_seconds": 66.23248052969575,
+  "prompt_tokens": 307627,
+  "completion_tokens": 139,
+  "cost_usd": 0.38592375,
+  "output_file": "openwiki-analysis-gemini-3.7-flash.judge.json"
+}
