@@ -1,0 +1,36 @@
+{
+  "judged_model": "gemini-3.7-flash",
+  "judge_model": "deepseek-v4-pro",
+  "judge_model_version": "deepseek-v4-pro",
+  "provider": "deepseek",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 2
+  },
+  "total": 3.6,
+  "rationale": "Structure: all 9 required sections present with clear headings. Faithfulness: multiple fabricated quotes (e.g., 'Memory is the one place...') and unsupported details (log.md) violate source. Coverage: captures key topics, stats, workflows, provider list. Precision: strong concrete numbers/names (13.5k stars, 24% search reduction, OKF fields, Mermaid) but includes unsupported log.md and vague unsupported claims. Compression: highly repetitive (benchmark stats repeated across topic map, key points, examples, summary; 'Why It Matters' boilerplate) and verbose.",
+  "hallucinations": [
+    "\"Memory is the one place where we felt the pain daily, could judge the output ourselves, and had a clear signal for whether it worked.\" \u2014 Brace Sproul (`00:39`)",
+    "\"None of this works if generating the wiki is itself a project.\" \u2014 Brace Sproul (`01:42`)",
+    "\"The interesting part is deciding not to run it... If you haven't made any changes, we don't need to update the repo.\" \u2014 Brace Sproul (`14:04`)",
+    "Codebase documentation is the ideal starting domain for general-purpose memory because ground truth is verifiable and developer pain is acute.",
+    "If generating and maintaining documentation requires manual developer overhead, adoption drops to zero.",
+    "openwiki/index.md: Root index declaring specification format and top-level links.",
+    "log.md / last-update.json: Changelog tracking codebase evolution.",
+    "outputs log.md",
+    "updates only affected documentation modules, and updates log.md",
+    "Stale documentation causes AI hallucinations and incorrect code edits.",
+    "Agents fail when critical context is split across multiple conversational turns without explicit references.",
+    "A tool call accidentally returning a 50,000-token base64 image string into an LLM context window.",
+    "Configure `openwiki --update` inside your GitHub Actions CI/CD to run on schedule (e.g., daily cron) or on merge to main.",
+    "General-purpose memory for agents is finally viable due to modern long-context LLMs and agentic architectures."
+  ],
+  "elapsed_seconds": 84.19068247824907,
+  "prompt_tokens": 10763,
+  "completion_tokens": 5819,
+  "cost_usd": 0.005106291,
+  "output_file": "openwiki-analysis-gemini-3.7-flash.deepseek-v4-pro.judge.json"
+}

@@ -1,0 +1,28 @@
+{
+  "judged_model": "gemini-2.5-pro",
+  "judge_model": "deepseek-v4-pro",
+  "judge_model_version": "deepseek-v4-pro",
+  "provider": "deepseek",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 3,
+    "compression": 3
+  },
+  "total": 3.4,
+  "rationale": "Structure has all 9 sections with clear markdown. Faithfulness fails due to fabricated quotes ('Changing the audience...', 'The most common feedback...'), unsupported title, 'Harrison Chase' surname, onboarding claim, and branch/commit detail not in source. Coverage omits 13.5k stars, 900+ forks, 20k npm downloads, flowchart diagram, and MIT license. Precision weak: 36-38% vague range, invented quotes. Compression suffers from repeated 'Why this section matters' boilerplate and overlapping summaries.",
+  "hallucinations": [
+    "*   **Title**: How we built OpenWiki",
+    "The project's genesis came from a question by LangChain's CEO, Harrison Chase.",
+    "User feedback quickly revealed that humans also found the wiki useful for onboarding to new codebases.",
+    "\"Changing the audience changes what good looks like.\"",
+    "\"The most common feedback after launch came from humans using the wiki to onboard onto unfamiliar repos. So it has two audiences now.\"",
+    "The CLI creates a new branch, commits the changes, and opens a pull request for a human to review and merge."
+  ],
+  "elapsed_seconds": 84.19869437068701,
+  "prompt_tokens": 10061,
+  "completion_tokens": 5628,
+  "cost_usd": 0.0049660469999999995,
+  "output_file": "openwiki-analysis-gemini-2.5-pro.deepseek-v4-pro.judge.json"
+}

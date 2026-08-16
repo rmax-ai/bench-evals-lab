@@ -33,7 +33,7 @@ More evals will be added over time.
 
 | Eval | Language | Status | Notes |
 | --- | --- | --- | --- |
-| `youtube-transcript-analysis` | Python | Seeded 2026-08-15 | Gemini model comparison (YouTube URL → structured analysis) with LLM-as-judge quality scoring |
+| `youtube-transcript-analysis` | Python | Seeded 2026-08-15 | Gemini model comparison (YouTube URL → structured analysis) with dual LLM-as-judge scoring (gemini + deepseek) |
 | `template-python` | Python | Template | Copy-paste starter for Python evals |
 | `template-typescript` | TypeScript | Template | Copy-paste starter for TS evals |
 

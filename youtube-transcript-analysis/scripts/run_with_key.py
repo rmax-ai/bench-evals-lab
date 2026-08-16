@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Run compare.py with GEMINI_API_KEY resolved from the Hermes pass store.
+"""Run compare.py with API keys resolved from the Hermes pass store.
 
-The key is decrypted into memory and passed via subprocess env — it never
-appears in a command string or file. Used because background terminal
+Keys are decrypted into memory and passed via subprocess env — they never
+appear in a command string or file. Used because background terminal
 sessions don't resolve $(pass ...) refs from ~/.hermes/.env.
 """
 import os
@@ -11,9 +11,14 @@ import sys
 
 STORE_DIR = os.path.expanduser("~/.hermes/.password-store")
 
+KEY_MAP = {
+    "GEMINI_API_KEY": "gemini/api-key",
+    "DEEPSEEK_API_KEY": "deepseek/api-key",
+}
+
 
 def resolve_key(name: str) -> str:
-    gpg_path = os.path.join(STORE_DIR, "hermes", "gemini", f"{name}.gpg")
+    gpg_path = os.path.join(STORE_DIR, "hermes", f"{name}.gpg")
     result = subprocess.run(
         ["gpg", "-d", "-q", gpg_path],
         capture_output=True, text=True, timeout=30,
@@ -28,7 +33,9 @@ def resolve_key(name: str) -> str:
 
 def main() -> int:
     env = dict(os.environ)
-    env["GEMINI_API_KEY"] = resolve_key("api-key")
+    for env_name, store_path in KEY_MAP.items():
+        if not env.get(env_name):
+            env[env_name] = resolve_key(store_path)
     script_dir = os.path.dirname(os.path.abspath(__file__))
     eval_dir = os.path.dirname(script_dir)
     return subprocess.run(

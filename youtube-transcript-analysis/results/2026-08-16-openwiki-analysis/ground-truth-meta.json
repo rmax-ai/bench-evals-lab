@@ -1,0 +1,10 @@
+{
+  "video_slug": "openwiki-analysis",
+  "model": "gemini-2.5-pro",
+  "model_version": "gemini-2.5-pro",
+  "elapsed_seconds": 71.35083875060081,
+  "prompt_tokens": 303256,
+  "completion_tokens": 2125,
+  "cost_usd": 0.40032,
+  "output_file": "ground-truth.md"
+}

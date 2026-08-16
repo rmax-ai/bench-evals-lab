@@ -1,0 +1,26 @@
+{
+  "judged_model": "gemini-3.1-flash-lite",
+  "judge_model": "deepseek-v4-pro",
+  "judge_model_version": "deepseek-v4-pro",
+  "provider": "deepseek",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 4,
+    "compression": 4
+  },
+  "total": 3.8,
+  "rationale": "Structure (5): all nine sections present with clear headings. Faithfulness (2): three fabricated quotes and unsupported claim about reducing hallucinations. Coverage (4): omits OpenClaw/Harrison context, exact DeepSWE success rate (7/8 to 9/10), NPM weekly downloads, and provider list. Precision (4): concrete numbers and names, but some vague wording like 'lower compute cost' and no provider specifics. Compression (4): relatively dense but overview and summary repeat core message; no major filler.",
+  "hallucinations": [
+    "Documentation is the one place where we felt the pain daily.",
+    "If you're building docs for humans, you're telling a story. If you're building for agents, you're building a graph.",
+    "The quality ceiling right now is the prompt, not the model.",
+    "Optimization via structure and metadata (OKF) reduces token costs and hallucinations."
+  ],
+  "elapsed_seconds": 67.69803144782782,
+  "prompt_tokens": 8596,
+  "completion_tokens": 4547,
+  "cost_usd": 0.003995678,
+  "output_file": "openwiki-analysis-gemini-3.1-flash-lite.deepseek-v4-pro.judge.json"
+}

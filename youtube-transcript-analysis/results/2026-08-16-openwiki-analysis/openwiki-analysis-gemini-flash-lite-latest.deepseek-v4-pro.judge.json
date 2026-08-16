@@ -1,0 +1,29 @@
+{
+  "judged_model": "gemini-flash-lite-latest",
+  "judge_model": "deepseek-v4-pro",
+  "judge_model_version": "deepseek-v4-pro",
+  "provider": "deepseek",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 4,
+    "compression": 3
+  },
+  "total": 3.6,
+  "rationale": "Structure has all 9 required sections. Faithfulness fails due a fabricated quote and unsupported details: Harrison Chase, log.md, GitLab CI, README.md, vector-less, and no-hurt claim. Coverage is strong but omits benchmark task success numbers 7/8 vs 9/10 and some exact init/update specifics. Precision mostly concrete (24%, 36%, OKF, named providers) but weakened by vague 'file calls' and added unsupported specifics. Compression is repetitive across overview, topic map, key points, and final summary.",
+  "hallucinations": [
+    "Memory is the one place where we felt the pain daily, could judge the output ourselves, and had a clear signal for whether it worked.",
+    "Following conversations with CEO Harrison Chase about the next big theme in AI agents",
+    "changelog (`log.md`)",
+    "Integrate `openwiki --update` into your CI/CD pipeline (GitHub Actions or GitLab CI).",
+    "Agents read the repository, `README.md`, and git history",
+    "What dedicated vector-less search and retrieval tools can be built specifically on top of OKF wikis?",
+    "Adding Mermaid diagrams solved human readability without hurting agent parsing."
+  ],
+  "elapsed_seconds": 68.48083733394742,
+  "prompt_tokens": 9231,
+  "completion_tokens": 4721,
+  "cost_usd": 0.0041472029999999995,
+  "output_file": "openwiki-analysis-gemini-flash-lite-latest.deepseek-v4-pro.judge.json"
+}

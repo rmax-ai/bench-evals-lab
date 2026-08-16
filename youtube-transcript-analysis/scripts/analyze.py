@@ -26,6 +26,10 @@ PRICING_PER_MILLION: dict[str, tuple[float, float]] = {
     "gemini-3.7-flash": (0.75, 3.75),  # scheduled: 1.50/7.50 from 2027-01-01
     "gemini-2.5-pro": (1.25, 10.00),
     "gemini-3.1-pro-preview": (2.00, 12.00),
+    # DeepSeek (flat rates as of 2026-08-16; peak/off-peak billing starts
+    # 16:00 UTC 2026-08-16 — treat these as estimates).
+    "deepseek-v4-flash": (0.14, 0.28),
+    "deepseek-v4-pro": (0.435, 0.87),
 }
 
 

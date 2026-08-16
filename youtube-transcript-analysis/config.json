@@ -19,7 +19,17 @@
   "transcript": {
     "model": "gemini-2.5-flash"
   },
-  "judge": {
+  "ground_truth": {
     "model": "gemini-2.5-pro"
-  }
+  },
+  "judges": [
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro"
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro"
+    }
+  ]
 }

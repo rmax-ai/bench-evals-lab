@@ -1,0 +1,37 @@
+{
+  "judged_model": "gemini-flash-latest",
+  "judge_model": "deepseek-v4-pro",
+  "judge_model_version": "deepseek-v4-pro",
+  "provider": "deepseek",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 3,
+    "compression": 4
+  },
+  "total": 3.6,
+  "rationale": "Structure: all 9 sections with clear headings. Faithfulness: multiple fabrications\u2014two invented quotes in section 8, 'Harrison Chase' surname, 'log.md' filename, provider list adds Groq/Ollama and omits actual OpenRouter/Baseten/NVIDIA NIM, claims of telemetry, 'architecture/operations/workflows' types, and OKF v0.2 backwards-compatibility. Coverage: captures core thesis, OKF, DeepSWE metrics, init/update, lessons; only minor omissions. Precision: correct numbers/technical pipeline but wrong provider list and specific file/type names reduce precision. Compression: dense, but repeats points across overview, map, key points, summary; still high signal.",
+  "hallucinations": [
+    "LangChain CEO Harrison Chase",
+    "LLM context windows and synthesis capabilities are now advanced enough to make general-purpose memory feasible.",
+    "OpenWiki stores all files under an `openwiki/` folder",
+    "and a `log.md` (changelog)",
+    "OKF provides an open, non-proprietary standard that decouples repository memory from any single proprietary tool.",
+    "Agent instructions files (`AGENTS.md` / `CLAUDE.md`) direct agents to check `openwiki/quickstart.md` before taking action.",
+    "Post-launch telemetry and community feedback revealed developers were using OpenWiki markdown files directly to understand unfamiliar open-source codebases.",
+    "updates `log.md`, and creates an automated Pull Request.",
+    "write log.md & hashes",
+    "Multi-provider support (OpenAI, Anthropic, Gemini, Bedrock, Fireworks, Groq, Ollama)",
+    "Select your preferred model provider (OpenAI, Anthropic, Gemini, Bedrock, Fireworks, or local Ollama).",
+    "files include typed categories (`architecture`, `operations`, `workflows`)",
+    "The claim that Google's Open Knowledge Format v0.2 release will be fully backwards-compatible with OpenWiki's deterministic front matter pass.",
+    "General-purpose memory is finally possible. Models got long enough context and good enough at synthesis that maintaining a knowledge base stopped being a research project.",
+    "The quality ceiling right now is the prompt, not the model. Most of the bad pages we've seen trace back to us asking for the wrong thing, not the model failing to deliver it."
+  ],
+  "elapsed_seconds": 100.71948374062777,
+  "prompt_tokens": 10806,
+  "completion_tokens": 7825,
+  "cost_usd": 0.006870216,
+  "output_file": "openwiki-analysis-gemini-flash-latest.deepseek-v4-pro.judge.json"
+}
