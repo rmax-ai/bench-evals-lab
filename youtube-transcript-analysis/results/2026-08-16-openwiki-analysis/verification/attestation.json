@@ -1,0 +1,13 @@
+{
+  "video": {
+    "id": "XNX-1h2K-9U",
+    "slug": "openwiki-analysis",
+    "title": "Building Docs for Agents, Not Humans: Inside OpenWiki"
+  },
+  "results_dir": "2026-08-16-openwiki-analysis",
+  "ground_truth_file": "ground-truth.md",
+  "transcript_file": "transcript.md",
+  "claims_total": 70,
+  "generated_at": "2026-08-16T15:04:08.112292+00:00",
+  "attestations": []
+}

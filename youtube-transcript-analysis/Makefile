@@ -6,6 +6,9 @@ compare: ## Run transcript, analysis, and judge over every configured pair
 judge: ## Judge existing analysis artifacts without re-running analyses
 	uv run python scripts/compare.py --judge-only
 
+verify: ## Generate the human verification package for the latest results
+	uv run python scripts/verify_package.py
+
 clean: ## Remove generated result directories, preserving committed artifacts
 	find results -mindepth 1 -maxdepth 1 -type d ! -name '2026-08-15-openwiki-analysis' ! -name '2026-08-16-openwiki-analysis' -exec rm -rf {} +
 

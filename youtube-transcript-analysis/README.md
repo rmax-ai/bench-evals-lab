@@ -138,6 +138,44 @@ every model shares the same defect class (fabricated quotes). Pairwise
 ranking is the planned refinement. The `gemini-2.5-pro` row is self-judged by
 the gemini judge.
 
+## Human verification & attestation
+
+Ground truth underpins every verdict, so the eval ships a **verification
+package** that lets a human attest `ground-truth.md` before its scores are
+taken as final.
+
+```sh
+make verify        # uv run python scripts/verify_package.py
+```
+
+This generates `verification/` inside the latest results directory:
+
+| File | Role |
+| --- | --- |
+| `claims.md` | Every extracted fact as an individually addressable claim (C001…), each with its [slide]/[audio] source tag, a timestamped deep link into the video, and an automatic cross-reference against the audio transcript |
+| `attestation.json` | Durable attestation state — verifier, date, method, status, contested claims and their resolutions. Never overwritten by regeneration |
+| `README.md` | The verification guide |
+
+The **transcript is kept as the independent channel**: [slide] claims with no
+significant audio support are flagged *slide-only — verify visually* (the
+highest-risk triage class), and [audio] claims absent from the transcript are
+flagged as extraction errors. The 2026-08-16 worksheet flags 12 slide-only
+claims and 0 extraction inconsistencies.
+
+To attest after checking claims:
+
+```sh
+uv run python scripts/attest.py --verifier "Your Name" --status verified \
+  --method full --notes "reviewed all claims against transcript + video"
+uv run python scripts/attest.py --verifier "Your Name" --status contested \
+  --method spot --contested C007:"38% on slide, not 36%" \
+  --resolved C007:"accepted as-is after checking video @ 08:58"
+```
+
+Attestations are committed with the results. Re-attest whenever
+`ground-truth.md` changes or a judge verdict is challenged and the fact sheet
+turns out to be the source of the dispute.
+
 ## Results
 
 The committed [2026-08-16 OpenWiki analysis](results/2026-08-16-openwiki-analysis/)
