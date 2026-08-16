@@ -103,3 +103,56 @@ The tool runs against a list of providers:
 
 #### License
 *   The project uses the **MIT** license. [slide, 14:59]
+
+---
+
+## Merged from cross-extractor diff (gemini-3.1-pro-preview, 2026-08-16)
+
+Items below were present in the gemini-3.1-pro-preview extraction but absent
+from the original gemini-2.5-pro fact sheet. Cross-model agreement among the
+7 analyses (noted per item) corroborates slide origin. Timestamps are given
+where the source extraction provided them; items without timestamps should be
+verified visually via the verification worksheet.
+
+### Files Generated/Maintained by OpenWiki [slide, 11:37]
+*   `~/.openwiki/.env` — key storage during setup (3.1-pro only; 1/7 analyses)
+*   `INSTRUCTIONS.md` — hand-written agent brief, written by the setup wizard (1/7 analyses)
+*   `log.md` — change log (5/7 analyses independently report it; audio: "change log")
+*   `_plan.md` — temporary planning file, deleted during the finalize pass (1/7 analyses)
+*   `.last-update.json` — tracks last-update state for the check step (4/7 analyses)
+*   `index.md` — generated per directory, never authored (5/7 analyses)
+*   CLI command variant: `openwiki --update --print` [slide]
+
+### OpenWiki Modes [slide]
+*   **Code mode** — for a repository
+*   **Personal mode** — for a local brain built from your own sources
+(2.5-flash analysis reports both modes; others partial)
+
+### Providers & Tooling [slide]
+*   **GitLab** and **Bitbucket** — PR targets alongside GitHub (GitLab in 1/7 analyses)
+*   **Claude Code** (`CLAUDE.md`) — agent-instruction file alongside `AGENTS.md`
+
+### Numbers & Statistics
+*   **50,000** tokens — example cost of a stray base64 string in an agent tool call [audio]
+*   **2,000** commits/day — example threshold for increasing update frequency [audio]
+*   **4 / 6 / 8 hours** — suggested cron intervals for high-commit repos [audio]
+*   **00:00** — default daily cron time in the generated GitHub Actions workflow [slide]
+*   **0 tokens** — cost of the no-change path during an update check [slide]
+*   OKF example front matter timestamp: **2024-07-28** [slide]
+*   OKF v0.2: released by Google; OpenWiki support "in the next day or so" [audio, 07:14]
+
+### Verbatim Slide Quotes (verify visually; no timestamps in source extraction)
+
+*   "Memory is a big surface. Code is the one place where we felt the pain daily, could judge the output ourselves, and had a clear signal for whether it worked." (echoed by 3.1-flash-lite as "Documentation is the one place..." — a paraphrase, flagged by both judges)
+*   "None of this works if generating the wiki is itself a project. That constraint drove most of the design." (2/7 analyses)
+*   "Same repo, same facts. Almost none of the same formatting decisions."
+*   "So we optimized purely for parse cost. Dense, flat, repetitive on purpose — the kind of document you would never hand to a new hire on their first day."
+*   "The most common feedback after launch came from humans using the wiki to onboard onto unfamiliar repos. So it has two audiences now, and it has to work for both without quietly picking a favorite." (4/7 analyses report the two-audiences claim)
+*   "Every concept is typed" / "Links are the graph" / "Indexes are reserved" / "Your fields survive"
+*   "The practical payoff: the wiki is not locked to OpenWiki. Anything that reads OKF can read it, and the migration path in and out is a spec rather than an export script."
+*   "Every write is validated for OKF front matter before it lands. Bad front matter comes straight back to the agent as a warning, and it fixes it in the same run."
+*   "Same agent. The interesting part is deciding not to run it." (1/7 analyses)
+*   "Merge the PR and the next scheduled run starts from that new HEAD."
+*   "The quality ceiling right now is the prompt, not the model. Most of the bad pages we've seen trace back to us asking for the wrong thing, not the model failing to deliver it." (3/7 analyses quote it verbatim)
+*   "Today the agent reads the index and follows links. Real search over the wiki should cut the number of hops it needs, which is what makes very large repos practical."
+*   "If you try it and it writes something dumb, open an issue please!"

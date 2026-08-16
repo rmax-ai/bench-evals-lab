@@ -11,24 +11,20 @@
     "compression": 3
   },
   "total": 3.4,
-  "rationale": "Structure includes all 9 required sections with clear markdown headings. Faithfulness is severely compromised: multiple fabricated quotes ('None of this works...', 'The quality ceiling...', 'The practical payoff...') and unsupported details such as two modes ('code mode'/'personal mode'), OKF v0.2 support coming soon (source says released), index.md declaring format version, and PR description referencing new HEAD. Coverage is strong, capturing nearly all topics, numbers, and frameworks, but these fabrications lower confidence. Precision includes concrete stats but misses/glosses terms (e.g., 'DeepSwe' vs DeepSWE, 'Karpati' vs Karpathy) and inserts vague claims. Compression is moderate: long topic map repeats stats and includes verbose bullet explanations; some sections could be tighter. Overall density is okay but not excellent.",
+  "rationale": "Structure complete, clear headings. Faithfulness 2: multiple fabricated quotes and unsupported specifics (index.md root, stale README.md, PR description, never overwritten). Coverage 4: captures main claims, examples, frameworks but omits 50k-token example, 2,000-commit threshold, cron intervals, Bitbucket/GitLab. Precision 3: many numbers/names but misspellings (Karpati, DeepSwe) and vague rewording. Compression 3: redundant restatements across topic map and key points, overlong explanations.",
   "hallucinations": [
-    "General-purpose memory is finally possible. Models got long enough context and good enough at synthesis that maintaining a knowledge base stopped being a research project.",
-    "None of this works if generating the wiki is in itself a project. That constraint drove most of the design.",
-    "The quality ceiling right now is the prompt, not the model.",
-    "The practical payoff: the wiki is not locked to OpenWiki. Anything that reads OKF can read it, and the migration path is out and out is a spec rather than an export script.",
-    "The most common feedback after launch came from people using the wiki to onboard onto unfamiliar repos. So it has two audiences now, and it has to work for both without quietly picking a favorite.",
-    "So we added diagrams. Mermaid, embedded inline, only where a picture beats a paragraph.",
-    "The current version of OKF is v0.1, with 0.2 support coming soon.",
-    "It operates in two modes: 'code mode' for repo documentation and 'personal mode' for local knowledge bases.",
-    "The generated `openwiki/` directory contains ... an `index.md` (root, declares format version, links to everything)",
-    "Finalize ... validates OKF front matter compliance (fixing issues as warnings in the same run)",
-    "The PR description references the new HEAD.",
-    "He also requests users to open an issue if they encounter any 'dumb' output from the tool."
+    "\"General-purpose memory is finally possible. Models got long enough context and good enough at synthesis that maintaining a knowledge base stopped being a research project.\"",
+    "\"So we added diagrams. Mermaid, embedded inline, only where a picture beats a paragraph.\"",
+    "\"The practical payoff: the wiki is not locked to OpenWiki. Anything that reads OKF can read it, and the migration path is out and out is a spec rather than an export script.\" (misquote; source says \"in and out\")",
+    "\"It includes an `index.md` (root, declares format version, links to everything), with one file per concept.\"",
+    "\"INSTRUCTIONS.md (a hand-written agent brief that is never overwritten)\"",
+    "\"If no changes (beyond wiki-only files or stale `README.md`) are found\"",
+    "\"The PR's description references the new HEAD.\"",
+    "\"The `openwiki --init` command executes three deterministic steps:\" (source describes four steps)"
   ],
-  "elapsed_seconds": 79.87418512627482,
-  "prompt_tokens": 13554,
-  "completion_tokens": 5592,
-  "cost_usd": 0.00496335,
+  "elapsed_seconds": 84.35978507623076,
+  "prompt_tokens": 14586,
+  "completion_tokens": 6359,
+  "cost_usd": 0.008509064,
   "output_file": "openwiki-analysis-gemini-2.5-flash.deepseek-v4-pro.judge.json"
 }

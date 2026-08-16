@@ -5,24 +5,22 @@
   "provider": "deepseek",
   "scores": {
     "structure": 5,
-    "faithfulness": 2,
+    "faithfulness": 3,
     "coverage": 4,
     "precision": 3,
     "compression": 3
   },
-  "total": 3.4,
-  "rationale": "Structure has all 9 sections with clear markdown. Faithfulness fails due to fabricated quotes ('Changing the audience...', 'The most common feedback...'), unsupported title, 'Harrison Chase' surname, onboarding claim, and branch/commit detail not in source. Coverage omits 13.5k stars, 900+ forks, 20k npm downloads, flowchart diagram, and MIT license. Precision weak: 36-38% vague range, invented quotes. Compression suffers from repeated 'Why this section matters' boilerplate and overlapping summaries.",
+  "total": 3.6,
+  "rationale": "Structure 5: all nine required sections present with clear markdown headings. Faithfulness 3: unsupported fabricated quote \"Changing the audience changes what good looks like\"; last name \"Chase\" not in source; \"creates a new branch, commits changes\" not stated. Coverage 4: omits OpenClaw, Karpathy's LLM Wiki, GitHub stats (13.5k stars/900+ forks/20k+ npm), flowchart diagram type, personal/code modes, log.md/.last-update.json. Precision 3: vague \"36-38% reduction in file-finding calls\" conflates separate 36%/38% stats, typo \"Fireworkds\", \"AGENTS.md or claude.md\" instead of both. Compression 3: repetitive \"Why this section matters\" and Executive Summary plus Final Compressed Summary restate content.",
   "hallucinations": [
-    "*   **Title**: How we built OpenWiki",
-    "The project's genesis came from a question by LangChain's CEO, Harrison Chase.",
-    "User feedback quickly revealed that humans also found the wiki useful for onboarding to new codebases.",
-    "\"Changing the audience changes what good looks like.\"",
-    "\"The most common feedback after launch came from humans using the wiki to onboard onto unfamiliar repos. So it has two audiences now.\"",
-    "The CLI creates a new branch, commits the changes, and opens a pull request for a human to review and merge."
+    "How we built OpenWiki",
+    "LangChain's CEO, Harrison Chase",
+    "Changing the audience changes what good looks like.",
+    "The tool automatically creates a new branch, commits the changes, and opens a pull request for a human to review and merge."
   ],
-  "elapsed_seconds": 84.19869437068701,
-  "prompt_tokens": 10061,
-  "completion_tokens": 5628,
-  "cost_usd": 0.0049660469999999995,
+  "elapsed_seconds": 90.24688749015331,
+  "prompt_tokens": 11093,
+  "completion_tokens": 6105,
+  "cost_usd": 0.006768629,
   "output_file": "openwiki-analysis-gemini-2.5-pro.deepseek-v4-pro.judge.json"
 }

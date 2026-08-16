@@ -101,11 +101,12 @@ across the board while the deepseek judge scored 3.4-3.8 — and the deepseek
 judge caught a systematic quote-fabrication pattern the same-vendor judge
 missed (see Findings).
 
-### Why the extractor must be Gemini's strong model
+### Why the extractor must be Gemini's strongest model — and why one isn't enough
 
 Both video-reading roles in this eval — the fact-sheet extractor and the
-gemini judge — are pinned to `gemini-2.5-pro`, the strongest model in the
-matrix. That is deliberate:
+gemini judge — are pinned to the strongest Gemini tier available. The
+primary extractor is `gemini-3.1-pro-preview` (config `ground_truth.model`),
+chosen after a head-to-head with `gemini-2.5-pro`:
 
 - **Extraction errors are silent and compound.** A fact the extractor misses
   becomes a false hallucination flag in every downstream verdict —
@@ -119,24 +120,32 @@ matrix. That is deliberate:
   false-positive hallucination flags seen in the transcript-only judging
   round.
 - **Extraction is one-time cost; judging is recurring cost.** The fact sheet
-  runs once per video (~$0.40 at 2.5-pro) and grounds unlimited future
-  verdicts — 7 models × N judges × M reruns. Extraction is where spending
-  buys leverage; judging is where cheap independence pays.
+  runs once per video (~$0.22 at 3.1-pro-preview) and grounds unlimited
+  future verdicts — 7 models × N judges × M reruns. Extraction is where
+  spending buys leverage; judging is where cheap independence pays.
 - **Ground truth must not silently drift.** The fact sheet is a committed
   artifact; fixing a miss requires a human to re-watch the video. Getting it
   right once with the strongest model beats re-auditing repeatedly.
 
-Empirical check from the 2026-08-16 run: the 2.5-pro fact sheet captured
-every contested item from the judge-disagreement review — speaker name,
-star/forks/download counts, the provider list (Baseten, NVIDIA NIM), the
-change-log wording — each verified manually against both judges'
-hallucination flags.
+**One extractor is not enough — the 2026-08-16 incident:** the original
+2.5-pro fact sheet silently missed a set of slide quotes (`log.md`, the
+code/personal modes, GitLab/Bitbucket support, ~15 verbatim slide quotes
+including "The quality ceiling right now is the prompt, not the model").
+Both judges then flagged analyses quoting those slides as fabricated — a
+false-positive cascade that nearly became the run's headline finding. The
+3.1-pro-preview re-extraction found them, and cross-model agreement among
+the analyses corroborated slide origin (5/7 models independently report
+`log.md`; 3/7 quote the quality-ceiling line verbatim). The merged fact
+sheet is committed with provenance notes; the **cross-extractor diff is now
+standard procedure** before any run's ground truth is trusted, and the
+human attestation flow (below) exists to close the loop on residual
+disagreements.
 
 **Known limitations:** absolute 1-5 scoring saturates at the top for the
-gemini judge; the deepseek judge's faithfulness scores saturate at 2 because
-every model shares the same defect class (fabricated quotes). Pairwise
-ranking is the planned refinement. The `gemini-2.5-pro` row is self-judged by
-the gemini judge.
+gemini judge. The deepseek judge is strict on quote fidelity — near-quotes
+and paraphrase-as-quote are flagged — which keeps faithfulness low (2-3)
+even after ground-truth corrections. Pairwise ranking is the planned
+refinement. The `gemini-2.5-pro` row is self-judged by the gemini judge.
 
 ## Human verification & attestation
 
@@ -186,49 +195,54 @@ accounting):
 
 | Model | Served as | Elapsed | Input tok | Output tok | Cost | Gemini j. | DeepSeek j. |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `gemini-3.1-flash-lite` | — | 37.8s | 92,745 | 1,924 | $0.026 | 4.80 | **3.80** |
-| `gemini-flash-lite-latest` | `gemini-3.5-flash-lite` | 44.4s | 92,745 | 2,546 | $0.034 | 5.00 | 3.60 |
-| `gemini-flash-latest` | `gemini-3.7-flash` | 52.3s | 92,745 | 4,221 | $0.085 | 4.60 | 3.60 |
+| `gemini-3.1-flash-lite` | — | 37.8s | 92,745 | 1,924 | $0.026 | 4.80 | 3.60 |
+| `gemini-flash-lite-latest` | `gemini-3.5-flash-lite` | 44.4s | 92,745 | 2,546 | $0.034 | 5.00 | **3.80** |
+| `gemini-flash-latest` | `gemini-3.7-flash` | 52.3s | 92,745 | 4,221 | $0.085 | 4.60 | 3.40 |
 | `gemini-3.7-flash` | — | 57.3s | 92,745 | 4,236 | $0.085 | 4.80 | 3.60 |
 | `gemini-3.5-flash` | — | 62.6s | 92,745 | 4,020 | $0.175 | 5.00 | 3.40 |
-| `gemini-2.5-pro` | — | 88.8s | 299,191 | 3,429 | $0.408 | 5.00 | 3.40 |
+| `gemini-2.5-pro` | — | 88.8s | 299,191 | 3,429 | $0.408 | 5.00 | 3.60 |
 | `gemini-2.5-flash` | — | 127.7s | 299,191 | 7,038 | $0.107 | 5.00 | 3.40 |
 
 ### Findings (2026-08-16)
 
-- **Cross-vendor judging earned its keep.** The gemini judge (same vendor)
-  awarded 4.6-5.0 and zero hallucination flags on 4 of 7 rows. The deepseek
-  judge found **fabricated quotes in all 7 analyses** — every model invented
-  plausible-sounding quotes for the "Notable Quotes" section instead of
-  extracting them, plus recurring invented details (`log.md` filename,
-  "Harrison Chase" surname, code/personal modes, provider list errors).
-  Where the judges' coverage overlaps, their hallucination lists agree; the
-  gap is same-vendor leniency, not noise.
-- **The analysis prompt invites fabrication.** Section 8 demands quotes, but
-  this talk is quote-poor; all 7 models resolved the conflict by inventing
-  them rather than emitting fewer quotes. Actionable fix for any such
-  pipeline: require verbatim-only quotes (empty section allowed) or demand
-  [paraphrase] tags. This is a prompt defect, not a model defect — the
-  models differ only in how many quotes they fabricate.
-- **Rankings stay roughly stable across judges.** `3.1-flash-lite` is best
-  under both judges (4.80 / 3.80) at 16x lower cost than the pro model. The
-  2.5-gen models cluster at the bottom under the strict judge. Cost and
-  latency remain the practical differentiators.
-- **Models read slides, not just audio.** All 7 models independently reported
-  slide-only facts (13.5k stars, speaker name, DeepSWE percentages) that a
-  transcript-only judge would flag as hallucinations. The fact sheet exists
-  precisely so text-only judges see this content.
+- **Ground truth is extraction-limited — one extractor is not enough.** The
+  first 2.5-pro fact sheet missed slide quotes, `log.md`, the code/personal
+  modes, and GitLab/Bitbucket support; both judges then flagged analyses
+  quoting those slides as fabricated. A 3.1-pro-preview re-extraction found
+  them (cross-model agreement corroborates: 5/7 analyses report `log.md`,
+  3/7 quote the quality-ceiling line verbatim). After merging, the
+  deepseek judge's hallucination lists shrank materially
+  (`flash-lite-latest` 6 → 0 flags). Treat ground truth as a hypothesis
+  until the cross-extractor diff + human attestation close it.
+- **Cross-vendor judging still earns its keep, in a sharper form.** The
+  gemini judge (same vendor) awards 4.6-5.0 with zero flags on 4 rows. The
+  deepseek judge finds real, specific defects on the merged ground truth:
+  fabricated quotes in 6 of 7 analyses (3.5-flash worst at 18 flags —
+  invented file paths, an invented interactive demo, "Harrison Chase"),
+  garbled slide quotes ("in and out" → "out and out"), and outside-knowledge
+  insertion. `flash-lite-latest` is the only model with zero hallucinations.
+- **The analysis prompt invites quote fabrication.** Section 8 demands
+  quotes; models that cannot find slide quotes invent them rather than emit
+  fewer. Models with slide access still garble verbatim text. Fix for any
+  such pipeline: require verbatim-only quotes (empty section allowed) or
+  [paraphrase] tags.
+- **Rankings are stable across judges.** `flash-lite-latest` leads the
+  deepseek ranking (3.80) and `3.1-flash-lite` leads the gemini ranking
+  (4.80); both are the cheapest models in the matrix. The 2.5-gen models
+  cluster at the bottom under the strict judge. Cost and latency remain the
+  practical differentiators.
+- **Models read slides, not just audio.** All 7 models independently
+  reported slide-only facts (13.5k stars, speaker name, DeepSWE
+  percentages). The fact sheet exists precisely so text-only judges see
+  this content.
 - **Judge cost asymmetry:** ~$0.39 per gemini verdict (video ingestion),
-  ~$0.005 per deepseek verdict (prefix caching: 13.4k of 13.6k input tokens
-  cached across the run). Cross-vendor judging is ~80x cheaper *and* more
-  discriminative here.
-- **Tokenization still dominates analysis cost** (from the 2026-08-15 run):
-  Gemini 3.x models ingest this video as ~93k input tokens, 2.5-gen as
-  ~299k, so `3.7-flash` ($0.75/M) is cheaper per run than `2.5-flash`
-  ($0.30/M).
+  ~$0.005 per deepseek verdict (prefix caching). Cross-vendor judging is
+  ~80x cheaper.
+- **Tokenization still dominates analysis cost**: Gemini 3.x models ingest
+  this video as ~93k input tokens, 2.5-gen as ~299k, so `3.7-flash`
+  ($0.75/M) is cheaper per run than `2.5-flash` ($0.30/M).
 - **Aliases resolve to new-gen models**: `flash-latest` → 3.7-flash,
-  `flash-lite-latest` → 3.5-flash-lite. Pinning aliases silently upgrades
-  price tier — pin concrete IDs when cost matters.
+  `flash-lite-latest` → 3.5-flash-lite. Pin concrete IDs when cost matters.
 
 The [2026-08-15 run](results/2026-08-15-openwiki-analysis/) is retained as
 the pre-judge baseline.

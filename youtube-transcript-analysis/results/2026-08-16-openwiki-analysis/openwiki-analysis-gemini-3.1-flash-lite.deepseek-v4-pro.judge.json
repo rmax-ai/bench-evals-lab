@@ -8,19 +8,20 @@
     "faithfulness": 2,
     "coverage": 4,
     "precision": 4,
-    "compression": 4
+    "compression": 3
   },
-  "total": 3.8,
-  "rationale": "Structure (5): all nine sections present with clear headings. Faithfulness (2): three fabricated quotes and unsupported claim about reducing hallucinations. Coverage (4): omits OpenClaw/Harrison context, exact DeepSWE success rate (7/8 to 9/10), NPM weekly downloads, and provider list. Precision (4): concrete numbers and names, but some vague wording like 'lower compute cost' and no provider specifics. Compression (4): relatively dense but overview and summary repeat core message; no major filler.",
+  "total": 3.6,
+  "rationale": "Structure: all 9 sections present with clear headings. Faithfulness: two fabricated quotes in Notable Quotes, unsupported claim about reducing hallucinations, unsupported 'primary cause,' and OKF version typo (source says v0.1/v0.2). Coverage: captures thesis, OKF, init/update, benchmarks, diagrams, stats, but omits provider names, some OKF fields, and verbatim slogans. Precision: concrete numbers (24%, 36-38%, 13.5k) and tool names; some vague terms like 'root index' and 'significantly fewer.' Compression: repeated agent-centric/human-centric points across overview, key points, and summary.",
   "hallucinations": [
-    "Documentation is the one place where we felt the pain daily.",
-    "If you're building docs for humans, you're telling a story. If you're building for agents, you're building a graph.",
-    "The quality ceiling right now is the prompt, not the model.",
-    "Optimization via structure and metadata (OKF) reduces token costs and hallucinations."
+    "\"Documentation is the one place where we felt the pain daily.\"",
+    "\"If you're building docs for humans, you're telling a story. If you're building for agents, you're building a graph.\"",
+    "\"Optimization via structure and metadata (OKF) reduces token costs and hallucinations.\"",
+    "\"A primary cause of outdated documentation is the friction of manual updating.\"",
+    "\"The speaker mentions O.1 and O.2 versions of the OKF format.\""
   ],
-  "elapsed_seconds": 67.69803144782782,
-  "prompt_tokens": 8596,
-  "completion_tokens": 4547,
-  "cost_usd": 0.003995678,
+  "elapsed_seconds": 59.387483440339565,
+  "prompt_tokens": 9628,
+  "completion_tokens": 3696,
+  "cost_usd": 0.004035524,
   "output_file": "openwiki-analysis-gemini-3.1-flash-lite.deepseek-v4-pro.judge.json"
 }

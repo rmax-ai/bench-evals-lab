@@ -8,7 +8,7 @@ verification is `attestation.json` (see README in this folder);
 checkbox state is an ephemeral worksheet and is reset by
 `--force` regeneration.
 
-Claims: 70 total — [slide] 37, [audio] 7, both 2 · slide-only (verify visually): 12 · [audio] claims missing from transcript (extraction error?): 0
+Claims: 101 total — [slide] 37, [audio] 8, both 2 · slide-only (verify visually): 12 · [audio] claims missing from transcript (extraction error?): 0
 
 **Triage order:** slide-only claims first (highest risk), then
 [audio] claims missing from the transcript, then the rest.
@@ -164,3 +164,70 @@ Claims: 70 total — [slide] 37, [audio] 7, both 2 · slide-only (verify visuall
 ## License
 - [ ] **C070** [slide, 14:59] — The project uses the MIT license.
   - **audio-ref: weak (mit) — slide-only, verify visually** · slide @ 14:59 (https://youtu.be/XNX-1h2K-9U?t=899)
+## Files Generated/Maintained by OpenWiki [slide, 11:37]
+- [ ] **C071**  — `~/.openwiki/.env` — key storage during setup (3.1-pro only; 1/7 analyses)
+  - audio-ref: strong (openwiki, 1) · 
+- [ ] **C072**  — `INSTRUCTIONS.md` — hand-written agent brief, written by the setup wizard (1/7 analyses)
+  - audio-ref: strong (wizard, 1) · 
+- [ ] **C073**  — `log.md` — change log (5/7 analyses independently report it; audio: "change log")
+  - audio-ref: strong (change, 5, change) · 
+- [ ] **C074**  — `_plan.md` — temporary planning file, deleted during the finalize pass (1/7 analyses)
+  - audio-ref: strong (1) · 
+- [ ] **C075**  — `.last-update.json` — tracks last-update state for the check step (4/7 analyses)
+  - audio-ref: strong (4) · 
+- [ ] **C076**  — `index.md` — generated per directory, never authored (5/7 analyses)
+  - audio-ref: strong (generated, 5) · 
+- [ ] **C077**  — CLI command variant: `openwiki --update --print` [slide]
+  - audio-ref: strong (command, openwiki, update) · 
+## OpenWiki Modes [slide]
+- [ ] **C078**  — Code mode — for a repository
+  - **audio-ref: weak (code, mode) — slide-only, verify visually** · 
+- [ ] **C079**  — Personal mode — for a local brain built from your own sources
+  - audio-ref: strong (personal) · 
+## Providers & Tooling [slide]
+- [ ] **C080**  — GitLab and Bitbucket — PR targets alongside GitHub (GitLab in 1/7 analyses)
+  - audio-ref: strong (github, 1) · 
+- [ ] **C081**  — Claude Code (`CLAUDE.md`) — agent-instruction file alongside `AGENTS.md`
+  - **audio-ref: weak (agents.md, code, file) — slide-only, verify visually** · 
+## Numbers & Statistics
+- [ ] **C082**  — 50,000 tokens — example cost of a stray base64 string in an agent tool call [audio]
+  - audio-ref: strong (50, 000, tokens) · 
+- [ ] **C083**  — 2,000 commits/day — example threshold for increasing update frequency [audio]
+  - audio-ref: strong (2, 000, commits) · 
+- [ ] **C084**  — 4 / 6 / 8 hours — suggested cron intervals for high-commit repos [audio]
+  - audio-ref: strong (4, 6) · 
+- [ ] **C085**  — 00:00 — default daily cron time in the generated GitHub Actions workflow [slide]
+  - audio-ref: strong (00, 00, default) · 
+- [ ] **C086**  — 0 tokens — cost of the no-change path during an update check [slide]
+  - audio-ref: strong (0, tokens, update) · 
+- [ ] **C087**  — OKF example front matter timestamp: 2024-07-28 [slide]
+  - audio-ref: strong (matter, timestamp) · 
+- [ ] **C088** [audio, 07:14] — OKF v0.2: released by Google; OpenWiki support "in the next day or so"
+  - audio-ref: strong (google, openwiki) · audio @ 07:14 (https://youtu.be/XNX-1h2K-9U?t=434)
+## Verbatim Slide Quotes (verify visually; no timestamps in source extraction)
+- [ ] **C089**  — "Memory is a big surface. Code is the one place where we felt the pain daily, could judge the output ourselves, and had a clear signal for whether it worked." (echoed by 3.1-flash-lite as "Documentation is the one place..." — a paraphrase, flagged by both judges)
+  - audio-ref: strong (output) · 
+- [ ] **C090**  — "None of this works if generating the wiki is itself a project. That constraint drove most of the design." (2/7 analyses)
+  - audio-ref: strong (generating, itself, 2) · 
+- [ ] **C091**  — "Same repo, same facts. Almost none of the same formatting decisions."
+  - **audio-ref: weak (repo) — slide-only, verify visually** · 
+- [ ] **C092**  — "So we optimized purely for parse cost. Dense, flat, repetitive on purpose — the kind of document you would never hand to a new hire on their first day."
+  - audio-ref: strong (optimized, purely, purpose) · 
+- [ ] **C093**  — "The most common feedback after launch came from humans using the wiki to onboard onto unfamiliar repos. So it has two audiences now, and it has to work for both without quietly picking a favorite." (4/7 analyses report the two-audiences claim)
+  - audio-ref: strong (feedback, humans, onboard) · 
+- [ ] **C094**  — "Every concept is typed" / "Links are the graph" / "Indexes are reserved" / "Your fields survive"
+  - audio-ref: strong (concept, fields) · 
+- [ ] **C095**  — "The practical payoff: the wiki is not locked to OpenWiki. Anything that reads OKF can read it, and the migration path in and out is a spec rather than an export script."
+  - audio-ref: strong (anything) · 
+- [ ] **C096**  — "Every write is validated for OKF front matter before it lands. Bad front matter comes straight back to the agent as a warning, and it fixes it in the same run."
+  - audio-ref: strong (matter, before, matter) · 
+- [ ] **C097**  — "Same agent. The interesting part is deciding not to run it." (1/7 analyses)
+  - audio-ref: strong (interesting, 1) · 
+- [ ] **C098**  — "Merge the PR and the next scheduled run starts from that new HEAD."
+  - audio-ref: strong (scheduled, starts) · 
+- [ ] **C099**  — "The quality ceiling right now is the prompt, not the model. Most of the bad pages we've seen trace back to us asking for the wrong thing, not the model failing to deliver it." (3/7 analyses quote it verbatim)
+  - audio-ref: strong (prompt) · 
+- [ ] **C100**  — "Today the agent reads the index and follows links. Real search over the wiki should cut the number of hops it needs, which is what makes very large repos practical."
+  - audio-ref: strong (search) · 
+- [ ] **C101**  — "If you try it and it writes something dumb, open an issue please!"
+  - audio-ref: strong (writes, something) · 

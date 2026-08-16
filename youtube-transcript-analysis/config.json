@@ -20,7 +20,8 @@
     "model": "gemini-2.5-flash"
   },
   "ground_truth": {
-    "model": "gemini-2.5-pro"
+    "model": "gemini-3.1-pro-preview",
+    "note": "Cross-extractor diffing is the norm: re-run with gemini-2.5-pro and merge novel items manually (see README). Single-extractor misses manufacture false hallucination flags downstream."
   },
   "judges": [
     {
