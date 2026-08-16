@@ -101,6 +101,37 @@ across the board while the deepseek judge scored 3.4-3.8 — and the deepseek
 judge caught a systematic quote-fabrication pattern the same-vendor judge
 missed (see Findings).
 
+### Why the extractor must be Gemini's strong model
+
+Both video-reading roles in this eval — the fact-sheet extractor and the
+gemini judge — are pinned to `gemini-2.5-pro`, the strongest model in the
+matrix. That is deliberate:
+
+- **Extraction errors are silent and compound.** A fact the extractor misses
+  becomes a false hallucination flag in every downstream verdict —
+  indistinguishable from a correct flag. Extractor precision is a hard upper
+  bound on judge fairness, so the weakest link in extraction caps the whole
+  eval.
+- **Slide reading is where model strength shows.** The fact sheet's value is
+  precise extraction of dense slide content — numbers, provider lists,
+  quotes, timestamps. That is exactly where flash-tier models degrade: they
+  drop or smooth over slide details, which produces precisely the
+  false-positive hallucination flags seen in the transcript-only judging
+  round.
+- **Extraction is one-time cost; judging is recurring cost.** The fact sheet
+  runs once per video (~$0.40 at 2.5-pro) and grounds unlimited future
+  verdicts — 7 models × N judges × M reruns. Extraction is where spending
+  buys leverage; judging is where cheap independence pays.
+- **Ground truth must not silently drift.** The fact sheet is a committed
+  artifact; fixing a miss requires a human to re-watch the video. Getting it
+  right once with the strongest model beats re-auditing repeatedly.
+
+Empirical check from the 2026-08-16 run: the 2.5-pro fact sheet captured
+every contested item from the judge-disagreement review — speaker name,
+star/forks/download counts, the provider list (Baseten, NVIDIA NIM), the
+change-log wording — each verified manually against both judges'
+hallucination flags.
+
 **Known limitations:** absolute 1-5 scoring saturates at the top for the
 gemini judge; the deepseek judge's faithfulness scores saturate at 2 because
 every model shares the same defect class (fabricated quotes). Pairwise
