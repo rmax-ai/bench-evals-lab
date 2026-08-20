@@ -1,0 +1,22 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 4
+  },
+  "total": 3.4,
+  "rationale": "The candidate JSON is well-structured and generally covers the main arguments of the fact sheet (Pi architecture, clankers ruining open source, and the need to slow down). However, it invents several highly specific details and examples not present in the ground truth, severely negatively impacting the faithfulness and precision scores.",
+  "hallucinations": [
+    "Mention of 'Major maintainers like Lil' Bro (git-auth)'",
+    "Claims regarding 'Amazon service downtime and Windows quality issues attributed to rapid AI code integration'",
+    "Reference to 'Graph comparisons showing agent code output skyrocketing'",
+    "Listing specific core tools 'read, write, edit, bash' for pi",
+    "Stating community members built 'pi-messenger, pi-nes, and pi-doom'"
+  ],
+  "elapsed_seconds": 88.3988,
+  "cost_usd": 0.012072
+}

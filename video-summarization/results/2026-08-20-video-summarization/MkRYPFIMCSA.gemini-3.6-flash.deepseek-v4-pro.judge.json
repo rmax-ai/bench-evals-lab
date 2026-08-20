@@ -1,0 +1,42 @@
+{
+  "judged_candidate": "gemini-3.6-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 2
+  },
+  "total": 2.8,
+  "rationale": "Faithfulness (2): many unsupported strings—CEL, MIT/clawpatrol.dev, PagerDuty, Grafana, GitHub, LiteLLM/OpenRouter/NeMo, Claude 3.5 Opus. Coverage (4): main claims and frameworks present, but omits fact sheet statistics (1000-line HCL, 600-second approval) and WireGuard. Precision (2): channel wrong, quotes paraphrased/mistimed, timestamps inaccurate. Compression (2): repeated claims across executive summary, topic_map, key_points, and compressed; low density.",
+  "hallucinations": [
+    "AI Engineer",
+    "creator of Node.js and Deno",
+    "open-source proxy",
+    "HCL/CEL-based access rules",
+    "Common Expression Language (CEL)",
+    "PagerDuty",
+    "Grafana",
+    "GitHub",
+    "Claude 3.5 Opus",
+    "LiteLLM, OpenRouter, NeMo",
+    "httpjail, Crab Trap",
+    "agentsh",
+    "pg_read_file",
+    "dblink",
+    "MIT licensed at clawpatrol.dev",
+    "AWS SigV4, database passwords, OAuth tokens, API keys",
+    "Live Monitoring Dashboard",
+    "00:34 - 02:44",
+    "02:45 - 03:58",
+    "03:59 - 07:38",
+    "07:39 - 09:58",
+    "09:59 - 16:30",
+    "clawpatrol run codex --yolo",
+    "The agent is the thing being manipulated. You can't put the guard inside it.",
+    "What does matter are the bytes agents send and receive over the network."
+  ],
+  "elapsed_seconds": 120.7885,
+  "cost_usd": 0.00695
+}

@@ -1,0 +1,25 @@
+{
+  "judged_candidate": "gemini-3.6-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 5,
+    "precision": 2,
+    "compression": 2
+  },
+  "total": 3.2,
+  "rationale": "The candidate JSON covers all the main topics, frameworks, and statistics present in the ground truth fact sheet. However, it suffers from severe faithfulness and precision issues by injecting a massive amount of highly specific external knowledge that is completely absent from the source text. This includes specific model architectures, external agent frameworks, external repositories, and specialized RL algorithms. While the structure is excellent and highly organized, the inclusion of unverified details heavily inflates the text, resulting in poor compression and precision.",
+  "hallucinations": [
+    "GLM-5 is a ~1 Trillion parameter MoE model",
+    "Model Context Protocol (MCP) integrations",
+    "Specific environments like Swe-grep, Wordle game environment, and Harbor",
+    "OpenAI Harmony / GPT-OS template handling and Thinking Machines Tinkerer cookbook",
+    "Specific algorithms and loss terms like DPPO, GRPO, OPSD, ECHO, and DAgger",
+    "Specific agent harnesses like Claude Code, Codex CLI, and SWE-agent",
+    "Specific runtimes like Modal/E2B",
+    "References to the public `lab-cookbook` repo on GitHub"
+  ],
+  "elapsed_seconds": 101.9841,
+  "cost_usd": 0.01439
+}

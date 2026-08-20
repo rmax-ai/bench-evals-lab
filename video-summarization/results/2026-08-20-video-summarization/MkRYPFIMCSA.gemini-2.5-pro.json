@@ -1,0 +1,12 @@
+{
+  "candidate": "gemini-2.5-pro",
+  "video_id": "MkRYPFIMCSA",
+  "data": null,
+  "validation_passed": false,
+  "retries": 2,
+  "elapsed_seconds": 200.7163,
+  "prompt_tokens": 677844,
+  "completion_tokens": 7584,
+  "cost_usd": 0.923145,
+  "error": "ValidationError: 5 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[34, 134], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string "
+}

@@ -1,0 +1,28 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 2,
+    "coverage": 3,
+    "precision": 2,
+    "compression": 3
+  },
+  "total": 2.8,
+  "rationale": "Faithfulness 2: unsupported claims include MIT license, PagerDuty, GitHub/Grafana, CEL, specific SQL/kubectl commands, process sandbox. Coverage 3: core claims and Claw Patrol present but misses EKS/VPC example, Agent Vault/OpenShell terms, and statistics like 1000-line HCL config and 600s timeout. Precision 2: quotes are paraphrased or misattributed; timestamps do not match fact sheet; exact commands/functions invented. Compression 3: redundant repetition across topic_map, key_points, and compressed bullets. Structure 4: channel omitted and many null timestamps.",
+  "hallucinations": [
+    "open-source MIT-licensed network proxy",
+    "automated PagerDuty first responder",
+    "GitHub, Slack, and Grafana",
+    "psql -c 'DROP TABLE users'",
+    "kubectl delete namespace prod",
+    "Process sandbox",
+    "CEL",
+    "Denying pg_read_binary_file or dlink functions in Postgres queries while allowing standard queries.",
+    "Dashboard & approval router",
+    "Alignment is not a Security Boundary",
+    "Real security can't be wishful thinking"
+  ],
+  "elapsed_seconds": 112.979,
+  "cost_usd": 0.006327
+}

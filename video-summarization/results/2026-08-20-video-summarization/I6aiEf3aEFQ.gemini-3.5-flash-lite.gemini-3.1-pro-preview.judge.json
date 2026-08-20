@@ -1,0 +1,19 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.4,
+  "rationale": "The candidate provides an excellent, well-structured summary with high coverage of the core concepts, frameworks, and examples from the fact sheet. However, it contains a significant hallucination regarding financial statistics (stating $40 billion instead of $40-$60 million) and includes fabricated or incorrectly converted integer timestamps for quotes that do not align with the fact sheet.",
+  "hallucinations": [
+    "Stated Anthropic's run rate reached '$40 billion' instead of the fact sheet's '$40 million to $60 million'.",
+    "Generated incorrect integer timestamps for quotes (635, 702, 1090) that do not match the fact sheet's timestamps (06:34, 07:03, 10:54) in either raw format or converted seconds."
+  ],
+  "elapsed_seconds": 89.7579,
+  "cost_usd": 0.012008
+}

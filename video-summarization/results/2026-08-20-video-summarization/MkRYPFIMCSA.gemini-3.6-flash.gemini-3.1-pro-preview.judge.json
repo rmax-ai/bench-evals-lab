@@ -1,0 +1,23 @@
+{
+  "judged_candidate": "gemini-3.6-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 4
+  },
+  "total": 4.2,
+  "rationale": "The candidate provides a highly structured and comprehensive overview of the fact sheet, capturing the main themes of network-level security and the Claw Patrol proxy perfectly. However, the candidate brings in a significant amount of external knowledge not found in the source text, resulting in multiple hallucinations of specific tool names, expression languages, and URLs. Compression is solid, but the added fluff detracts slightly from strict precision to the source.",
+  "hallucinations": [
+    "Identifies 'Claude 3.5' (the fact sheet only says 'Opus')",
+    "Mentions 'CEL' or 'Common Expression Language' (the fact sheet only mentions HCL)",
+    "Lists specific LLM gateways ('LiteLLM, OpenRouter, NeMo') not in the source",
+    "Lists specific proxies and sandboxes ('httpjail, Crab Trap, agentsh') not in the source",
+    "Lists specific credential types ('AWS SigV4, OAuth tokens') not in the source",
+    "Mentions the specific URL 'clawpatrol.dev'"
+  ],
+  "elapsed_seconds": 115.9316,
+  "cost_usd": 0.012288
+}

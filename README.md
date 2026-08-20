@@ -33,6 +33,7 @@ More evals will be added over time.
 
 | Eval | Language | Status | Notes |
 | --- | --- | --- | --- |
+| `video-summarization` | Python | Seeded 2026-08-20 | yt-insights stage-1 eval: YouTube video → SummarySchema JSON via native Gemini video ingestion (4 candidates, 3.1-pro fact-sheet + dual LLM-as-judge scoring) |
 | `youtube-transcript-analysis` | Python | Seeded 2026-08-15 | Gemini model comparison (YouTube URL → structured analysis) with dual LLM-as-judge scoring (gemini + deepseek) |
 | `summary-structuring` | Python | Seeded 2026-08-20 | yt-insights stage-2 eval: markdown summary → SummarySchema JSON (4 candidates, dual LLM-as-judge fidelity scoring) |
 | `template-python` | Python | Template | Copy-paste starter for Python evals |

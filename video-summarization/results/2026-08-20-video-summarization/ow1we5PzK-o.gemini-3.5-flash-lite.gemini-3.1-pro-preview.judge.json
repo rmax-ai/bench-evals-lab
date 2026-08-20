@@ -1,0 +1,20 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 4,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.2,
+  "rationale": "The candidate JSON is exceptionally well-structured and effectively compresses the fact sheet into logical, distinct topics and key points. Coverage of the main claims, frameworks, and examples is strong. However, faithfulness is reduced because the candidate introduces several highly specific technical details that do not exist in the provided fact sheet, such as 'Mission Control', a 'CLI/TUI view', and exact line counts for orchestration logic ('700 lines of text').",
+  "hallucinations": [
+    "Mission Control provides a dedicated CLI/TUI view for monitoring multi-day autonomous work in progress.",
+    "Almost all orchestration logic lives in prompts and skills (approx. 700 lines of text).",
+    "Identifies the speaker as 'Luke Alvoeiro' instead of the provided 'Luke Alvezio'."
+  ],
+  "elapsed_seconds": 88.7451,
+  "cost_usd": 0.013738
+}

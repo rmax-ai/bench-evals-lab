@@ -1,0 +1,21 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.4,
+  "rationale": "The candidate provides an excellent, well-structured summary that covers all the major points from the fact sheet. However, it introduces several specific details that are not present in the source text, such as mentions of PagerDuty, CEL expressions, and specific PostgreSQL functions like 'pg_read_binary_file' and 'dlink'. Additionally, the timestamps in the quotes section are inaccurate and improperly formatted compared to the source.",
+  "hallucinations": [
+    "Mentions 'PagerDuty' which is not in the fact sheet.",
+    "Introduces 'CEL expressions' which is not found in the text.",
+    "Names specific Postgres functions 'pg_read_binary_file' and 'dlink' which are not listed in the fact sheet.",
+    "Timestamps '21' and '308' in the quotes section do not match the fact sheet."
+  ],
+  "elapsed_seconds": 114.7996,
+  "cost_usd": 0.010178
+}

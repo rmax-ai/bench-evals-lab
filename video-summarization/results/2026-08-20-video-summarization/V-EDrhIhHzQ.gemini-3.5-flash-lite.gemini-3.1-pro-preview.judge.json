@@ -1,0 +1,23 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 3,
+    "compression": 4
+  },
+  "total": 3.6,
+  "rationale": "The candidate nicely structures the provided information and successfully captures the core narrative about Prime Intellect's verifiers framework, prime-rl, and asynchronous RL. However, it fails terribly on faithfulness by injecting a large amount of external knowledge not found in the fact sheet. It hallucinates specific model parameters, step times, dataset integrations, architectural tools, RL algorithms, and GitHub repositories. Additionally, it fabricates timestamps for the provided quotes and misses the key claim regarding the 'renderer' abstraction to prevent tokenization drift.",
+  "hallucinations": [
+    "Mentions 'GLM-5 1T parameter models' and 'sub-5 minute step times' which are not in the fact sheet.",
+    "Lists integrations like 'HuggingFace datasets, Harbor, Nemotron, and OpenEnv' not present in the source.",
+    "Introduces terms and technologies not mentioned, including 'Model Context Protocol (MCP) servers', 'uv script', 'Torch Titan', 'Ulysses/Ring', and 'multi-tenant LoRA'.",
+    "Lists specific algorithms 'GRPO, PPO, DPO, ECHO, Dagger, DPPO' not found in the fact sheet.",
+    "References a 'lab-cookbook repository on GitHub' which is absent from the text.",
+    "Fabricates quote timestamps (554 and 2939) that do not match the fact sheet."
+  ],
+  "elapsed_seconds": 102.1366,
+  "cost_usd": 0.013788
+}

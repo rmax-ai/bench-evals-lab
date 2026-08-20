@@ -1,0 +1,12 @@
+{
+  "candidate": "gemini-3.6-flash",
+  "video_id": "RjfbvDXpFls",
+  "data": null,
+  "validation_passed": false,
+  "retries": 2,
+  "elapsed_seconds": 191.3669,
+  "prompt_tokens": 202816,
+  "completion_tokens": 6144,
+  "cost_usd": 0.175152,
+  "error": "ValidationError: 4 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[30, 305], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string "
+}

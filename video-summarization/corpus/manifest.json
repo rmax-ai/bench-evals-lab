@@ -1,0 +1,32 @@
+{
+  "source_repo": "https://github.com/rmax-ai/yt-insights",
+  "vendored_at": "2026-08-20",
+  "note": "Stage-1 eval corpus: 5 public YouTube videos summarized directly from the native Gemini generateContent endpoint (file_data.file_uri video ingestion).",
+  "items": [
+    {
+      "video_id": "I6aiEf3aEFQ",
+      "title": "Intelligence + Continual Learning = Expertise \u2014 Yu Su, NeoCognition",
+      "url": "https://www.youtube.com/watch?v=I6aiEf3aEFQ"
+    },
+    {
+      "video_id": "MkRYPFIMCSA",
+      "title": "Security Firewall for Agents \u2014 Ryan Dahl, Deno",
+      "url": "https://www.youtube.com/watch?v=MkRYPFIMCSA"
+    },
+    {
+      "video_id": "V-EDrhIhHzQ",
+      "title": "Modern Post-Training: A Deep Dive \u2014 Will Brown, Prime Intellect",
+      "url": "https://www.youtube.com/watch?v=V-EDrhIhHzQ"
+    },
+    {
+      "video_id": "ow1we5PzK-o",
+      "title": "The Multi-Agent Architecture That Actually Ships \u2014 Luke Alvoeiro, Factory",
+      "url": "https://www.youtube.com/watch?v=ow1we5PzK-o"
+    },
+    {
+      "video_id": "RjfbvDXpFls",
+      "title": "Building pi in a World of Slop \u2014 Mario Zechner",
+      "url": "https://www.youtube.com/watch?v=RjfbvDXpFls"
+    }
+  ]
+}

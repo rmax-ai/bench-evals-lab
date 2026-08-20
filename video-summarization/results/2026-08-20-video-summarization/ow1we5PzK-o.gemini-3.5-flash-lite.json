@@ -1,0 +1,298 @@
+{
+  "candidate": "gemini-3.5-flash-lite",
+  "video_id": "ow1we5PzK-o",
+  "data": {
+    "overview": {
+      "title": "The Multi-Agent Architecture That Actually Ships",
+      "speaker": "Luke Alvoeiro",
+      "channel": "",
+      "main_topic": "Multi-agent systems for software engineering and how to build resilient agent teams that complete complex, multi-day tasks.",
+      "executive_summary": "Luke Alvoeiro from Factory presents a detailed breakdown of how to build and orchestrate multi-agent systems that solve software engineering tasks 15x harder than single agents can. He argues that the software engineering bottleneck is no longer intelligence, but human attention and supervision bandwidth. He introduces 'Missions', an ecosystem of agents combining delegation, creator-verifier, broadcast, and negotiation strategies using a three-role architecture (Orchestrator, Workers, Validators). He details the mechanics of validation loops, structured worker handoffs, serial execution with targeted parallelism, and Mission Control for monitoring asynchronous multi-day workflows.",
+      "purpose": "To share practical architectural patterns, strategies, and tooling for building production-grade multi-agent software engineering systems that run autonomously over multiple days without context drift or failure."
+    },
+    "topic_map": [
+      {
+        "topic": "The Software Engineering Bottleneck",
+        "timestamp_range": null,
+        "explanation": "Software engineering output is bottlenecked by human attention and supervision bandwidth, not model intelligence. Engineers have massive feature backlogs but can only drive a few forward per day because every task requires human review and attention.",
+        "key_claims": [
+          "The bottleneck in software engineering is no longer intelligence.",
+          "Human attention is the primary constraint.",
+          "Today's models are smart enough to build all features in a backlog, but there is not enough bandwidth to supervise implementation."
+        ],
+        "examples": [
+          "An engineer with a backlog of 50 features can only drive a few forward per day because every commit needs review."
+        ],
+        "terminology": [
+          "human attention bottleneck",
+          "supervision bandwidth"
+        ],
+        "why_it_matters": "Shifting the paradigm from human-supervised single-agent coding to autonomous multi-agent systems unlocks orders of magnitude more engineering throughput."
+      },
+      {
+        "topic": "Five Multi-Agent Strategies & Taxonomy",
+        "timestamp_range": null,
+        "explanation": "A proposed taxonomy of multi-agent strategies: Delegation (parent spawns sub-agent), Creator-Verifier (separation of concerns, removing sunk-cost bias), Direct Communication (peer-to-peer without coordinator), Negotiation (coordinating over shared resources for win-win), and Broadcast (status updates and shared context to many).",
+        "key_claims": [
+          "The multi-agent framework space is chaotic with inconsistent terminology.",
+          "Five frontier multi-agent strategies emerge: Delegation, Creator-Verifier, Direct Communication, Negotiation, and Broadcast.",
+          "Creator-Verifier mitigates sunk-cost bias by separating implementation from validation."
+        ],
+        "examples": [
+          "Coding sub-agents spawned by a parent agent.",
+          "Code review agents checking code written by implementation agents."
+        ],
+        "terminology": [
+          "Delegation",
+          "Creator-Verifier",
+          "Direct Communication",
+          "Negotiation",
+          "Broadcast",
+          "sunk-cost bias"
+        ],
+        "why_it_matters": "Establishes a common vocabulary and foundational building blocks for designing complex multi-agent architectures."
+      },
+      {
+        "topic": "Missions & Three-Role Architecture",
+        "timestamp_range": null,
+        "explanation": "Missions is a system combining delegation, creator-verifier, broadcast, and negotiation into a single workflow. It uses a three-role architecture: Orchestrator (plans features, milestones, validation contracts), Workers (implement features with fresh context per feature), and Validators (adversarial verification via Scrutiny and User-Testing validators).",
+        "key_claims": [
+          "A mission is an ecosystem of agents coordinating through structured handoffs and shared state, not a single agent session.",
+          "The orchestrator acts as a sounding board, planning milestones and validation contracts before any code is written.",
+          "Validators are adversarial and have never seen the code before implementation."
+        ],
+        "examples": [
+          "Scrutiny validator running linters and tests.",
+          "User-testing validator acting as a QA engineer launching the app via computer use."
+        ],
+        "terminology": [
+          "Missions",
+          "Orchestrator",
+          "Workers",
+          "Validators",
+          "validation contract",
+          "Scrutiny Validator",
+          "User-Testing Validator"
+        ],
+        "why_it_matters": "Enables multi-day autonomous execution without drift by separating planning, execution, and adversarial validation."
+      },
+      {
+        "topic": "The Validation Loop & Contracts",
+        "timestamp_range": null,
+        "explanation": "Tests written after implementation do not catch bugs; they confirm decisions. Missions uses Validation Contracts written during planning by the orchestrator (hundreds of assertions defining correctness independently of implementation) and adversarial validators that have never seen the code.",
+        "key_claims": [
+          "Tests written after implementation don't catch bugs, they confirm decisions.",
+          "Validation contracts define what 'done' means before any code is written.",
+          "Validation is adversarial by design; neither validator has ever seen the code before."
+        ],
+        "examples": [
+          "Scrutiny validator running typechecking, linters, and spawning code review agents.",
+          "User-testing validator launching the app, filling out forms, clicking buttons, and verifying flows end-to-end."
+        ],
+        "terminology": [
+          "Validation Contract",
+          "Scrutiny Validator",
+          "User-Testing Validator",
+          "adversarial verification"
+        ],
+        "why_it_matters": "Prevents system drift over long-running tasks by anchoring correctness in pre-defined validation contracts rather than post-hoc tests."
+      },
+      {
+        "topic": "Structured Handoffs & Continuous Learning",
+        "timestamp_range": null,
+        "explanation": "To maintain coherence over multi-day runs, workers generate structured handoffs reporting what was implemented, what was left undone, commands run and exit codes, issues discovered, and whether procedures were followed.",
+        "key_claims": [
+          "How agents stay coherent over days, not just minutes.",
+          "Worker handoffs prevent context degradation and cumulative baggage.",
+          "Errors are caught at milestone boundaries, corrective work is scoped, and the mission pulls itself back on track."
+        ],
+        "examples": [
+          "A worker finishing a feature fills out a structured handoff report with exit codes and discovered issues.",
+          "Longest mission running for 16 days without drifting."
+        ],
+        "terminology": [
+          "structured handoffs",
+          "continuous learning",
+          "milestone boundaries"
+        ],
+        "why_it_matters": "Solves the context degradation problem, allowing agents to maintain high performance across 16+ day runs."
+      },
+      {
+        "topic": "Why Serial Execution Beats Parallelism",
+        "timestamp_range": null,
+        "explanation": "While parallelism sounds attractive for throughput, it fails in software development because agents conflict, duplicate work, and make inconsistent architectural decisions. Missions uses serial execution where features execute one at a time, with parallelism reserved exclusively for read-only operations (codebase exploration, API research, code review).",
+        "key_claims": [
+          "Parallelism in software dev leads to agent conflicts, duplicated work, and inconsistent architecture.",
+          "Coordination overhead eats speed gains while burning tokens.",
+          "Serial execution ensures each worker inherits the full codebase from the last through git."
+        ],
+        "examples": [
+          "Parallelizing code review and codebase exploration while keeping feature implementation serial.",
+          "Running features sequentially to compound correctness."
+        ],
+        "terminology": [
+          "Serial Execution",
+          "targeted internal parallelization",
+          "coordination overhead",
+          "correctness compounds"
+        ],
+        "why_it_matters": "Drastically reduces error rates and prevents architectural drift in long-running agentic workflows."
+      },
+      {
+        "topic": "Mission Control & Model-Agnostic Architecture",
+        "timestamp_range": null,
+        "explanation": "Mission Control provides a dedicated CLI/TUI view for monitoring multi-day autonomous work in progress, worker stats, token usage, and handoffs. Furthermore, Missions utilizes a model-agnostic architecture where different roles can use different LLMs, avoiding lock-in to a single family's weakest capabilities.",
+        "key_claims": [
+          "Mission Control provides a bird's-eye view for monitoring, redirecting, or closing multi-day missions.",
+          "Model-agnostic architecture creates a compounding advantage as models specialize.",
+          "Almost all orchestration logic lives in prompts and skills (approx. 700 lines of text), allowing the system to get smarter as better models drop without code changes."
+        ],
+        "examples": [
+          "Using Claude 3.5 Sonnet for planning, different models for validation.",
+          "Monitoring active workers and reading handoff summaries in the TUI."
+        ],
+        "terminology": [
+          "Mission Control",
+          "model-agnostic architecture",
+          "Droid Whispering",
+          "prompt and skill orchestration"
+        ],
+        "why_it_matters": "Ensures the system is robust against model updates and provides human operators full visibility and control over autonomous multi-day workflows."
+      }
+    ],
+    "key_points": [
+      {
+        "point": "Bottleneck is Human Attention, Not Intelligence",
+        "explanation": "AI models are capable of generating complex code, but human supervision bandwidth limits how many features can be managed.",
+        "evidence": "Engineers have backlogs of 50 features but can only drive a few forward per day due to review constraints.",
+        "practical_implication": "Systems must automate not just code writing, but planning, verification, and error recovery."
+      },
+      {
+        "point": "Validation Contracts Drive Correctness",
+        "explanation": "Pre-defining hundreds of assertions before implementation prevents test suites from being biased by implementation details.",
+        "evidence": "Validation contracts define what 'done' means independently of code implementation.",
+        "practical_implication": "Tests written after code confirm decisions rather than catching bugs; contracts written beforehand ensure robust correctness."
+      },
+      {
+        "point": "Serial Execution Outperforms Full Parallelism",
+        "explanation": "Unconstrained parallel agent execution leads to conflicts, architectural inconsistency, and wasted tokens.",
+        "evidence": "Serial execution with targeted parallelism on read-only tasks dramatically reduces error rates.",
+        "practical_implication": "Design agent workflows to execute features serially while parallelizing search, documentation reading, and code review."
+      },
+      {
+        "point": "Prompt-Based Orchestration Prevents Obsolescence",
+        "explanation": "Keeping orchestration logic in prompts and skills rather than hardcoded state machines ensures the system improves automatically as base models improve.",
+        "evidence": "All orchestration logic fits in ~700 lines of text; model improvements instantly upgrade system capabilities without code changes.",
+        "practical_implication": "Build agent frameworks that rely on model intelligence rather than rigid procedural code."
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "Missions Framework",
+        "how_it_works": "Combines delegation, creator-verifier, broadcast, and negotiation into a unified multi-day workflow governed by a three-role architecture and validation contracts.",
+        "components": [
+          "Orchestrator",
+          "Workers",
+          "Validators (Scrutiny & User-Testing)",
+          "Shared State & Structured Handoffs"
+        ],
+        "when_to_use": "For complex software engineering projects, prototypes, large features, internal tools, and migrations spanning hours to days."
+      },
+      {
+        "name": "Three-Role Architecture",
+        "how_it_works": "Separates responsibilities into Orchestrator (planning and validation contracts), Workers (clean-context implementation), and Validators (adversarial verification).",
+        "components": [
+          "Orchestrator role",
+          "Worker role",
+          "Validator role"
+        ],
+        "when_to_use": "Whenever building multi-agent systems that require high reliability and freedom from sunk-cost bias."
+      }
+    ],
+    "examples": [
+      {
+        "what_happened": "Building a clone of Slack as a test mission over 16.5 hours.",
+        "illustrates": "Multi-day autonomous agent execution, token budgeting, and validation dynamics.",
+        "lesson": "Validation never succeeds on the first go; follow-up features are almost always required, highlighting the immense value of automated QA and testing loops."
+      },
+      {
+        "what_happened": "Enterprise usage at Factory for prototyping ideas and running large refactors.",
+        "illustrates": "Real-world productivity gains in enterprise settings.",
+        "lesson": "Agents can prototype features overnight and modernize codebases effectively when guided by structured orchestrator-worker-validator loops."
+      }
+    ],
+    "takeaways": {
+      "immediate": [
+        "Adopt the creator-verifier pattern to eliminate sunk-cost bias in agentic code generation.",
+        "Write validation contracts and acceptance assertions before letting agents write implementation code.",
+        "Implement structured handoff reports for agent task transitions to preserve context."
+      ],
+      "strategic": [
+        "Design agent systems for serial execution with targeted read-only parallelism rather than brute-force parallel coding.",
+        "Keep orchestration logic in prompts and skills to ensure your system benefits automatically from future model upgrades.",
+        "Build dedicated monitoring interfaces (like Mission Control) for asynchronous multi-day workflows."
+      ],
+      "questions_to_investigate": [
+        "How can we further parallelize the workflow of missions without introducing agent conflicts?",
+        "How do we orchestrate missions into even more complex multi-system workflows?",
+        "What are the optimal model provider combinations for orchestrator vs worker vs validator roles?"
+      ]
+    },
+    "claims_to_verify": [
+      {
+        "claim": "Assembling agent teams can solve problems 15x harder than single agents can.",
+        "claim_type": "performance benchmark claim"
+      },
+      {
+        "claim": "Longest mission ran successfully for 16 days without human intervention.",
+        "claim_type": "operational capability claim"
+      },
+      {
+        "claim": "All orchestration logic for missions fits in approximately 700 lines of text.",
+        "claim_type": "architectural design claim"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "The bottleneck in software engineering nowadays is not intelligence. It's now limited by human attention.",
+        "timestamp": 104
+      },
+      {
+        "text": "Tests written after implementation don't catch bugs. They confirm decisions.",
+        "timestamp": 607
+      },
+      {
+        "text": "Neither validator has ever seen the code. Validation is adversarial by design.",
+        "timestamp": 799
+      },
+      {
+        "text": "When a better model drops, the system just gets smarter. No code changes needed.",
+        "timestamp": 1432
+      }
+    ],
+    "compressed": {
+      "bullets": [
+        "Software engineering bottleneck is human attention, not model intelligence.",
+        "Missions framework combines delegation, creator-verifier, broadcast, and negotiation.",
+        "Three-role architecture: Orchestrator, Workers, and adversarial Validators.",
+        "Validation contracts define correctness before any implementation code is written.",
+        "Serial execution beats parallelism by eliminating agent conflicts and maintaining clean git history.",
+        "Structured handoffs and TUI mission control enable robust multi-day autonomous workflows."
+      ],
+      "keywords": [
+        "multi-agent",
+        "orchestration",
+        "validation",
+        "autonomous",
+        "architecture"
+      ],
+      "core_insight": "Autonomous multi-agent systems scale software engineering throughput beyond human attention limits by combining orchestrator-worker-validator roles, pre-defined validation contracts, and serial execution with structured handoffs."
+    }
+  },
+  "validation_passed": true,
+  "retries": 0,
+  "elapsed_seconds": 124.2768,
+  "prompt_tokens": 101871,
+  "completion_tokens": 3679,
+  "cost_usd": 0.039759
+}

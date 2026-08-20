@@ -1,0 +1,12 @@
+{
+  "candidate": "gemini-2.5-pro",
+  "video_id": "RjfbvDXpFls",
+  "data": null,
+  "validation_passed": false,
+  "retries": 2,
+  "elapsed_seconds": 214.2649,
+  "prompt_tokens": 653650,
+  "completion_tokens": 8489,
+  "cost_usd": 0.901953,
+  "error": "ValidationError: 1 validation error for SummarySchema\noverview.channel\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type"
+}

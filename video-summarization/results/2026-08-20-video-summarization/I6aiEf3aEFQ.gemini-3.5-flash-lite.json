@@ -1,0 +1,198 @@
+{
+  "candidate": "gemini-3.5-flash-lite",
+  "video_id": "I6aiEf3aEFQ",
+  "data": {
+    "overview": {
+      "title": "Intelligence + Continual Learning = Expertise",
+      "speaker": "Yu Su",
+      "channel": "",
+      "main_topic": "The distinction between intelligence and expertise in AI agents, and how continual learning bridges the gap.",
+      "executive_summary": "Yu Su discusses the evolutionary stage of AI agents, highlighting that while foundational models possess high general intelligence (inference-time reasoning, solving from context), they lack situated expertise required for reliable everyday digital work across specialized micro-worlds. He introduces the formula Intelligence + Continual Learning = Expertise, framing continual learning as adaptive compression of experience into reusable structures, leading to unbounded expertise from bounded intelligence.",
+      "purpose": "To provide a conceptual distinction between raw intelligence and situated expertise in AI agents, and to argue for the necessity of continual learning to build reliable enterprise and personal AI assistants."
+    },
+    "topic_map": [
+      {
+        "topic": "Evolutionary Stage of Machine Intelligence",
+        "timestamp_range": null,
+        "explanation": "Tracing AI agents from logical agents (1960s-80s) and neural agents (2010s) to modern multimodal language agents, emphasizing increasing expressiveness, reasoning, and adaptability.",
+        "key_claims": [
+          "AI agents are not new, but early iterations captured very limited facets of human intelligence.",
+          "Language agents have found their first mass market in coding because code is a language-native, symbolic world."
+        ],
+        "examples": [
+          "Anthropic's annualized run rate growth driven largely by coding and coding-related productivity capabilities."
+        ],
+        "terminology": [
+          "Logical Agent",
+          "Neural Agent",
+          "Language Agent",
+          "Multimodal LLM"
+        ],
+        "why_it_matters": "Explains why AI has succeeded in coding while struggling in messy everyday digital environments."
+      },
+      {
+        "topic": "Modern Moravec's Paradox",
+        "timestamp_range": null,
+        "explanation": "Comparing symbolic reasoning (hard things made easy for AI) with everyday digital work like planning, grounding, world modeling, and social norms (easy things made hard for AI).",
+        "key_claims": [
+          "Modern society consists of millions of heterogeneous micro-worlds (professions, organizations, software systems) with unique local physics.",
+          "Monolithic models cannot compress this heterogeneity into a single static representation."
+        ],
+        "examples": [
+          "MIT report showing 95% of generative AI pilots at companies failing due to brittle errors in enterprise settings."
+        ],
+        "terminology": [
+          "Modern Moravec's Paradox",
+          "Micro-worlds",
+          "Local physics"
+        ],
+        "why_it_matters": "Highlights why foundation models fail when leaving the privileged world of code."
+      },
+      {
+        "topic": "Intelligence vs. Expertise",
+        "timestamp_range": null,
+        "explanation": "Defining intelligence as the capacity to reason through unfamiliar problems from available context, and expertise as accumulated and situated competence.",
+        "key_claims": [
+          "Intelligence expands search and can be rented; expertise compresses search and must be learned in situ.",
+          "Experts see the world differently through pattern recognition, deep structure understanding, conditional knowledge, and judgment/taste."
+        ],
+        "examples": [
+          "Meeting scheduling viewed as a constraint optimization problem over authority, urgency, and dependencies rather than just finding open slots."
+        ],
+        "terminology": [
+          "Intelligence",
+          "Expertise",
+          "Situated competence",
+          "Conditional knowledge",
+          "Deep structure"
+        ],
+        "why_it_matters": "Establishes that knowing more facts is insufficient; AI needs situated world models."
+      },
+      {
+        "topic": "Defining Continual Learning",
+        "timestamp_range": null,
+        "explanation": "Framing continual learning as adaptive compression of experience into reusable structure for future behavior.",
+        "key_claims": [
+          "Continual learning is the crucial bridge from intelligence to expertise.",
+          "Different continual learning algorithms set the slope of the learning curve relative to raw intelligence."
+        ],
+        "examples": [
+          "Embedding, indexing, distillation, and reinforcement learning used for compression."
+        ],
+        "terminology": [
+          "Continual learning",
+          "Adaptive compression",
+          "Escape intelligence",
+          "Unbounded expertise"
+        ],
+        "why_it_matters": "Provides a formal definition and framework for how AI agents can improve on the job."
+      }
+    ],
+    "key_points": [
+      {
+        "point": "Intelligence != Expertise",
+        "explanation": "Intelligence is general and inference-time; expertise is situated, accumulated over time, and domain-specific.",
+        "evidence": "Frontier models excel at unfamiliar problem solving via context but lack localized operational reliability.",
+        "practical_implication": "Deploying AI in enterprise requires building systems that learn continually rather than relying solely on base model scale."
+      },
+      {
+        "point": "Continual Learning Sets the Slope",
+        "explanation": "Without continual learning, scaling intelligence yields the world's smartest novice that brute-forces every problem.",
+        "evidence": "Graph of Expertise vs. Raw Intelligence showing strong continual learning achieving exponential escape expertise.",
+        "practical_implication": "Investing in continual learning algorithms unlocks unbounded expertise from bounded intelligence."
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "The Expertise Framework",
+        "how_it_works": "Combines pattern recognition, deep structure navigation, conditional knowledge, and judgment/taste.",
+        "components": [
+          "Pattern recognition",
+          "Deep structure",
+          "Conditional knowledge",
+          "Judgment and taste"
+        ],
+        "when_to_use": "When evaluating whether an AI agent is ready for complex, multi-step enterprise or personal workflows."
+      },
+      {
+        "name": "Continual Learning Definition Framework",
+        "how_it_works": "Breaks continual learning down into experience inputs, compression methods, target structures, and usage modes.",
+        "components": [
+          "What experience (episodes, facts, procedures, feedback)",
+          "How compressed (embedding, indexing, distillation, RL)",
+          "What structure (parameters, vectors, graphs, skills)",
+          "How used (recall, prediction, planning, control)"
+        ],
+        "when_to_use": "When designing agentic memory and learning architectures."
+      }
+    ],
+    "examples": [
+      {
+        "what_happened": "MIT report finding 95% of generative AI pilots at companies failing.",
+        "illustrates": "The fragility of AI agents when leaving the privileged world of code and entering unstructured micro-worlds.",
+        "lesson": "AI needs robust situated expertise and continual learning, not just general intelligence."
+      }
+    ],
+    "takeaways": {
+      "immediate": [
+        "Recognize the critical gap between general model intelligence and domain-specific situated expertise.",
+        "Evaluate AI agent architectures for memory and continual learning capabilities."
+      ],
+      "strategic": [
+        "Shift engineering focus from raw model scaling to continual learning loops that build institutional memory.",
+        "Target micro-world specialization to lower economic friction and unlock new domains of work."
+      ],
+      "questions_to_investigate": [
+        "How to measure expertise in a domain-specific manner?",
+        "How to handle the trade-off between reliability and plasticity in continual learning systems?",
+        "How to synergize parametric and non-parametric learning?"
+      ]
+    },
+    "claims_to_verify": [
+      {
+        "claim": "Anthropic's annualized run rate grew 400 times to $40 billion in under two years.",
+        "claim_type": "Financial statistic"
+      },
+      {
+        "claim": "MIT report states 95% of generative AI pilots at companies are failing.",
+        "claim_type": "Industry research statistic"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Intelligence is the capacity to reason through unfamiliar problems from available context.",
+        "timestamp": 635
+      },
+      {
+        "text": "Expertise is accumulated and situated competence: the ability to act reliably, efficiently, and with judgment to achieve reproducibly superior performance in a particular domain.",
+        "timestamp": 702
+      },
+      {
+        "text": "Continual learning is adaptive compression of experience into reusable structure for future behavior.",
+        "timestamp": 1090
+      }
+    ],
+    "compressed": {
+      "bullets": [
+        "Intelligence and expertise are orthogonal dimensions in AI systems.",
+        "Modern Moravec's paradox explains why AI excels at symbolic coding but struggles with heterogeneous digital micro-worlds.",
+        "Continual learning is adaptive compression of experience into reusable structures.",
+        "Strong continual learning enables escape intelligence, yielding unbounded expertise from bounded intelligence."
+      ],
+      "keywords": [
+        "continual learning",
+        "expertise",
+        "intelligence",
+        "agents",
+        "memory"
+      ],
+      "core_insight": "Intelligence gives agents the ability to reason through unfamiliar context, but continual learning is required to compress experience into situated expertise and overcome the limitations of static models."
+    }
+  },
+  "validation_passed": true,
+  "retries": 0,
+  "elapsed_seconds": 43.8671,
+  "prompt_tokens": 108501,
+  "completion_tokens": 2107,
+  "cost_usd": 0.037818
+}
