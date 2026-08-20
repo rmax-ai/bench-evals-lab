@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate JSON mirrors the reference markdown almost verbatim across all sections: overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. No unsupported strings or invented claims were found; every element traces to the source. Quotes are reproduced exactly, numbers and names match (e.g., Anthropic revenue figures, Moravec's Paradox terms). Structure is coherent and all schema fields are populated. Coverage includes all material content with no omissions. Compression is high density with no redundant restatement beyond the source's own repetition. No sub-4 scores; no hallucinations.",
+  "hallucinations": [],
+  "elapsed_seconds": 60.318,
+  "cost_usd": 0.005389
+}

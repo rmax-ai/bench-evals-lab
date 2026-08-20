@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 3
+  },
+  "total": 4.6,
+  "rationale": "The candidate provides a near-perfect restructuring of the source markdown, earning top scores for structure, faithfulness, coverage, and precision. All information is present, accurate, and correctly placed. The score for compression is lower because the JSON is a direct, almost 1:1 conversion of the markdown's text into a different format. It does not actively summarize or condense the information; it merely transfers the existing content without increasing its informational density.",
+  "hallucinations": [],
+  "elapsed_seconds": 50.637,
+  "cost_usd": 0.014887
+}

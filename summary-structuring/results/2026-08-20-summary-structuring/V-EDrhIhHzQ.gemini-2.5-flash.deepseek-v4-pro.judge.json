@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 5,
+    "coverage": 4,
+    "precision": 5,
+    "compression": 3
+  },
+  "total": 4.2,
+  "rationale": "Structure is well organized but topic_map 'why_it_matters' fields are empty strings, so not all schema fields are sensibly populated. Coverage misses the markdown's 'Why it matters' explanations for every topic and omits metadata like description, tags, and source fields; otherwise material is captured. Compression is weak due to heavy redundancy: key claims and quotes are repeated across topic_map, key_points, and quotes sections, lowering density. Faithfulness and precision are strong: no strings found outside the markdown, and all quotes/numbers/names are verbatim.",
+  "hallucinations": [],
+  "elapsed_seconds": 51.9587,
+  "cost_usd": 0.007246
+}

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.8,
+  "rationale": "The output is a near-perfect, structured representation of the source markdown. It achieves full scores on structure, faithfulness, coverage, and compression. The only minor deduction is on precision, as several quotes were slightly altered. Filler words like \"Um\" and \"Uh\" were replaced with em-dashes or removed, which violates the requirement for verbatim quotes. For example, the markdown quote includes \"...we don't want that\" whereas the candidate has \"— and of course we don't want that.\"",
+  "hallucinations": [],
+  "elapsed_seconds": 48.9901,
+  "cost_usd": 0.015049
+}

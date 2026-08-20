@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "parser",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "This is an exemplary output that serves as a benchmark for a score of 5 across all dimensions. The JSON structure perfectly mirrors the hierarchical organization of the source markdown. Faithfulness, coverage, and precision are flawless, with every piece of information from the reference text being present, accurately placed, and quoted verbatim where necessary. There are no hallucinations. The output is also perfectly compressed, representing the source content with high density and no internal redundancy.",
+  "hallucinations": [],
+  "elapsed_seconds": 51.2317,
+  "cost_usd": 0.007862
+}

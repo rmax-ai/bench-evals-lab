@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 4
+  },
+  "total": 4.8,
+  "rationale": "Structure and coverage are 5: candidate mirrors all sections and fields of the markdown with no missing material. Faithfulness and precision are 5: every string, quote, number, and name matches the source exactly; quote timestamps are correctly converted from mm:ss to seconds. Compression is 4 due to some redundancy: the overview's executive_summary and purpose duplicate content found in topic_map and key_points, and the first topic_map entry includes empty arrays for examples and terminology, adding no information, though this mirrors the source structure.",
+  "hallucinations": [],
+  "elapsed_seconds": 47.3236,
+  "cost_usd": 0.006367
+}

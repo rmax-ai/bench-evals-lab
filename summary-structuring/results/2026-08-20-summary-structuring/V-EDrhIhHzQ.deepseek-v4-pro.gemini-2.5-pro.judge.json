@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate provides a near-perfect extraction. It successfully mirrors the markdown's structure and content, resulting in full coverage. All data, including quotes and numerical figures, is precise and faithful to the source. No hallucinations were found. The output is well-structured and highly compressed, with no redundancy.",
+  "hallucinations": [],
+  "elapsed_seconds": 48.8639,
+  "cost_usd": 0.015867
+}

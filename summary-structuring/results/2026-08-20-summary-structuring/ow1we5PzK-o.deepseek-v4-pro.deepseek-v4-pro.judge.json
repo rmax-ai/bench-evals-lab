@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate JSON faithfully transcribes the markdown into a well-organized schema. All sections (overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, compressed summary) are present and populated correctly. Quotes are verbatim, timestamps converted accurately to seconds, and all numeric metrics (18.5 hours, 60%, 46%, 38.8k, 89.25%) match exactly. No invented claims or strings detected. The structure avoids redundant restatement within sections while providing comprehensive coverage.",
+  "hallucinations": [],
+  "elapsed_seconds": 52.8077,
+  "cost_usd": 0.007067
+}

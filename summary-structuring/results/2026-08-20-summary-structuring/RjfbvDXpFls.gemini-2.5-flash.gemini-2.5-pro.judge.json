@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate provides a perfect, 1:1 structured representation of the markdown. It achieves flawless scores across all dimensions by faithfully and precisely copying all content—from the high-level overview to individual quotes and terminology—into a well-organized schema. Coverage is total, and there are no hallucinations or redundancies.",
+  "hallucinations": [],
+  "elapsed_seconds": 44.082,
+  "cost_usd": 0.018896
+}

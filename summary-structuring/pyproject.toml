@@ -1,0 +1,9 @@
+[project]
+name = "summary-structuring"
+version = "0.1.0"
+description = "yt-insights stage-2 eval: markdown video summary -> SummarySchema JSON"
+requires-python = ">=3.12"
+dependencies = ["httpx", "pydantic"]
+
+[dependency-groups]
+dev = ["pytest"]

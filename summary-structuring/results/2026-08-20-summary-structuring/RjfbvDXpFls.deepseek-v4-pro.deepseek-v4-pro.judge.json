@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate JSON faithfully mirrors all major sections of the reference markdown—overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. Every string is directly supported by the source; quotes are verbatim, names and numbers match exactly. No missing topics or claims were found. The structure is sensible and well-populated, with null timestamps acceptable. Compression is high density with no added redundant restatement beyond what the original digest itself contains across sections.",
+  "hallucinations": [],
+  "elapsed_seconds": 47.8749,
+  "cost_usd": 0.008309
+}

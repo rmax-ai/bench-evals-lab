@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 3
+  },
+  "total": 4.4,
+  "rationale": "Candidate accurately maps all markdown content into coherent sections. Structure is solid but omits source metadata fields (source_uri, source_author, source_published, tags, etc.) present in the reference, and uses null timestamps. Faithfulness is perfect: every string is directly supported by the markdown; no invented claims. Coverage includes all topics, key points, frameworks, examples, takeaways, quotes, and claims. Precision is high; quotes verbatim (e.g., 'Jinja is awful.'), names and numbers exact. Compression is reduced because content is repeated across topic_map, key_points, examples, and quotes, mirroring markdown redundancy rather than condensing.",
+  "hallucinations": [],
+  "elapsed_seconds": 56.286,
+  "cost_usd": 0.007775
+}

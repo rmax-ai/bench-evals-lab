@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 4
+  },
+  "total": 4.8,
+  "rationale": "Candidate JSON is a near-verbatim structured extraction of the markdown. All sections (overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, compressed) are populated accurately with no hallucinations. Quotes match exactly, numbers are accurate, and timestamps are correctly converted to seconds. Compression is slightly reduced because the same core claims (e.g., human attention bottleneck, serial execution, model-agnostic advantage) are repeated across overview, topic_map, key_points, takeaways, and compressed summary, creating redundancy despite high density.",
+  "hallucinations": [],
+  "elapsed_seconds": 53.4185,
+  "cost_usd": 0.006656
+}

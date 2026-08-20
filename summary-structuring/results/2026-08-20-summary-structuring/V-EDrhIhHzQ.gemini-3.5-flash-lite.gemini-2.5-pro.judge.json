@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate provides a near-perfect structured extraction of the reference markdown. All schema fields are logically populated, and the content is a faithful, complete, and precise representation of the source text. There are no hallucinations, omissions, or inaccuracies. The output is as dense as the source material without introducing any redundancy.",
+  "hallucinations": [],
+  "elapsed_seconds": 45.1898,
+  "cost_usd": 0.015877
+}

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "Candidate JSON mirrors the reference markdown section-by-section with clear organization across overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. Every string is directly supported by the markdown; quotes are verbatim, numbers and names match exactly, and definitions are preserved. All substantive content—topics, claims, examples, terminology, frameworks, actionable takeaways, and core insights—is captured without omission. No redundant restatement or added verbiage. No hallucinations detected.",
+  "hallucinations": [],
+  "elapsed_seconds": 37.6498,
+  "cost_usd": 0.003971
+}

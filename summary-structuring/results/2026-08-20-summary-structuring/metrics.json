@@ -1,0 +1,172 @@
+{
+  "generated_at": "2026-08-20T15:41:03.002909+00:00",
+  "results_dir": "results/2026-08-20-summary-structuring",
+  "candidates": {
+    "parser": {
+      "judges": {
+        "gemini-2.5-pro": {
+          "structure": 5.0,
+          "faithfulness": 5.0,
+          "coverage": 4.4,
+          "precision": 4.8,
+          "compression": 4.2,
+          "total_avg": 4.68,
+          "hallucination_avg": 0.0,
+          "hallucination_total": 0,
+          "quote_containment_pct": 100.0,
+          "judged": 5,
+          "elapsed_seconds": 263.1938,
+          "cost_usd": 0.071461,
+          "errors": []
+        },
+        "deepseek-v4-pro": {
+          "structure": 4.8,
+          "faithfulness": 5.0,
+          "coverage": 5.0,
+          "precision": 5.0,
+          "compression": 4.8,
+          "total_avg": 4.92,
+          "hallucination_avg": 0.0,
+          "hallucination_total": 0,
+          "quote_containment_pct": 100.0,
+          "judged": 5,
+          "elapsed_seconds": 272.2247,
+          "cost_usd": 0.036458,
+          "errors": []
+        }
+      },
+      "validation_failures": 0,
+      "retries": 0,
+      "cost_usd": 0.0,
+      "elapsed_seconds": 0.0062,
+      "quote_containment_pct": 100.0,
+      "errors": []
+    },
+    "deepseek-v4-pro": {
+      "judges": {
+        "gemini-2.5-pro": {
+          "structure": 5.0,
+          "faithfulness": 5.0,
+          "coverage": 5.0,
+          "precision": 4.8,
+          "compression": 5.0,
+          "total_avg": 4.96,
+          "hallucination_avg": 0.0,
+          "hallucination_total": 0,
+          "quote_containment_pct": 100.0,
+          "judged": 5,
+          "elapsed_seconds": 234.1621,
+          "cost_usd": 0.071083,
+          "errors": []
+        },
+        "deepseek-v4-pro": {
+          "structure": 4.8,
+          "faithfulness": 5.0,
+          "coverage": 5.0,
+          "precision": 5.0,
+          "compression": 4.4,
+          "total_avg": 4.84,
+          "hallucination_avg": 0.0,
+          "hallucination_total": 0,
+          "quote_containment_pct": 100.0,
+          "judged": 5,
+          "elapsed_seconds": 287.4505,
+          "cost_usd": 0.037245,
+          "errors": []
+        }
+      },
+      "validation_failures": 0,
+      "retries": 0,
+      "cost_usd": 0.05708,
+      "elapsed_seconds": 497.9568,
+      "quote_containment_pct": 100.0,
+      "errors": []
+    },
+    "gemini-3.5-flash-lite": {
+      "judges": {
+        "gemini-2.5-pro": {
+          "structure": 5.0,
+          "faithfulness": 5.0,
+          "coverage": 5.0,
+          "precision": 4.6,
+          "compression": 4.6,
+          "total_avg": 4.84,
+          "hallucination_avg": 0.0,
+          "hallucination_total": 0,
+          "quote_containment_pct": 91.43,
+          "judged": 5,
+          "elapsed_seconds": 242.4087,
+          "cost_usd": 0.071683,
+          "errors": []
+        },
+        "deepseek-v4-pro": {
+          "structure": 4.8,
+          "faithfulness": 4.6,
+          "coverage": 4.8,
+          "precision": 4.6,
+          "compression": 3.6,
+          "total_avg": 4.48,
+          "hallucination_avg": 0.6,
+          "hallucination_total": 3,
+          "quote_containment_pct": 91.43,
+          "judged": 5,
+          "elapsed_seconds": 252.4633,
+          "cost_usd": 0.034855,
+          "errors": []
+        }
+      },
+      "validation_failures": 0,
+      "retries": 0,
+      "cost_usd": 0.072757,
+      "elapsed_seconds": 194.463,
+      "quote_containment_pct": 91.43,
+      "errors": []
+    },
+    "gemini-2.5-flash": {
+      "judges": {
+        "gemini-2.5-pro": {
+          "structure": 4.6,
+          "faithfulness": 5.0,
+          "coverage": 4.6,
+          "precision": 5.0,
+          "compression": 4.4,
+          "total_avg": 4.72,
+          "hallucination_avg": 0.0,
+          "hallucination_total": 0,
+          "quote_containment_pct": 100.0,
+          "judged": 5,
+          "elapsed_seconds": 238.2953,
+          "cost_usd": 0.070919,
+          "errors": []
+        },
+        "deepseek-v4-pro": {
+          "structure": 4.8,
+          "faithfulness": 5.0,
+          "coverage": 4.8,
+          "precision": 5.0,
+          "compression": 3.8,
+          "total_avg": 4.68,
+          "hallucination_avg": 0.0,
+          "hallucination_total": 0,
+          "quote_containment_pct": 100.0,
+          "judged": 5,
+          "elapsed_seconds": 317.0848,
+          "cost_usd": 0.037909,
+          "errors": []
+        }
+      },
+      "validation_failures": 0,
+      "retries": 0,
+      "cost_usd": 0.072727,
+      "elapsed_seconds": 354.8618,
+      "quote_containment_pct": 100.0,
+      "errors": []
+    }
+  },
+  "totals": {
+    "cost_usd": 0.202564,
+    "elapsed_seconds": 3154.571,
+    "retries": 0,
+    "validation_failures": 0
+  }
+}

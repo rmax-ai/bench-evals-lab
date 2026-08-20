@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate JSON faithfully and completely mirrors the markdown. All sections (Overview, Topic Map, Key Points, Frameworks, Examples, Takeaways, Claims, Quotes, Compressed Summary) are present and populated with exact content. Every string is supported by the reference; quotes are verbatim, names and numbers (e.g., Anthropic $40-$60B, 400 times growth) are accurate. The schema is well-organized with no invented fields. No hallucinations detected. Coverage includes all material categories: topics, claims, examples, terminology, frameworks, takeaways, and quotes. Compression is high with no redundant restatement beyond the source's own structure.",
+  "hallucinations": [],
+  "elapsed_seconds": 40.2734,
+  "cost_usd": 0.003968
+}

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 3
+  },
+  "total": 4.6,
+  "rationale": "The candidate provides a perfect 1:1 mapping of the markdown's structure and content into JSON. Scores for structure, faithfulness, coverage, and precision are all 5, as every single item is flawlessly and completely extracted without alteration or hallucination. The compression score is lower because the output makes no attempt to compress or de-duplicate information. It faithfully reproduces the redundancy present in the source document, where the same concepts are repeated across the topic map, key points, and compressed summary sections. The resulting JSON is not a compressed representation, but a direct structural transcription.",
+  "hallucinations": [],
+  "elapsed_seconds": 48.3585,
+  "cost_usd": 0.01942
+}

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 3,
+    "faithfulness": 5,
+    "coverage": 3,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 4.2,
+  "rationale": "The structure is flawed because the `why_it_matters` key is included for every topic in the `topic_map` array but is left as an empty string. This key should either be populated with the corresponding content from the markdown or omitted entirely. This structural choice directly leads to a coverage failure; the content for the 'Why it matters' section is completely and consistently omitted for all six topics, which is a significant gap in the summary.",
+  "hallucinations": [],
+  "elapsed_seconds": 42.8129,
+  "cost_usd": 0.015928
+}

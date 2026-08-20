@@ -1,0 +1,53 @@
+{
+  "source_repo": "https://github.com/rmax-ai/yt-insights",
+  "source_commit": "7104e8b4726023ae16ffcb8134a349bb0df429d0",
+  "vendored_at": "2026-08-20",
+  "note": "Markdown summaries produced by the yt-insights summarize stage (gemini-2.5-flash, native video generateContent). These files are the eval's reference ground truth.",
+  "items": [
+    {
+      "video_id": "I6aiEf3aEFQ",
+      "title": "Intelligence + Continual Learning = Expertise \u2014 Yu Su, NeoCognition",
+      "channel": "Maxi",
+      "source_path": "summary.md",
+      "generated_by": "gemini-flash-lite-latest",
+      "captured_at": "2026-08-16T21:07:47.245832+00:00",
+      "frontmatter_id": "urn:rmax-ai:digest:I6aiEf3aEFQ"
+    },
+    {
+      "video_id": "MkRYPFIMCSA",
+      "title": "Security Firewall for Agents \u2014 Ryan Dahl, Deno",
+      "channel": "Maxi",
+      "source_path": "summary.md",
+      "generated_by": "gemini-2.5-flash",
+      "captured_at": "2026-08-19T07:05:51.008653+00:00",
+      "frontmatter_id": "urn:rmax-ai:digest:MkRYPFIMCSA"
+    },
+    {
+      "video_id": "RjfbvDXpFls",
+      "title": "Building pi in a World of Slop \u2014 Mario Zechner",
+      "channel": "Maxi",
+      "source_path": "summary.md",
+      "generated_by": "gemini-2.5-flash",
+      "captured_at": "2026-08-17T10:33:44.836312+00:00",
+      "frontmatter_id": "urn:rmax-ai:digest:RjfbvDXpFls"
+    },
+    {
+      "video_id": "V-EDrhIhHzQ",
+      "title": "Modern Post-Training: A Deep Dive  \u2014 Will Brown, Prime Intellect",
+      "channel": "Maxi",
+      "source_path": "summary.md",
+      "generated_by": "gemini-2.5-flash",
+      "captured_at": "2026-08-17T07:05:49.156259+00:00",
+      "frontmatter_id": "urn:rmax-ai:digest:V-EDrhIhHzQ"
+    },
+    {
+      "video_id": "ow1we5PzK-o",
+      "title": "The Multi-Agent Architecture That Actually Ships \u2014 Luke Alvoeiro, Factory",
+      "channel": "Maxi",
+      "source_path": "summary.md",
+      "generated_by": "gemini-2.5-flash",
+      "captured_at": "2026-08-17T23:21:04.769746+00:00",
+      "frontmatter_id": "urn:rmax-ai:digest:ow1we5PzK-o"
+    }
+  ]
+}

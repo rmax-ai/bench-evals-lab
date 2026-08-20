@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "parser",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 2
+  },
+  "total": 4.4,
+  "rationale": "The candidate's score for compression is low because the output is a verbose, verbatim copy of the source markdown, simply reformatted into JSON. It makes no attempt to summarize or increase information density, failing the \"high density\" aspect of the compression metric entirely.",
+  "hallucinations": [],
+  "elapsed_seconds": 47.7713,
+  "cost_usd": 0.0188
+}

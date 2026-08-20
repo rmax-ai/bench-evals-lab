@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.8,
+  "rationale": "The candidate's output is nearly perfect, mirroring the structure and content of the source markdown with high fidelity. The only deduction is for precision. One quote in the JSON — \"intelligence is the capacity to reason through unfamiliar problems from available context\" — omits the final word \"independently\" which is present in the reference text. All other aspects, including structure, complete coverage of all topics and claims, and lack of any invented content, are flawless.",
+  "hallucinations": [],
+  "elapsed_seconds": 43.7481,
+  "cost_usd": 0.007912
+}

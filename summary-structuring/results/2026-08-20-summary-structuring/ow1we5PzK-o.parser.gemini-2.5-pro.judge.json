@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "parser",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 2,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.2,
+  "rationale": "Coverage scores a 2 because the entire metadata block (YAML frontmatter) from the markdown is missing. This includes the ID, status, tags, source URI, published date, and other critical fields. The extraction only began from the 'Overview' section. Precision is a 4 because quote timestamps were converted from a minute:second format to total seconds (e.g., '(at 1:44)' became 104). This is a transformation, not a verbatim extraction of the numbers present in the source.",
+  "hallucinations": [],
+  "elapsed_seconds": 60.7582,
+  "cost_usd": 0.013965
+}

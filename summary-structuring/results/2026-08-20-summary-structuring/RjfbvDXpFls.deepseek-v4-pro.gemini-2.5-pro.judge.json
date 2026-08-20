@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate JSON is a near-perfect, structured representation of the source markdown. It achieves flawless faithfulness, coverage, and precision, with no hallucinations or introduced redundancy. The structure logically mirrors the source document's sections, resulting in a high-quality, complete extraction.",
+  "hallucinations": [],
+  "elapsed_seconds": 50.6331,
+  "cost_usd": 0.01881
+}

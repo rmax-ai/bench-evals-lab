@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 4
+  },
+  "total": 4.8,
+  "rationale": "Candidate closely mirrors the reference markdown with all sections mapped to appropriate JSON fields. Faithfulness is strong: every string is supported, no invented claims. Coverage is complete: all topics, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary are present. Precision is exact: quotes match verbatim, timestamps correctly converted to seconds. Compression is slightly lower due to redundant restatement of the same information across topic_map, key_points, and compressed bullet sections, but the content remains dense.",
+  "hallucinations": [],
+  "elapsed_seconds": 93.5621,
+  "cost_usd": 0.009656
+}

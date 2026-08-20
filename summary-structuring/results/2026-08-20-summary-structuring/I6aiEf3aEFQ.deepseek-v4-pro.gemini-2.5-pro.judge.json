@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.8,
+  "rationale": "The candidate provides a near-perfect structured representation of the source markdown. It achieves perfect scores in structure, faithfulness, coverage, and compression. The only minor flaw is in precision: one of the quotes is not verbatim. The quote defining intelligence is missing the final word \"independently\" which is present in the source text. This is a small but clear precision error, resulting in a score of 4 for that dimension.",
+  "hallucinations": [],
+  "elapsed_seconds": 39.6446,
+  "cost_usd": 0.007843
+}

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "parser",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 4
+  },
+  "total": 4.8,
+  "rationale": "The JSON is a very faithful, structured representation of the markdown and avoids introducing redundancy. However, the compression score is 4 because the output is a near-literal transcription into a structured format rather than an attempt to create a more dense or compressed summary of the source material. It mirrors the verbosity of the source instead of actively compressing it.",
+  "hallucinations": [],
+  "elapsed_seconds": 50.7352,
+  "cost_usd": 0.014687
+}

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate JSON is a near-perfect, high-fidelity extraction of the source markdown. It mirrors the markdown's structure flawlessly, using logical objects and arrays. All data, including detailed lists, claims, and quotes, is captured with full coverage and exact precision—even correctly converting MM:SS timestamps to seconds. There are no hallucinations; every string is directly supported by the source text. The output is also highly compressed, with no redundant information. It is an exemplary representation of the source material.",
+  "hallucinations": [],
+  "elapsed_seconds": 53.1859,
+  "cost_usd": 0.013905
+}

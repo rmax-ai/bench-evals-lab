@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-3.5-flash-lite",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 2
+  },
+  "total": 4.4,
+  "rationale": "Structure, faithfulness, coverage, and precision are near-perfect: all schema fields are populated and organized; every string matches the reference markdown; content is comprehensive; and quotes, names, and numbers are exact. Compression is poor due to significant redundant restatement across sections. For example, 'clankers are destroying open-source projects' and 'agents compound booboos with zero learning, no bottlenecks, and delayed pain' appear nearly verbatim in topic_map key_claims, key_points, examples, and compressed summary. This repetition lowers density and violates the no-redundant-restatement criterion.",
+  "hallucinations": [],
+  "elapsed_seconds": 34.7192,
+  "cost_usd": 0.007489
+}

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 4
+  },
+  "total": 4.8,
+  "rationale": "The candidate JSON comprehensively mirrors the markdown digest, preserving all topic map entries, key points, frameworks, examples, takeaways, claims, and quotes. Quotes are verbatim and names/numbers are exact; timestamp conversions from mm:ss to seconds are accurate. Structure is clean and logically organized, coverage is complete. Compression loses one point due to redundant restatement of the same claims across overview, topic_map, key_points, takeaways, and compressed summary, reducing density.",
+  "hallucinations": [],
+  "elapsed_seconds": 90.2085,
+  "cost_usd": 0.010126
+}

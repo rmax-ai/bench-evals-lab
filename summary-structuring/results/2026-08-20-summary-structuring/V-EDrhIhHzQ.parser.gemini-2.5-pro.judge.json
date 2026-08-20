@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "parser",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate achieved a perfect score across all dimensions. It flawlessly replicated the structure and content of the source markdown, essentially trans-coding it into a well-organized JSON format. All text, including quotes and numerical claims, was copied verbatim, ensuring perfect faithfulness and precision. The structure logically mirrors the markdown's sections, and no information was omitted, leading to full coverage. No new redundancies were introduced, resulting in a dense and efficient representation.",
+  "hallucinations": [],
+  "elapsed_seconds": 52.6974,
+  "cost_usd": 0.016147
+}

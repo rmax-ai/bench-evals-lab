@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "parser",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate JSON is a near-verbatim structured extraction of the reference markdown. All sections (overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, compressed) are fully populated with exact content. Quotes are verbatim with accurate timestamp conversions (e.g., 1:44 -> 104). Numerical data (18.5 hours, 60%, 46%, 38.8k lines, 89.25% coverage) matches. No invented claims or strings; no hallucinations detected. Structure is well-organized, coverage is comprehensive, precision is exact, and compression is appropriate with no redundant restatement beyond the reference's own structure.",
+  "hallucinations": [],
+  "elapsed_seconds": 45.3549,
+  "cost_usd": 0.006871
+}

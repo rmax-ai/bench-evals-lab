@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 3
+  },
+  "total": 4.6,
+  "rationale": "Compression reduced to 3 because identical content is repeated across multiple sections (e.g., Claude Code context issues appear in topic_map, key_points, examples, and compressed summary), creating redundancy and low density. Other dimensions are high: structure is complete and well-organized; faithfulness has no unsupported strings; coverage includes all content sections; precision shows verbatim quotes and exact names/numbers.",
+  "hallucinations": [],
+  "elapsed_seconds": 57.8275,
+  "cost_usd": 0.008962
+}
