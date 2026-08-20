@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate achieved a perfect score across all dimensions. It flawlessly replicated the structure and content of the source markdown, essentially trans-coding it into a well-organized JSON format. All text, including quotes and numerical claims, was copied verbatim, ensuring perfect faithfulness and precision. The structure logically mirrors the markdown's sections, and no information was omitted, leading to full coverage. No new redundancies were introduced, resulting in a dense and efficient representation.",
+  "rationale": "The candidate JSON is a flawless 1:1 structured representation of the reference markdown. It successfully captures the entire content and logical hierarchy of the source document without introducing any errors, omissions, or redundancies. All claims, quotes, and numbers are reproduced with perfect precision, and no information is hallucinated. The structure is logical and mirrors the source perfectly.",
   "hallucinations": [],
-  "elapsed_seconds": 52.6974,
-  "cost_usd": 0.016147
+  "elapsed_seconds": 46.9378,
+  "cost_usd": 0.015957
 }

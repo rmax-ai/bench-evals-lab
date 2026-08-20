@@ -6,11 +6,11 @@
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 4
+    "compression": 5
   },
-  "total": 4.8,
-  "rationale": "Candidate JSON is a near-verbatim structured extraction of the markdown. All sections (overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, compressed) are populated accurately with no hallucinations. Quotes match exactly, numbers are accurate, and timestamps are correctly converted to seconds. Compression is slightly reduced because the same core claims (e.g., human attention bottleneck, serial execution, model-agnostic advantage) are repeated across overview, topic_map, key_points, takeaways, and compressed summary, creating redundancy despite high density.",
+  "total": 5.0,
+  "rationale": "The candidate is a near-verbatim structured extraction of the markdown. All sections—overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary—are present and sensibly organized. Every string is supported by the reference; no invented claims or numbers were found. Quotes match verbatim, timestamps are correctly converted to seconds, and terminology/names are exact. Coverage includes all core topics, examples, and takeaways. Compression is high with no redundant restatement beyond the markdown's own structure.",
   "hallucinations": [],
-  "elapsed_seconds": 53.4185,
-  "cost_usd": 0.006656
+  "elapsed_seconds": 59.5562,
+  "cost_usd": 0.00739
 }

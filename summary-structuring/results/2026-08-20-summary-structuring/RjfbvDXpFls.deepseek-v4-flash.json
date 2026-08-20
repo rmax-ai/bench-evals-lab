@@ -1,6 +1,6 @@
 {
-  "candidate": "gemini-3.5-flash-lite",
-  "model": "gemini-3.5-flash-lite",
+  "candidate": "deepseek-v4-flash",
+  "model": "deepseek-v4-flash",
   "data": {
     "overview": {
       "title": "Building pi in a World of Slop — Mario Zechner",
@@ -428,8 +428,8 @@
   },
   "validation_passed": true,
   "retries": 0,
-  "elapsed_seconds": 42.7265,
-  "prompt_tokens": 6988,
-  "completion_tokens": 7188,
-  "cost_usd": 0.020066
+  "elapsed_seconds": 87.6297,
+  "prompt_tokens": 6942,
+  "completion_tokens": 15517,
+  "cost_usd": 0.005317
 }

@@ -4,13 +4,13 @@
   "scores": {
     "structure": 5,
     "faithfulness": 5,
-    "coverage": 2,
-    "precision": 4,
+    "coverage": 5,
+    "precision": 5,
     "compression": 5
   },
-  "total": 4.2,
-  "rationale": "Coverage scores a 2 because the entire metadata block (YAML frontmatter) from the markdown is missing. This includes the ID, status, tags, source URI, published date, and other critical fields. The extraction only began from the 'Overview' section. Precision is a 4 because quote timestamps were converted from a minute:second format to total seconds (e.g., '(at 1:44)' became 104). This is a transformation, not a verbatim extraction of the numbers present in the source.",
+  "total": 5.0,
+  "rationale": "The candidate JSON is a near-perfect, 1-to-1 conversion of the reference markdown. The structure is logical and follows a consistent schema. Faithfulness, coverage, and precision are all flawless; every piece of information from the markdown is present, accurately and verbatim, with no hallucinations. The quotes are exact, and the timestamp conversions are precise. The output is dense and without redundancy. It is an exemplary extraction.",
   "hallucinations": [],
-  "elapsed_seconds": 60.7582,
-  "cost_usd": 0.013965
+  "elapsed_seconds": 49.644,
+  "cost_usd": 0.013755
 }

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate JSON is a perfect, structured representation of the reference markdown. It exhibits flawless adherence to the schema, complete and faithful coverage of all content, exact precision in all details, and optimal compression without any introduced redundancy. No errors were found across any dimension.",
+  "hallucinations": [],
+  "elapsed_seconds": 39.1306,
+  "cost_usd": 0.01879
+}

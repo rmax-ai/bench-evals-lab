@@ -7,10 +7,10 @@ Two modes:
   frontmatter, splits the body on ``## `` sections, and maps each section to
   SummarySchema fields following the corpus template. Unrecognized sections
   are skipped; absent sections produce empty lists.
-- LLM candidates (deepseek-v4-pro, gemini-3.5-flash-lite, gemini-2.5-flash):
-  the markdown plus a schema description are sent to the model; the response
-  is parsed and validated against SummarySchema, with one retry on parse or
-  validation failure.
+- LLM candidates (deepseek-v4-pro, deepseek-v4-flash, gemini-3.5-flash-lite,
+  gemini-2.5-flash): the markdown plus a schema description are sent to the
+  model; the response is parsed and validated against SummarySchema, with one
+  retry on parse or validation failure.
 """
 
 from __future__ import annotations
@@ -52,7 +52,7 @@ PRICING_PER_MILLION: dict[str, tuple[float, float]] = {
     "deepseek-v4-pro": (0.435, 0.87),
 }
 
-CANDIDATES = ["parser", "deepseek-v4-pro", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
+CANDIDATES = ["parser", "deepseek-v4-pro", "deepseek-v4-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
 LLM_CANDIDATES = set(CANDIDATES) - {"parser"}
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
@@ -436,7 +436,7 @@ def call_llm(model: str, messages: list[dict[str, str]]) -> tuple[str, int, int,
     Keys are read from the environment only; run_with_key.py is the sole
     resolver of credentials from the Hermes pass store.
     """
-    if model == "deepseek-v4-pro":
+    if model in {"deepseek-v4-pro", "deepseek-v4-flash"}:
         api_key = os.environ.get("DEEPSEEK_API_KEY")
         if not api_key:
             raise RuntimeError("DEEPSEEK_API_KEY is required; set it in the environment before running.")

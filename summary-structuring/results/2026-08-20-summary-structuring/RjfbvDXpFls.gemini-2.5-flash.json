@@ -48,7 +48,7 @@
           "Pruning tool outputs",
           "CORS headers"
         ],
-        "why_it_matters": "These issues highlight fundamental design flaws in popular agent tools that hinder developer productivity, introduce unpredictability, and can lead to security vulnerabilities, justifying the need for alternative, more robust solutions."
+        "why_it_matters": ""
       },
       {
         "topic": "Terminal Bench and the 'Fuck Around and Find Out' Phase",
@@ -71,7 +71,7 @@
           "Self-modifying agents",
           "Malleable agents"
         ],
-        "why_it_matters": "This suggests that complexity in agent design doesn't necessarily lead to better performance and that the core problem might be in how agents interact with their environment and how adaptable they are, rather than just raw model power."
+        "why_it_matters": ""
       },
       {
         "topic": "Pi: An Extensible, Self-Modifying Agent",
@@ -87,7 +87,7 @@
         "examples": [
           "Pi's system prompt is very short, with only a few lines added for 'skills'.",
           "Pi's four core tools: read, write, edit, bash.",
-          "A user built a '/by the way' feature (similar to Anthropic's) in five minutes using Pi, based on a prompt, without forking.",
+          "A user built a '/by the way' feature (similar to Anthropic's) in five minutes using Pi, without forking.",
           "Nico built a custom chat room UI for his Pi agents to talk to each other.",
           "Pi can be used to play NES games or Doom.",
           "Users can tell Pi to build extensions for them based on specifications."
@@ -115,7 +115,7 @@
           "NPM",
           "GitHub"
         ],
-        "why_it_matters": "Pi offers a paradigm shift in agent design, moving towards user-centric, adaptable, and deeply extensible tools that empower developers to tailor agents to their specific needs, addressing the limitations of rigid, black-box systems."
+        "why_it_matters": ""
       },
       {
         "topic": "Act II: OSS in the Age of Clankers",
@@ -145,7 +145,7 @@
           "Deprioritized",
           "OSS vacation"
         ],
-        "why_it_matters": "The rise of AI-generated content poses a significant threat to the sustainability and quality of open-source projects, requiring new strategies for community management and contribution filtering to prevent maintainer burnout and preserve project integrity."
+        "why_it_matters": ""
       },
       {
         "topic": "Act III: Slow the Fuck Down - The Dangers of Uncritical Agent Adoption",
@@ -186,7 +186,7 @@
           "Agentic search",
           "Patches locally, fucks shit up globally"
         ],
-        "why_it_matters": "This section serves as a critical warning against the over-reliance on AI agents, highlighting the hidden costs and long-term damage they can inflict on codebases and development processes if not managed with extreme caution and human oversight. It underscores the irreplaceable value of human understanding, learning, and critical thinking in software engineering."
+        "why_it_matters": ""
       },
       {
         "topic": "How We Should Work with Agents",
@@ -226,7 +226,7 @@
           "Discipline",
           "Agency"
         ],
-        "why_it_matters": "This provides practical, actionable advice for developers and teams on how to leverage AI agents effectively and responsibly, mitigating the risks of poor code quality and unmanageable complexity while preserving human understanding and control over the development process."
+        "why_it_matters": ""
       }
     ],
     "key_points": [
@@ -427,9 +427,9 @@
     }
   },
   "validation_passed": true,
-  "retries": 0,
-  "elapsed_seconds": 80.0721,
-  "prompt_tokens": 6988,
-  "completion_tokens": 7198,
-  "cost_usd": 0.020091
+  "retries": 1,
+  "elapsed_seconds": 120.9697,
+  "prompt_tokens": 7008,
+  "completion_tokens": 7193,
+  "cost_usd": 0.020085
 }

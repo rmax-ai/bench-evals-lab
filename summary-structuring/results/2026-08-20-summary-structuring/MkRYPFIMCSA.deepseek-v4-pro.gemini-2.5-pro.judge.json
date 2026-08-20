@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate JSON is a flawless, structured representation of the provided markdown. It perfectly mirrors the source document's content and organization across every section, from the overview to the detailed topic maps and actionable takeaways. All data, including quotes and timestamps, is captured with complete precision. There are no omissions, fabrications, or redundancies.",
+  "rationale": "The candidate JSON is a near-perfect, 1:1 structured representation of the reference markdown. It successfully captures all topics, claims, examples, and quotes with no additions or omissions. The structure is logical, and all names, numbers, and quotes are reproduced with exact precision. There are no hallucinations or redundant statements.",
   "hallucinations": [],
-  "elapsed_seconds": 41.8346,
-  "cost_usd": 0.014658
+  "elapsed_seconds": 45.9036,
+  "cost_usd": 0.014648
 }

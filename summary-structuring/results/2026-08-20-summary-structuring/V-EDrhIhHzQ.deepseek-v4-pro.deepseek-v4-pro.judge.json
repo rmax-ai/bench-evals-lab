@@ -2,15 +2,15 @@
   "judged_candidate": "deepseek-v4-pro",
   "judge_model": "deepseek-v4-pro",
   "scores": {
-    "structure": 4,
+    "structure": 5,
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 3
+    "compression": 5
   },
-  "total": 4.4,
-  "rationale": "Candidate accurately maps all markdown content into coherent sections. Structure is solid but omits source metadata fields (source_uri, source_author, source_published, tags, etc.) present in the reference, and uses null timestamps. Faithfulness is perfect: every string is directly supported by the markdown; no invented claims. Coverage includes all topics, key points, frameworks, examples, takeaways, quotes, and claims. Precision is high; quotes verbatim (e.g., 'Jinja is awful.'), names and numbers exact. Compression is reduced because content is repeated across topic_map, key_points, examples, and quotes, mirroring markdown redundancy rather than condensing.",
+  "total": 5.0,
+  "rationale": "Candidate JSON is a complete, accurate, and well-organized extraction. All sections from the markdown are populated with verbatim content; no invented claims, numbers, or quotes. Structure mirrors the digest's logical organization. Coverage includes all topics, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. Precision is exact with matching quotes and terminology. Compression is high with no redundant restatement beyond the original's duplication. No hallucinations detected.",
   "hallucinations": [],
-  "elapsed_seconds": 56.286,
-  "cost_usd": 0.007775
+  "elapsed_seconds": 45.7539,
+  "cost_usd": 0.007575
 }

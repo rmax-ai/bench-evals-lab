@@ -2,9 +2,10 @@
 """Run the full summary-structuring matrix end to end.
 
 Matrix: each corpus/*.md (5 files) x each candidate (parser, deepseek-v4-pro,
-gemini-3.5-flash-lite, gemini-2.5-flash), then both judges (gemini-2.5-pro,
-deepseek-v4-pro) against every candidate result. Fail-continue: a single
-candidate or judge failure is recorded in metrics.json, never aborts the run.
+deepseek-v4-flash, gemini-3.5-flash-lite, gemini-2.5-flash), then both judges
+(gemini-2.5-pro, deepseek-v4-pro) against every candidate result.
+Fail-continue: a single candidate or judge failure is recorded in metrics.json,
+never aborts the run.
 
 Outputs land in results/2026-08-20-summary-structuring/:
 - <video_id>.<candidate>.json                      (structure.py result)
@@ -24,7 +25,7 @@ from typing import Any
 import judge
 import structure
 
-CANDIDATES = ["parser", "deepseek-v4-pro", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
+CANDIDATES = ["parser", "deepseek-v4-pro", "deepseek-v4-flash", "gemini-3.5-flash-lite", "gemini-2.5-flash"]
 JUDGES = ["gemini-2.5-pro", "deepseek-v4-pro"]
 DIMS = ["structure", "faithfulness", "coverage", "precision", "compression"]
 RESULTS_DIR = Path("results") / "2026-08-20-summary-structuring"

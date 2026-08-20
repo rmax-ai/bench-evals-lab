@@ -1,6 +1,6 @@
 {
-  "candidate": "gemini-3.5-flash-lite",
-  "model": "gemini-3.5-flash-lite",
+  "candidate": "deepseek-v4-flash",
+  "model": "deepseek-v4-flash",
   "data": {
     "overview": {
       "title": "Intelligence + Continual Learning = Expertise — Yu Su, NeoCognition",
@@ -202,8 +202,8 @@
   },
   "validation_passed": true,
   "retries": 0,
-  "elapsed_seconds": 33.3272,
-  "prompt_tokens": 2666,
-  "completion_tokens": 2480,
-  "cost_usd": 0.007
+  "elapsed_seconds": 32.3887,
+  "prompt_tokens": 2634,
+  "completion_tokens": 5002,
+  "cost_usd": 0.001769
 }

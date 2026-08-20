@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "Candidate JSON closely mirrors the markdown, preserving all sections, terminology, quotes, claims, examples, and takeaways. Schema is well-organized with appropriate fields; null timestamps are acceptable absent source timestamps. No unsupported strings or omissions found; all quoted material matches verbatim. No redundant additions beyond the source's own structure.",
+  "hallucinations": [],
+  "elapsed_seconds": 39.976,
+  "cost_usd": 0.006706
+}

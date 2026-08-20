@@ -399,7 +399,7 @@
   },
   "validation_passed": true,
   "retries": 0,
-  "elapsed_seconds": 0.0018,
+  "elapsed_seconds": 0.0008,
   "prompt_tokens": 0,
   "completion_tokens": 0,
   "cost_usd": 0.0

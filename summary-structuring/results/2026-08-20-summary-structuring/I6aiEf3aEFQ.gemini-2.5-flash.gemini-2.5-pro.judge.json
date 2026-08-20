@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate JSON is a near-perfect, 1:1 structured representation of the provided markdown. It successfully captures all topics, claims, examples, and quotes with no hallucinations or precision errors. The structure is logical and mirrors the source document's organization completely.",
+  "rationale": "The candidate JSON is a near-perfect, 1:1 structural representation of the source markdown. It successfully captures all topics, claims, examples, and quotes with no hallucinations or precision errors. The schema is logical and mirrors the structure of the source document, resulting in a high-fidelity extraction across all dimensions.",
   "hallucinations": [],
-  "elapsed_seconds": 43.9302,
-  "cost_usd": 0.007513
+  "elapsed_seconds": 50.2547,
+  "cost_usd": 0.007613
 }

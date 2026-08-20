@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate JSON is a near-perfect, high-fidelity extraction of the source markdown. It mirrors the markdown's structure flawlessly, using logical objects and arrays. All data, including detailed lists, claims, and quotes, is captured with full coverage and exact precision—even correctly converting MM:SS timestamps to seconds. There are no hallucinations; every string is directly supported by the source text. The output is also highly compressed, with no redundant information. It is an exemplary representation of the source material.",
+  "rationale": "The candidate JSON is a near-perfect, 1:1 representation of the reference markdown. It successfully captures all topics, key points, claims, and quotes with no hallucinations. The structure is logical and completely mirrors the source document's organization. All names, numbers, and quotes are extracted with perfect precision, including the correct conversion of quote timestamps from MM:SS format to total seconds. There is no redundancy or missing information.",
   "hallucinations": [],
-  "elapsed_seconds": 53.1859,
-  "cost_usd": 0.013905
+  "elapsed_seconds": 45.9662,
+  "cost_usd": 0.013765
 }

@@ -12,7 +12,7 @@
     },
     "topic_map": [
       {
-        "topic": "The Bottleneck in Software Engineering",
+        "topic": "The Bottleneck in Software Engineering (104-149)",
         "timestamp_range": "104-149",
         "explanation": "The primary limitation in software engineering is no longer the intelligence of models, but rather human attention. While models are capable of understanding and attempting many tasks, humans lack the bandwidth to supervise their implementation efficiently.",
         "key_claims": [
@@ -26,7 +26,7 @@
         "why_it_matters": "This reframes the challenge from building more intelligent models to designing systems that can effectively manage and leverage existing model intelligence with minimal human oversight, thereby drastically increasing development throughput."
       },
       {
-        "topic": "Five Multi-Agent Strategies",
+        "topic": "Five Multi-Agent Strategies (149-404)",
         "timestamp_range": "149-404",
         "explanation": "To manage complex tasks, multi-agent systems employ various communication and coordination strategies. These strategies can be categorized into five patterns, providing a structured approach to designing agent interactions.",
         "key_claims": [
@@ -50,7 +50,7 @@
         "why_it_matters": "Understanding these distinct strategies is crucial for designing robust and scalable multi-agent systems. Each strategy addresses different aspects of coordination and information flow, and their appropriate combination can lead to more effective autonomous agents."
       },
       {
-        "topic": "Missions: The Three-Role Architecture",
+        "topic": "Missions: The Three-Role Architecture (404-606)",
         "timestamp_range": "404-606",
         "explanation": "Missions is a system that integrates the five multi-agent strategies into a structured workflow. It operates on a three-role architecture to manage planning, implementation, and validation, ensuring clear responsibilities and a robust process.",
         "key_claims": [
@@ -69,7 +69,7 @@
         "why_it_matters": "This architecture provides a scalable and reliable framework for complex software development tasks. By clearly separating concerns and defining roles, it lays the groundwork for sustained autonomous operation and reduces the cognitive load on human supervisors."
       },
       {
-        "topic": "The Validation Loop in Missions",
+        "topic": "The Validation Loop in Missions (606-808)",
         "timestamp_range": "606-808",
         "explanation": "A critical component of Missions is its validation loop, which fundamentally rethinks how correctness is assured. Instead of tests confirming existing code, validation is designed adversarially, defining 'done' upfront and employing separate agents for scrutiny and user-testing.",
         "key_claims": [
@@ -90,7 +90,7 @@
         "why_it_matters": "This adversarial and upfront validation approach drastically reduces the risk of bugs and ensures that the system stays on track over long-running tasks. By separating verification from implementation, it mitigates sunk-cost bias and provides an objective assessment of work."
       },
       {
-        "topic": "Structured Handoffs and Serial Execution",
+        "topic": "Structured Handoffs and Serial Execution (808-1121)",
         "timestamp_range": "808-1121",
         "explanation": "Missions maintains coherence over long durations (days, not minutes) through structured handoffs between agents. It prefers serial execution for feature development to avoid conflicts, while selectively applying parallelism for read-only tasks like code exploration and documentation research.",
         "key_claims": [
@@ -114,7 +114,7 @@
         "why_it_matters": "Structured handoffs ensure no context is lost, which is vital for long-running autonomous operations. The strategic choice of serial over parallel execution for core development tasks significantly improves reliability and correctness, while targeted parallelism optimizes efficiency where conflicts are minimal."
       },
       {
-        "topic": "Model-Agnostic Architecture and Long-Term Viability",
+        "topic": "Model-Agnostic Architecture and Long-Term Viability (1121-1550)",
         "timestamp_range": "1121-1550",
         "explanation": "Missions is designed to be model-agnostic, allowing the integration of different LLMs for specific roles based on their strengths. This architecture ensures that the system continuously improves with new model releases, avoiding obsolescence and providing a compounding advantage.",
         "key_claims": [
@@ -319,8 +319,8 @@
   },
   "validation_passed": true,
   "retries": 0,
-  "elapsed_seconds": 67.5132,
+  "elapsed_seconds": 70.4332,
   "prompt_tokens": 4905,
-  "completion_tokens": 4976,
-  "cost_usd": 0.013912
+  "completion_tokens": 5027,
+  "cost_usd": 0.014039
 }

@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "All sections mirror the markdown exactly, with no unsupported strings. Topic map, key points, frameworks, examples, takeaways, claims, and quotes are present and complete. Quotes are verbatim, including punctuation and timestamps converted accurately. Names, numbers (e.g., 18.5 hours, 38.8k lines, 89.25% coverage) match. No hallucinated content. Compression is high; candidate adds no redundant restatement beyond the reference digest structure.",
+  "hallucinations": [],
+  "elapsed_seconds": 40.2181,
+  "cost_usd": 0.006008
+}

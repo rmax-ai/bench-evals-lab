@@ -1,6 +1,6 @@
 {
-  "candidate": "deepseek-v4-pro",
-  "model": "deepseek-v4-pro",
+  "candidate": "deepseek-v4-flash",
+  "model": "deepseek-v4-flash",
   "data": {
     "overview": {
       "title": "The Multi-Agent Architecture That Actually Ships — Luke Alvoeiro, Factory",
@@ -284,16 +284,16 @@
         "timestamp": 1455
       },
       {
+        "text": "people in this room who are thinking in terms of agent ecosystems... that those folks are going to be really shipping the next generation of innovation.",
+        "timestamp": 1728
+      },
+      {
         "text": "This works on real projects at scale today.",
         "timestamp": 1754
       },
       {
         "text": "Describe what you want. Argue with the orchestrator about scope. Approve the plan. Then go do something else.",
         "timestamp": 1757
-      },
-      {
-        "text": "people in this room who are thinking in terms of agent ecosystems... that those folks are going to be really shipping the next generation of innovation.",
-        "timestamp": 1728
       }
     ],
     "compressed": {
@@ -318,9 +318,9 @@
     }
   },
   "validation_passed": true,
-  "retries": 1,
-  "elapsed_seconds": 223.0638,
-  "prompt_tokens": 4798,
-  "completion_tokens": 7262,
-  "cost_usd": 0.008405
+  "retries": 0,
+  "elapsed_seconds": 46.164,
+  "prompt_tokens": 4779,
+  "completion_tokens": 6669,
+  "cost_usd": 0.002536
 }

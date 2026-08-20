@@ -1,6 +1,6 @@
 {
-  "candidate": "deepseek-v4-pro",
-  "model": "deepseek-v4-pro",
+  "candidate": "deepseek-v4-flash",
+  "model": "deepseek-v4-flash",
   "data": {
     "overview": {
       "title": "Modern Post-Training: A Deep Dive  — Will Brown, Prime Intellect",
@@ -399,8 +399,8 @@
   },
   "validation_passed": true,
   "retries": 0,
-  "elapsed_seconds": 124.0139,
+  "elapsed_seconds": 70.434,
   "prompt_tokens": 5663,
-  "completion_tokens": 13527,
-  "cost_usd": 0.014232
+  "completion_tokens": 12715,
+  "cost_usd": 0.004353
 }

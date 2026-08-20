@@ -2,15 +2,15 @@
   "judged_candidate": "gemini-2.5-flash",
   "judge_model": "deepseek-v4-pro",
   "scores": {
-    "structure": 5,
+    "structure": 3,
     "faithfulness": 5,
-    "coverage": 5,
+    "coverage": 3,
     "precision": 5,
     "compression": 3
   },
-  "total": 4.6,
-  "rationale": "Compression reduced to 3 because identical content is repeated across multiple sections (e.g., Claude Code context issues appear in topic_map, key_points, examples, and compressed summary), creating redundancy and low density. Other dimensions are high: structure is complete and well-organized; faithfulness has no unsupported strings; coverage includes all content sections; precision shows verbatim quotes and exact names/numbers.",
+  "total": 3.8,
+  "rationale": "Structure: omits markdown metadata (type, id, tags, confidence, etc.) and leaves 'why_it_matters' fields empty across topic_map, indicating incomplete schema population. Faithfulness: no invented strings; all candidate content matches markdown. Coverage: missing entire 'Why it matters' explanations from every topic_map entry; also missing metadata. Precision: all quotes, names, and numbers are verbatim and exact. Compression: largely replicates markdown sections verbatim; density is acceptable but no summarization or elimination of redundant detail, lowering high-density aim.",
   "hallucinations": [],
-  "elapsed_seconds": 57.8275,
-  "cost_usd": 0.008962
+  "elapsed_seconds": 33.2128,
+  "cost_usd": 0.007114
 }

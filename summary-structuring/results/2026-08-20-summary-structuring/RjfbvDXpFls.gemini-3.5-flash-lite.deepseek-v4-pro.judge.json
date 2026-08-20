@@ -6,11 +6,11 @@
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 2
+    "compression": 4
   },
-  "total": 4.4,
-  "rationale": "Structure, faithfulness, coverage, and precision are near-perfect: all schema fields are populated and organized; every string matches the reference markdown; content is comprehensive; and quotes, names, and numbers are exact. Compression is poor due to significant redundant restatement across sections. For example, 'clankers are destroying open-source projects' and 'agents compound booboos with zero learning, no bottlenecks, and delayed pain' appear nearly verbatim in topic_map key_claims, key_points, examples, and compressed summary. This repetition lowers density and violates the no-redundant-restatement criterion.",
+  "total": 4.8,
+  "rationale": "All string values are verbatim from the markdown, with no hallucinated content; quotes, names, and numbers match exactly. Structure is well-organized with appropriate fields for overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. Coverage includes all material content specified. Compression is slightly lower (4) because the JSON replicates overlapping content across sections (e.g., key claims appear in topic_map and key_points; AI slop/OSS clanker points are restated in multiple places), reducing density relative to a more concise extraction.",
   "hallucinations": [],
-  "elapsed_seconds": 34.7192,
-  "cost_usd": 0.007489
+  "elapsed_seconds": 78.6069,
+  "cost_usd": 0.010019
 }

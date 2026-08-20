@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate provides a near-perfect structured extraction of the reference markdown. All sections are covered faithfully and precisely, with quotes and numbers matching exactly. The JSON schema is logical and consistently applied. The output avoids redundancy, preserving the high information density of the source document.",
+  "rationale": "The candidate JSON is a near-perfect, one-to-one structured representation of the source markdown. It excels across all dimensions by accurately and completely transcribing the information into a well-organized JSON format without adding, omitting, or distorting any content. The structure is logical, key-value pairs are sensible, and details like timestamps are precisely converted to seconds. It is a model example of a high-fidelity extraction.",
   "hallucinations": [],
-  "elapsed_seconds": 56.1222,
-  "cost_usd": 0.013425
+  "elapsed_seconds": 42.6234,
+  "cost_usd": 0.013755
 }

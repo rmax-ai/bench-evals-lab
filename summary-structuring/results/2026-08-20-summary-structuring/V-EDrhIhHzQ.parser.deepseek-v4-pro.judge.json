@@ -2,15 +2,15 @@
   "judged_candidate": "parser",
   "judge_model": "deepseek-v4-pro",
   "scores": {
-    "structure": 4,
+    "structure": 5,
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 4
+    "compression": 5
   },
-  "total": 4.6,
-  "rationale": "Candidate captures all substantive sections from the markdown: overview, topic map, key points, frameworks, examples, takeaways, claims to verify, quotes, and compressed summary. No hallucinations were found; every string is supported and verbatim (quotes, numbers like 10,000 GPUs and GLM 5/28 nodes/131k match). Structure is 4 because top-level metadata fields (id, status, tags, source_type, source_uri, captured_at, etc.) are omitted and topic timestamps are null. Compression is 4 due to redundant restatement of identical strings across key_claims, quotes, and evidence sections.",
+  "total": 5.0,
+  "rationale": "Candidate JSON faithfully mirrors every section of the markdown: overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. All strings are supported by the reference; no invented names, numbers, or quotes. Quotes are verbatim, terminology and claims exact. Structure is well-organized and schema-appropriate. Compression is high density with minimal redundancy across sections. No hallucinated content detected.",
   "hallucinations": [],
-  "elapsed_seconds": 64.581,
-  "cost_usd": 0.008268
+  "elapsed_seconds": 35.5518,
+  "cost_usd": 0.006381
 }

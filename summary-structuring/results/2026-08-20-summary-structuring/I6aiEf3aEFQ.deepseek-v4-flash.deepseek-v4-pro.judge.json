@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 4
+  },
+  "total": 4.8,
+  "rationale": "Structure is comprehensive and organized. Faithfulness: all strings are mirrored from source with no inventions; no hallucinated content detected. Coverage: includes all major sections, claims, examples, frameworks, takeaways, quotes, and compressed summary. Precision: quotes, names, and numbers are verbatim. Compression is slightly lower because key definitions (intelligence, expertise, continual learning) and examples (Anthropic revenue) appear redundantly across overview, topic_map, key_points, examples, and compressed fields, though each repetition is faithful to the source.",
+  "hallucinations": [],
+  "elapsed_seconds": 38.8325,
+  "cost_usd": 0.003663
+}

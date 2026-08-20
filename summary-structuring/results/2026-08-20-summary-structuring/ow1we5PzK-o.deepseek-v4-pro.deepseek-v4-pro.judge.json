@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate JSON faithfully transcribes the markdown into a well-organized schema. All sections (overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, compressed summary) are present and populated correctly. Quotes are verbatim, timestamps converted accurately to seconds, and all numeric metrics (18.5 hours, 60%, 46%, 38.8k, 89.25%) match exactly. No invented claims or strings detected. The structure avoids redundant restatement within sections while providing comprehensive coverage.",
+  "rationale": "The candidate JSON faithfully mirrors the reference markdown across all schema fields. Structure is well-organized with all expected sections. Every string is supported by the markdown; no fabricated claims or numbers were found. Coverage is comprehensive, including all topic maps, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. Quotes are verbatim, timestamps converted correctly, and names/numbers exact. Compression is high; although some sections overlap thematically, each field corresponds to a distinct source section without redundant restatement within the JSON.",
   "hallucinations": [],
-  "elapsed_seconds": 52.8077,
-  "cost_usd": 0.007067
+  "elapsed_seconds": 39.975,
+  "cost_usd": 0.005927
 }

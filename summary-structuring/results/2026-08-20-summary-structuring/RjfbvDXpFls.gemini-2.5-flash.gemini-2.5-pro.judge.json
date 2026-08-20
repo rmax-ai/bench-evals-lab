@@ -2,15 +2,15 @@
   "judged_candidate": "gemini-2.5-flash",
   "judge_model": "gemini-2.5-pro",
   "scores": {
-    "structure": 5,
+    "structure": 4,
     "faithfulness": 5,
-    "coverage": 5,
+    "coverage": 3,
     "precision": 5,
     "compression": 5
   },
-  "total": 5.0,
-  "rationale": "The candidate provides a perfect, 1:1 structured representation of the markdown. It achieves flawless scores across all dimensions by faithfully and precisely copying all content—from the high-level overview to individual quotes and terminology—into a well-organized schema. Coverage is total, and there are no hallucinations or redundancies.",
+  "total": 4.4,
+  "rationale": "structure: Scored 4 because the `why_it_matters` key within each object in the `topic_map` array is present but consistently left empty, failing to populate a defined field in the schema. coverage: Scored 3 due to a significant omission. The content from all six 'Why it matters' subsections in the source markdown is completely missing from the `topic_map`. This removes crucial context explaining each topic's importance, which was a distinct part of the original summary.",
   "hallucinations": [],
-  "elapsed_seconds": 44.082,
-  "cost_usd": 0.018896
+  "elapsed_seconds": 50.6078,
+  "cost_usd": 0.018966
 }

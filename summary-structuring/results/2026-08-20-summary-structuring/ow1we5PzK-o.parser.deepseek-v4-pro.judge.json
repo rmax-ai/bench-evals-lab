@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate JSON is a near-verbatim structured extraction of the reference markdown. All sections (overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, compressed) are fully populated with exact content. Quotes are verbatim with accurate timestamp conversions (e.g., 1:44 -> 104). Numerical data (18.5 hours, 60%, 46%, 38.8k lines, 89.25% coverage) matches. No invented claims or strings; no hallucinations detected. Structure is well-organized, coverage is comprehensive, precision is exact, and compression is appropriate with no redundant restatement beyond the reference's own structure.",
+  "rationale": "The candidate JSON is a nearly verbatim extraction of all markdown sections, including overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. All strings are supported by the reference; no invented content. Timestamps in quotes are correctly converted to seconds. Metrics (18.5 hours, 60%, 46%, 38.8k lines, 89.25% coverage) match exactly. The structure is well-organized with no empty fields except where the source had none. Compression is excellent with no redundant restatement beyond the markdown's own condensed summary.",
   "hallucinations": [],
-  "elapsed_seconds": 45.3549,
-  "cost_usd": 0.006871
+  "elapsed_seconds": 41.5299,
+  "cost_usd": 0.006079
 }

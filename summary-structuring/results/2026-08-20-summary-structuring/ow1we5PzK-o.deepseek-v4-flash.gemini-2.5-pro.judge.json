@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "The candidate provides a perfect, 1:1 structured representation of the source markdown. It excels in all dimensions, with no identifiable errors, omissions, or hallucinations. All data, including quotes, numbers, and timestamps, is extracted with complete precision. The structure is logical and perfectly mirrors the source document's layout.",
+  "hallucinations": [],
+  "elapsed_seconds": 50.9244,
+  "cost_usd": 0.013535
+}

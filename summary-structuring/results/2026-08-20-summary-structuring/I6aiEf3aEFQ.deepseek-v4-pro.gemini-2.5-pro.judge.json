@@ -5,12 +5,12 @@
     "structure": 5,
     "faithfulness": 5,
     "coverage": 5,
-    "precision": 4,
+    "precision": 5,
     "compression": 5
   },
-  "total": 4.8,
-  "rationale": "The candidate provides a near-perfect structured representation of the source markdown. It achieves perfect scores in structure, faithfulness, coverage, and compression. The only minor flaw is in precision: one of the quotes is not verbatim. The quote defining intelligence is missing the final word \"independently\" which is present in the source text. This is a small but clear precision error, resulting in a score of 4 for that dimension.",
+  "total": 5.0,
+  "rationale": "The candidate provided a flawless, one-to-one structured representation of the source markdown. All sections, claims, quotes, and examples were present, precise, and faithfully extracted without any additions or omissions, representing a perfect score across all dimensions.",
   "hallucinations": [],
-  "elapsed_seconds": 39.6446,
-  "cost_usd": 0.007843
+  "elapsed_seconds": 50.9082,
+  "cost_usd": 0.007472
 }

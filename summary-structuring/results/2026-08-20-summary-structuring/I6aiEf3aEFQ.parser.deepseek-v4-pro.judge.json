@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate JSON mirrors the reference markdown section by section: overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary are all populated accurately. No sub-4 scores: all strings are supported verbatim from the source (e.g., Anthropic's $40-$60B run rate and the four quotes are exact). The structure includes null timestamps where the source provides none, which is appropriate. Coverage omits only source metadata (e.g., tags/visibility), which is not material content per the evaluation categories. Compression is high; any overlap (e.g., compressed summary bullets) is inherent to the source markdown and not redundant.",
+  "rationale": "The candidate JSON accurately and completely represents the markdown digest. Every section from the reference is populated with matching text, including topic maps, key points, frameworks, examples, takeaways, claims, and quotes. Quotes are verbatim, and numerical figures (Anthropic 400x, $40-60B) are exact. No invented or unsupported strings were found. The structure is intuitive and mirrors the original organization; coverage includes all major content; compression is high with no redundant restatement. Therefore, all dimensions merit full score.",
   "hallucinations": [],
-  "elapsed_seconds": 44.5606,
-  "cost_usd": 0.004381
+  "elapsed_seconds": 27.7087,
+  "cost_usd": 0.003348
 }

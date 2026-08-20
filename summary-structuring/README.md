@@ -11,7 +11,7 @@ contain nothing absent from the markdown, and must not drop material content.
 
 This resolves the Gemini and DeepSeek API keys from the Hermes pass store
 (`~/.hermes/.password-store`) via `scripts/run_with_key.py` and runs the full
-matrix (5 corpus files × 4 candidates × 2 judges), writing artifacts and
+matrix (5 corpus files × 5 candidates × 2 judges), writing artifacts and
 `metrics.json` under `results/2026-08-20-summary-structuring/`.
 
 Re-judge existing candidate outputs without re-running structuring:
@@ -25,8 +25,8 @@ Re-judge existing candidate outputs without re-running structuring:
   provenance (source repo, commit, capture times, generating model).
 - `schema.py` — the `SummarySchema` pydantic models candidates must produce.
 - `scripts/structure.py` — one candidate run: `parser` (deterministic template
-  parser, no LLM) or one of three LLM candidates (`deepseek-v4-pro`,
-  `gemini-3.5-flash-lite`, `gemini-2.5-flash`).
+  parser, no LLM) or one of four LLM candidates (`deepseek-v4-pro`,
+  `deepseek-v4-flash`, `gemini-3.5-flash-lite`, `gemini-2.5-flash`).
 - `scripts/judge.py` — one judge run: an LLM judge (`gemini-2.5-pro` or
   `deepseek-v4-pro`) scores the candidate JSON against the markdown on five
   fidelity dimensions and lists hallucinations verbatim.

@@ -5,12 +5,12 @@
     "structure": 5,
     "faithfulness": 5,
     "coverage": 5,
-    "precision": 4,
+    "precision": 5,
     "compression": 5
   },
-  "total": 4.8,
-  "rationale": "The output is a near-perfect, structured representation of the source markdown. It achieves full scores on structure, faithfulness, coverage, and compression. The only minor deduction is on precision, as several quotes were slightly altered. Filler words like \"Um\" and \"Uh\" were replaced with em-dashes or removed, which violates the requirement for verbatim quotes. For example, the markdown quote includes \"...we don't want that\" whereas the candidate has \"— and of course we don't want that.\"",
+  "total": 5.0,
+  "rationale": "The candidate JSON is a near-perfect, structured representation of the reference markdown. It achieves full marks across all dimensions by faithfully and precisely copying all content into a well-organized schema without introducing any hallucinations or omitting any information.",
   "hallucinations": [],
-  "elapsed_seconds": 48.9901,
-  "cost_usd": 0.015049
+  "elapsed_seconds": 49.7742,
+  "cost_usd": 0.014448
 }

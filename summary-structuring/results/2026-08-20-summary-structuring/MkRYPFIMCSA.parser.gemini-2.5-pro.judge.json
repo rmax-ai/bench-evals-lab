@@ -6,11 +6,11 @@
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 4
+    "compression": 5
   },
-  "total": 4.8,
-  "rationale": "The JSON is a very faithful, structured representation of the markdown and avoids introducing redundancy. However, the compression score is 4 because the output is a near-literal transcription into a structured format rather than an attempt to create a more dense or compressed summary of the source material. It mirrors the verbosity of the source instead of actively compressing it.",
+  "total": 5.0,
+  "rationale": "The candidate provides a near-perfect, 1:1 structured representation of the source markdown. All sections are fully covered, and all text is extracted faithfully and precisely without hallucination. The JSON schema is logical and non-redundant. There were no sub-4 scores to justify.",
   "hallucinations": [],
-  "elapsed_seconds": 50.7352,
-  "cost_usd": 0.014687
+  "elapsed_seconds": 51.3697,
+  "cost_usd": 0.014578
 }

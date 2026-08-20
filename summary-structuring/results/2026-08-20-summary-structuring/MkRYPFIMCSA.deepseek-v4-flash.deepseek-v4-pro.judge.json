@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 5.0,
+  "rationale": "Candidate mirrors the reference markdown with no unsupported strings; all quotes are verbatim and timestamps converted accurately. Structure is comprehensive and well-organized; metadata omissions are non-material. Coverage includes all topics, claims, examples, terminology, frameworks, takeaways, and quotes. Precision exact in names, numbers, and quote text. Compression dense with no redundant restatement.",
+  "hallucinations": [],
+  "elapsed_seconds": 75.0133,
+  "cost_usd": 0.0085
+}

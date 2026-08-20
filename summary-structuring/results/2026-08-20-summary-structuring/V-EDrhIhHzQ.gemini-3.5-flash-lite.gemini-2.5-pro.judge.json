@@ -9,8 +9,8 @@
     "compression": 5
   },
   "total": 5.0,
-  "rationale": "The candidate provides a near-perfect structured extraction of the reference markdown. All schema fields are logically populated, and the content is a faithful, complete, and precise representation of the source text. There are no hallucinations, omissions, or inaccuracies. The output is as dense as the source material without introducing any redundancy.",
+  "rationale": "The candidate provided a near-perfect extraction. The JSON structure is logical and mirrors the source markdown. All content is faithfully and precisely reproduced from the source, with no hallucinations found. The entire scope of the summary is covered without introducing redundancy.",
   "hallucinations": [],
-  "elapsed_seconds": 45.1898,
-  "cost_usd": 0.015877
+  "elapsed_seconds": 56.3836,
+  "cost_usd": 0.015738
 }

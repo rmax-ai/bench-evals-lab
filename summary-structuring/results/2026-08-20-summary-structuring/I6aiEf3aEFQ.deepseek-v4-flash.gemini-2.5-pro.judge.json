@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.8,
+  "rationale": "The candidate's output is nearly perfect, mirroring the source document's structure and content with very high fidelity. The only deduction is for precision: in the 'examples' section, the description of Anthropic's revenue ('...grew to $40-$60 billion...') is slightly simplified from the source ('...grew 400 times to 40 to 60 billion...'). While the full, precise number is captured correctly in other sections, this specific instance shows a minor lack of precision.",
+  "hallucinations": [],
+  "elapsed_seconds": 48.2618,
+  "cost_usd": 0.008053
+}

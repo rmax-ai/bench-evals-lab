@@ -202,7 +202,7 @@
   },
   "validation_passed": true,
   "retries": 0,
-  "elapsed_seconds": 0.0006,
+  "elapsed_seconds": 0.0005,
   "prompt_tokens": 0,
   "completion_tokens": 0,
   "cost_usd": 0.0

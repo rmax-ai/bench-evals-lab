@@ -2,15 +2,15 @@
   "judged_candidate": "gemini-2.5-flash",
   "judge_model": "deepseek-v4-pro",
   "scores": {
-    "structure": 5,
+    "structure": 4,
     "faithfulness": 5,
-    "coverage": 5,
+    "coverage": 4,
     "precision": 5,
-    "compression": 4
+    "compression": 5
   },
-  "total": 4.8,
-  "rationale": "Candidate closely mirrors the reference markdown with all sections mapped to appropriate JSON fields. Faithfulness is strong: every string is supported, no invented claims. Coverage is complete: all topics, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary are present. Precision is exact: quotes match verbatim, timestamps correctly converted to seconds. Compression is slightly lower due to redundant restatement of the same information across topic_map, key_points, and compressed bullet sections, but the content remains dense.",
+  "total": 4.6,
+  "rationale": "Candidate closely mirrors the reference markdown, preserving all major sections and wording. Structure loses a point because top-level metadata fields (type, id, status, tags, confidence, visibility, source_type, source_uri, source_author, source_published, captured_at, generated_by, review_status) are entirely absent. Coverage likewise misses these metadata fields, though all substantive content—topics, claims, examples, frameworks, takeaways, quotes—is present. Faithfulness and precision are strong: quotes are verbatim, timestamps correspond exactly (e.g., 0:34→34s, 3:36→216s), and no invented claims were found. Compression is high with no redundant restatement.",
   "hallucinations": [],
-  "elapsed_seconds": 93.5621,
-  "cost_usd": 0.009656
+  "elapsed_seconds": 74.2617,
+  "cost_usd": 0.008817
 }

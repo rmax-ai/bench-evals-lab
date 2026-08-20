@@ -6,11 +6,11 @@
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 5
+    "compression": 4
   },
-  "total": 5.0,
-  "rationale": "The candidate JSON faithfully reconstructs the markdown into a well-organized schema. All sections—overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary—are populated accurately. Every string is supported by the reference; quotes are verbatim, with correct timestamps converted to seconds. Names like Claw Patrol, HCL, Tailscale, and OpenClaw are exact. Coverage is complete, including all topics, claims, examples, and terminology. Compression is high: no invented content, no redundant additions beyond the source's structured breakdown. No hallucinations detected.",
+  "total": 4.8,
+  "rationale": "All schema fields populated and organized; no invented strings detected. Candidate mirrors markdown sections accurately, with quoted timestamps converted correctly from spoken markers. Coverage includes topic map, key points, frameworks, examples, takeaways, claims, quotes, and summary. Compression slightly reduced due to overlap between topic_map, key_points, and compressed summary, which restate Claw Patrol's HCL/proxy features.",
   "hallucinations": [],
-  "elapsed_seconds": 85.0152,
-  "cost_usd": 0.009693
+  "elapsed_seconds": 82.8974,
+  "cost_usd": 0.009038
 }

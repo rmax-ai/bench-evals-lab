@@ -2,15 +2,15 @@
   "judged_candidate": "gemini-3.5-flash-lite",
   "judge_model": "deepseek-v4-pro",
   "scores": {
-    "structure": 4,
+    "structure": 5,
     "faithfulness": 5,
-    "coverage": 4,
+    "coverage": 5,
     "precision": 5,
-    "compression": 2
+    "compression": 5
   },
-  "total": 4.0,
-  "rationale": "Candidate mirrors markdown nearly exactly, with no unsupported strings. Structure penalized because top-level metadata (id, tags, source_uri, dates) omitted. Coverage misses metadata but includes all substantive topics, claims, examples, frameworks, takeaways, and quotes. Compression weak: key quotes/claims duplicated across topic_map, key_points, quotes, and claims sections (e.g., 'Jinja is awful' appears twice). Precision and faithfulness perfect, verbatim quotes and exact numbers.",
+  "total": 5.0,
+  "rationale": "Candidate JSON accurately mirrors the markdown's section hierarchy and content. All strings are verbatim from the source, with no invented claims or numbers. Quotes, names, and numerical claims (10,000 GPUs, GLM 5 step, off-policy 16) are exact. Coverage includes all topics, frameworks, examples, takeaways, claims, and quotes. Structure is logical and complete; compression is high without redundant restatement.",
   "hallucinations": [],
-  "elapsed_seconds": 57.7759,
-  "cost_usd": 0.008007
+  "elapsed_seconds": 40.9147,
+  "cost_usd": 0.006701
 }

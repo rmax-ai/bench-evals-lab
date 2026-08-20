@@ -6,11 +6,11 @@
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 5
+    "compression": 3
   },
-  "total": 5.0,
-  "rationale": "The candidate JSON faithfully mirrors the markdown's structure and content. All sections (overview, topic map, key points, frameworks, examples, takeaways, quotes, compressed summary) are present and correctly populated. Every string aligns with the reference, including exact quotes, terminology, examples, and numbers. No invented claims, names, or numbers were introduced. Coverage is comprehensive, preserving both high-level points and specific details. Quotes are verbatim and terminology matches exactly. The output is dense and avoids adding redundant restatement beyond what the source markdown already contains. No hallucinations were identified.",
+  "total": 4.6,
+  "rationale": "Structure 5: organized nested JSON matching markdown. Faithfulness 5: no unsupported strings or invented content. Coverage 5: all sections (topics, key points, frameworks, examples, takeaways, claims, quotes, summary) present. Precision 5: quotes and terminology match verbatim. Compression 3: candidate recreates markdown's inherent redundancy, repeating key claims and examples across topic_map, key_points, examples, and takeaways, lowering information density.",
   "hallucinations": [],
-  "elapsed_seconds": 32.713,
-  "cost_usd": 0.007245
+  "elapsed_seconds": 60.6223,
+  "cost_usd": 0.009126
 }

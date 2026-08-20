@@ -3,18 +3,14 @@
   "judge_model": "deepseek-v4-pro",
   "scores": {
     "structure": 5,
-    "faithfulness": 3,
+    "faithfulness": 5,
     "coverage": 5,
-    "precision": 3,
-    "compression": 5
+    "precision": 4,
+    "compression": 3
   },
-  "total": 4.2,
-  "rationale": "Faithfulness and precision are penalized because several quotes in the candidate JSON are not verbatim: em dashes replace original filler words ('Uh'/'Um') in three quote strings, meaning they are unsupported by the markdown. Coverage and structure are strong, with all sections and topics faithfully extracted. Compression is high, with no redundant additions.",
-  "hallucinations": [
-    "But it is very dangerous of course because these agents could do nefarious things. They could start a P-SQL subprocess and issue a delete users table. Um they could call CubeCuttle delete namespace prod. Um you know, they they could decide somehow that solving the incident, it means, you know, removing all of the users. — and of course we don't want that.",
-    "But this is not sufficient, right? Security can't just be wishful thinking that Opus will always obey your your wishes. — these SRE agents that we have are connected to the support system and thus can be prompt injected from the outside. And that means that they can be manipulated somehow. Like who knows who knows what sort of uh string of characters could send Opus into some uh bad state that allows it to think that it's taking the right action by doing something very undesirable. So you know, we take the stance that the secure the agents themselves have to be untrusted software. You can't rely on the agent itself to guard what it's doing. You can't put the guard inside it.",
-    "So the software that uh we've written to address this problem is called Claw Patrol. — Uh it's an open-source MIT licensed project. And this is a proxy that sits in front of your agents. — It operates not at the HTTP level, but at a lower level. It understands each and every byte flowing through, flowing out of your agent. It holds credentials like Agent Vault and can inject those credentials so that your — whatever agent software you're using doesn't actually doesn't ever actually see secret values. And — in particular it has a very advanced rule system that allows you to say in in precise details how how and and what requests get — transferred out out of the agent and talk to the outside world."
-  ],
-  "elapsed_seconds": 74.9948,
-  "cost_usd": 0.009021
+  "total": 4.4,
+  "rationale": "Structure is excellent: all schema fields sensibly populated and organized. Faithfulness is perfect—every string corresponds to the markdown, with no invented content. Coverage is comprehensive, including all topics, claims, quotes, and takeaways. Precision is slightly reduced because quote timestamps are numeric seconds (34, 216, etc.) rather than the verbatim 'at 0:34' format, though the quote texts are verbatim. Compression is lower due to redundant restatement across overview, topic map, key points, and compressed summary sections, which repeat the core security thesis without condensation.",
+  "hallucinations": [],
+  "elapsed_seconds": 89.6917,
+  "cost_usd": 0.008904
 }

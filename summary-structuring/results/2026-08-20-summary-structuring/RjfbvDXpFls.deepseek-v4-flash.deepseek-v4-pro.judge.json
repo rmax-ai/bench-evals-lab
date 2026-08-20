@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 4
+  },
+  "total": 4.8,
+  "rationale": "Candidate faithfully mirrors the markdown across all required sections (overview, topic_map, key_points, frameworks, examples, takeaways, claims, quotes, compressed). All strings are supported; no invented figures, numbers, or quotes (quotes match Notable Quotes verbatim). Coverage is exhaustive. Precision is exact for names and terms. Compression is 4 not 5 because the output redundantly repeats the same claims and examples across topic_map, key_points, examples, and compressed bullets, reducing density.",
+  "hallucinations": [],
+  "elapsed_seconds": 61.4036,
+  "cost_usd": 0.009023
+}

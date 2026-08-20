@@ -1,0 +1,16 @@
+{
+  "judged_candidate": "deepseek-v4-flash",
+  "judge_model": "gemini-2.5-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 5,
+    "coverage": 5,
+    "precision": 5,
+    "compression": 1
+  },
+  "total": 4.2,
+  "rationale": "The candidate's score for compression is 1 because it is a severe failure. The JSON is almost a direct, verbatim copy of the source markdown, simply reorganized into a structured format. There is no summarization or condensation; nearly every section, from the `topic_map` to the `key_points` and `frameworks`, is a copy-paste of the original text. This results in extreme redundancy and fails the core task of compressing the information into a dense, summary-oriented format.",
+  "hallucinations": [],
+  "elapsed_seconds": 40.9131,
+  "cost_usd": 0.015017
+}

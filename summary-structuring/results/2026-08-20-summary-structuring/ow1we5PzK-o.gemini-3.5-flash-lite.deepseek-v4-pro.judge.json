@@ -6,11 +6,11 @@
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 4
+    "compression": 3
   },
-  "total": 4.8,
-  "rationale": "Structure and coverage are 5: candidate mirrors all sections and fields of the markdown with no missing material. Faithfulness and precision are 5: every string, quote, number, and name matches the source exactly; quote timestamps are correctly converted from mm:ss to seconds. Compression is 4 due to some redundancy: the overview's executive_summary and purpose duplicate content found in topic_map and key_points, and the first topic_map entry includes empty arrays for examples and terminology, adding no information, though this mirrors the source structure.",
+  "total": 4.6,
+  "rationale": "The candidate mirrors the reference structure and captures all major sections, with exact quotes and accurate numbers. Faithfulness is strong: every string checked against markdown is supported. Coverage is comprehensive, including topic map, key points, frameworks, example, takeaways, claims, quotes, and compressed summary. Precision is high: verbatim quotes and correct numeric conversions from timestamps. Compression is lower because the same core claims (human attention bottleneck, three-role architecture, validation contract, serial execution, model-agnostic compounding) are restated across overview, topic_map, key_points, takeaways, and compressed without condensation, adding redundancy beyond a high-density extraction.",
   "hallucinations": [],
-  "elapsed_seconds": 47.3236,
-  "cost_usd": 0.006367
+  "elapsed_seconds": 59.1716,
+  "cost_usd": 0.006708
 }

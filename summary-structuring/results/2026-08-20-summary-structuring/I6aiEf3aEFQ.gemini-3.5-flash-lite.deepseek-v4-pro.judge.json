@@ -6,11 +6,11 @@
     "faithfulness": 5,
     "coverage": 5,
     "precision": 5,
-    "compression": 5
+    "compression": 3
   },
-  "total": 5.0,
-  "rationale": "Candidate JSON mirrors the reference markdown section-by-section with clear organization across overview, topic map, key points, frameworks, examples, takeaways, claims, quotes, and compressed summary. Every string is directly supported by the markdown; quotes are verbatim, numbers and names match exactly, and definitions are preserved. All substantive content—topics, claims, examples, terminology, frameworks, actionable takeaways, and core insights—is captured without omission. No redundant restatement or added verbiage. No hallucinations detected.",
+  "total": 4.6,
+  "rationale": "Structure is clean and comprehensive. Faithfulness and precision are strong: all strings match the markdown, including quotes and Anthropic figures. Coverage includes all major sections (Overview, Topic Map, Key Points, Frameworks, Examples, Takeaways, Claims, Quotes, Compressed Summary). Compression is reduced because the same content is repeated across sections, e.g., the continual learning definition appears in topic_map key_claims, a quote, and compressed bullets; Anthropic revenue is stated in topic_map, examples, and claims_to_verify.",
   "hallucinations": [],
-  "elapsed_seconds": 37.6498,
-  "cost_usd": 0.003971
+  "elapsed_seconds": 54.8411,
+  "cost_usd": 0.004645
 }
