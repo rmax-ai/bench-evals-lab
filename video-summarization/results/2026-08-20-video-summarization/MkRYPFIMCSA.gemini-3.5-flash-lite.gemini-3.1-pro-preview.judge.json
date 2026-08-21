@@ -3,19 +3,21 @@
   "judge_model": "gemini-3.1-pro-preview",
   "scores": {
     "structure": 5,
-    "faithfulness": 3,
-    "coverage": 5,
-    "precision": 4,
-    "compression": 5
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 3,
+    "compression": 4
   },
-  "total": 4.4,
-  "rationale": "The candidate provides an excellent, well-structured summary that covers all the major points from the fact sheet. However, it introduces several specific details that are not present in the source text, such as mentions of PagerDuty, CEL expressions, and specific PostgreSQL functions like 'pg_read_binary_file' and 'dlink'. Additionally, the timestamps in the quotes section are inaccurate and improperly formatted compared to the source.",
+  "total": 3.6,
+  "rationale": "The candidate JSON demonstrates excellent structure and captures the overarching themes of the fact sheet well, properly detailing the necessity of system-level security boundaries and summarizing Claw Patrol. However, it fails significantly on faithfulness by introducing multiple outside facts not present in the source text, including incorrect channel attribution, external URLs, unsupported technical terms, and unmentioned demo modes.",
   "hallucinations": [
-    "Mentions 'PagerDuty' which is not in the fact sheet.",
-    "Introduces 'CEL expressions' which is not found in the text.",
-    "Names specific Postgres functions 'pg_read_binary_file' and 'dlink' which are not listed in the fact sheet.",
-    "Timestamps '21' and '308' in the quotes section do not match the fact sheet."
+    "Lists the channel as 'Maxi' instead of 'AI Engineer'.",
+    "Identifies Ryan Dahl as the 'CEO of Deno' (true externally, but absent from the fact sheet).",
+    "Mentions 'CEL (Common Expression Language)' as a component of Claw Patrol.",
+    "Refers to 'httpjail' and 'Crab Trap' as examples of HTTP proxies.",
+    "Describes the agent attempting an operation in 'YOLO mode'.",
+    "Recommends checking out 'clawpatrol.dev' in the takeaways."
   ],
-  "elapsed_seconds": 114.7996,
-  "cost_usd": 0.010178
+  "elapsed_seconds": 96.7217,
+  "cost_usd": 0.012956
 }

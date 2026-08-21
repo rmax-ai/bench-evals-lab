@@ -4,9 +4,10 @@
   "data": null,
   "validation_passed": false,
   "retries": 2,
-  "elapsed_seconds": 318.7841,
+  "contract_violations": 0,
+  "elapsed_seconds": 357.6889,
   "prompt_tokens": 653650,
-  "completion_tokens": 11828,
-  "cost_usd": 0.225665,
-  "error": "ValidationError: 4 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[29, 443], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string "
+  "completion_tokens": 13893,
+  "cost_usd": 0.230827,
+  "error": "JSONDecodeError: response text is not JSON: line 1 column 1 (char 0)"
 }

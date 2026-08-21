@@ -3,238 +3,289 @@
   "video_id": "V-EDrhIhHzQ",
   "data": {
     "overview": {
-      "title": "Modern Post-Training: A Deep Dive",
+      "title": "Modern Post-Training: A Deep Dive — Will Brown, Prime Intellect",
       "speaker": "Will Brown",
-      "channel": "AI Engineer",
-      "main_topic": "Modern Post-Training Infrastructure, Verifiers, and Asynchronous RL at Scale",
-      "executive_summary": "Will Brown, Head of Applied Research at Prime Intellect, presents a detailed overview of the Prime Intellect Stack for post-training AI models. He introduces Verifiers v1, an open-source library built around the composition of tasksets, harnesses, and runtimes, where environments double as evaluation benchmarks without requiring code changes. He explains the architecture of prime-rl—an asynchronous reinforcement learning framework designed to decouple inference, orchestration, and training—enabling efficient RL on long-horizon agentic tasks even for trillion-parameter MoE models (like GLM-5) across dozens of nodes. The talk also covers tokenization rendering via the Renderers library to eliminate re-tokenization drift, group reward design (e.g. length penalties), Model Context Protocol (MCP) integrations for tools/user simulators, and hosted post-training workflows on the Prime Intellect Lab platform.",
-      "purpose": "To explain the architectural principles, open-source libraries (Verifiers, prime-rl, Renderers), and system design behind modern large-scale post-training and RL for AI agents."
+      "channel": "Maxi",
+      "main_topic": "Modern post-training infrastructure, open-source reinforcement learning frameworks (prime-rl), and modular environment verifiers.",
+      "executive_summary": "Will Brown, Head of Applied Research at Prime Intellect, presents a detailed technical overview of the Prime Intellect post-training stack. He details how the post-training ecosystem is evolving from simple fine-tuning into an iterative loop built around environments, verifiers, and asynchronous reinforcement learning (RL). The talk introduces Verifiers v1—a modular abstraction decoupling tasksets, agent harnesses, and execution runtimes—and prime-rl, an open-source, asynchronous RL trainer designed for scale (supporting 1T parameter models like GLM-5 across dozens of GPU nodes). Brown also covers token-in/token-out rendering to eliminate re-tokenization drift, interception servers, selectable loss functions (GRPO, OPD, OPSD, SFT, ECHO), and hosted multi-tenant LoRA/full-parameter fine-tuning on the Prime Intellect Lab platform.",
+      "purpose": "To explain the architectural principles, open-source abstractions, and scaling strategies for modern post-training and RL with LLMs/agents."
     },
     "topic_map": [
       {
-        "topic": "The Open Superintelligence Stack",
-        "timestamp_range": null,
-        "explanation": "An overview of Prime Intellect's full infrastructure stack spanning compute marketplace, prime-rl trainer, Verifiers environments, Lab platform, and Intellect model series.",
+        "topic": "The Prime Intellect Open Superintelligence Stack",
+        "timestamp_range": "113-211",
+        "explanation": "An overview of Prime Intellect's full-stack infrastructure for open-source AI research, spanning compute marketplaces, RL training frameworks, verifier environments, research platforms, and frontier model training.",
         "key_claims": [
-          "Modern post-training requires an open, end-to-end toolkit so developers and enterprises can improve models on their own domain-specific data and tasks.",
-          "Post-training infrastructure should seamlessly bridge local CPU prototyping and large-scale multi-node GPU clusters."
+          "Open-source models are rapidly approaching frontier closed-source capabilities, making open post-training infrastructure essential.",
+          "Post-training infrastructure must support custom workloads and allow companies to iterate based on real-world production feedback."
         ],
         "examples": [
-          "Global compute marketplace operating over 10,000 GPUs in multi-node clusters."
+          "Operating a global marketplace of over 10,000 GPUs for distributed training and evaluation."
         ],
         "terminology": [
           "Open Superintelligence Stack",
-          "Prime Intellect Lab"
+          "prime-rl",
+          "Lab platform"
         ],
-        "why_it_matters": "Enables open-source AI research and custom model finetuning to compete with proprietary frontier models."
+        "why_it_matters": "Provides developers and enterprises with open-source tools to train, customize, and own frontier-class models tailored to specific domain tasks."
       },
       {
-        "topic": "Environments as Evals and Verifiers v1 Architecture",
-        "timestamp_range": null,
-        "explanation": "Refactoring post-training environments so that the same Python package can be used interchangeably for offline evaluation and live RL/SFT data generation.",
+        "topic": "The Post-Training Loop: Environments as Evals",
+        "timestamp_range": "346-765",
+        "explanation": "Framing post-training as a continuous loop starting from environment construction and evaluation through RL/SFT/distillation and deployment.",
         "key_claims": [
-          "An environment is defined as tasks + harness + verification.",
-          "Decomposing rollouts into `taskset x harness x runtime` allows hot-swapping agent drivers, execution sandboxes, and scoring logic independently.",
-          "Evals are the gateway to post-training; building robust evals directly unlocks the post-training feedback loop."
+          "Environments are a domain-specific language for specifying what you want a model to do.",
+          "Evals and training environments are fundamentally the same abstraction; building good evaluations opens the door directly to post-training."
         ],
         "examples": [
-          "Swe-grep for agentic code search",
-          "Wordle game environment",
-          "Harbor for terminal-based agent evaluation"
+          "Using evaluations to choose between Claude, GPT, or Llama models versus using them as RL reward functions."
+        ],
+        "terminology": [
+          "Post-Training Loop",
+          "Rollouts",
+          "Reward Functions",
+          "Evals"
+        ],
+        "why_it_matters": "Unifies evaluation and training logic into a single installable Python package, preventing duplicated effort across evaluation and training teams."
+      },
+      {
+        "topic": "Verifiers v1: Taskset x Harness x Runtime",
+        "timestamp_range": "765-1045",
+        "explanation": "A major refactoring of the Verifiers library that cleanly separates data/scoring (Taskset), agent interaction logic (Harness), and execution sandbox (Runtime).",
+        "key_claims": [
+          "Decoupling the driver program (Harness) from data (Taskset) and execution backends (Runtime) allows plug-and-play experimentation.",
+          "Any harness should be able to run any taskset inside any runtime environment."
+        ],
+        "examples": [
+          "Running SWE-bench or Harbor tasksets using Codex, Claude Code, or RLM harnesses across local Docker or remote Prime Sandboxes."
         ],
         "terminology": [
           "Taskset",
           "Harness",
           "Runtime",
-          "Interception Server",
-          "Trace Graph"
+          "Interception Server"
         ],
-        "why_it_matters": "Eliminates duplicate engineering work when moving from bench evaluation to training pipeline execution."
+        "why_it_matters": "Enables seamless switching between local rapid prototyping and large-scale cloud execution without rewriting agent or evaluation code."
       },
       {
-        "topic": "Tokenization as a Renderer",
-        "timestamp_range": null,
-        "explanation": "Addressing re-tokenization drift and chat template bugs during agentic multi-turn rollouts by treating tokenization as a dedicated rendering abstraction.",
+        "topic": "Group Rewards and Multi-Objective Optimization in RL",
+        "timestamp_range": "1045-1345",
+        "explanation": "Addressing verbosity bias and length inflation in RL-trained models using group-level comparative rewards.",
         "key_claims": [
-          "Chat templates (like Jinja) introduce subtle bugs such as stripped newlines or mismatched token IDs during multi-turn agent interactions.",
-          "Token-in, token-out (TITO) training guarantees that RL trainers train on the exact token IDs sampled during inference."
+          "LLMs naturally drift toward excessive thinking lengths if not explicitly constrained by efficiency incentives.",
+          "Group rewards leverage variance across parallel samples for the same task to incentivize concise, correct reasoning without hardcoding token caps."
         ],
         "examples": [
-          "OpenAI Harmony / GPT-OS template handling",
-          "Thinking Machines Tinkerer cookbook renderer pattern"
+          "Rewarding the shortest correct rollout among a batch of 8 candidate rollouts for a math or coding problem."
+        ],
+        "terminology": [
+          "Group Rewards",
+          "Conciseness Bonus",
+          "Length Penalty",
+          "GRPO"
+        ],
+        "why_it_matters": "Significantly reduces inference token costs and latency for reasoning models while maintaining or improving correctness."
+      },
+      {
+        "topic": "Tokenization as a Renderer (TITO / Renderers Library)",
+        "timestamp_range": "1531-1699",
+        "explanation": "Treating tokenization and chat templating as a structured rendering phase to prevent tokenization drift and training-inference mismatches.",
+        "key_claims": [
+          "Standard Jinja chat templates introduce subtle bugs like missing/extra newlines that lead to off-policy drift during RL.",
+          "Exact Token-In, Token-Out (TITO) tracking guarantees that log probabilities during training align perfectly with sampled inference tokens."
+        ],
+        "examples": [
+          "OpenAI's Harmony renderer and Prime Intellect's standalone 'renderers' Python library."
         ],
         "terminology": [
           "Renderers",
+          "TITO (Token-In, Token-Out)",
           "Re-tokenization Drift",
-          "Token-in Token-out (TITO)"
+          "Chat Templates"
         ],
-        "why_it_matters": "Prevents numerical instability and off-policy distribution shifts caused by mismatched prompt templates between inference and training."
+        "why_it_matters": "Fixes numeric instability and off-policy errors in RL caused by minor token formatting discrepancies."
       },
       {
-        "topic": "Asynchronous RL with prime-rl",
-        "timestamp_range": null,
-        "explanation": "Designing an RL framework where inference, orchestration, and training operate as fully decoupled asynchronous processes.",
+        "topic": "prime-rl Architecture & Asynchronous Scaling",
+        "timestamp_range": "1759-2125",
+        "explanation": "The architectural breakdown of prime-rl, featuring decoupled inference, orchestrator, and trainer processes operating fully asynchronously.",
         "key_claims": [
-          "Agentic rollouts have long-tail execution times ranging from 30 seconds to hours; synchronous RL wastes significant GPU compute waiting for the slowest rollout.",
-          "Decoupling inference servers and training nodes allows continuous streaming of completed rollouts into training batches without GPU idle time.",
-          "Using off-policy corrections (e.g. DPPO / off-policy loss formulations) enables stable RL training even when rollouts are up to 16+ policy steps behind."
+          "Synchronous RL forces the entire cluster to wait on the slowest long-tail agent rollout; asynchronous RL is essential for multi-turn agent workloads.",
+          "Decoupling inference GPUs from trainer GPUs allows maximum throughput and independent scaling of rollout generation vs. gradient computation."
         ],
         "examples": [
-          "Training GLM-5 (~1 Trillion parameter MoE) with 131k context length at < 5 min step time across 28 H200 nodes."
+          "Training GLM-5 (~1T param MoE) on 28 H200 nodes with 131k sequence lengths and sub-5-minute step times."
         ],
         "terminology": [
-          "prime-rl",
+          "Asynchronous RL",
+          "Inference Server (vLLM)",
           "Orchestrator",
-          "Inference Server",
-          "Trainer",
-          "DPPO"
+          "Trainer (TorchTitan/FSDP2)",
+          "Off-policy-ness"
         ],
-        "why_it_matters": "Drastically reduces post-training time and compute costs for complex, long-horizon coding and reasoning agents."
+        "why_it_matters": "Enables cost-effective RL training on complex, long-horizon coding and agentic tasks where rollouts can take anywhere from seconds to hours."
       },
       {
         "topic": "Selectable Loss Terms & The Post-Training Algorithm Family",
-        "timestamp_range": null,
-        "explanation": "Unifying various post-training methods (GRPO, SFT, OPD, OPSD, ECHO, DAgger) under a single modular class hierarchy with composable loss terms.",
+        "timestamp_range": "2281-2520",
+        "explanation": "A unified mathematical taxonomy framing SFT, RL (GRPO/max_RL), OPD (On-Policy Distillation), OPSD (Self-Distillation), and ECHO as modular combinations of loss terms, target tokens, and advantage weights.",
         "key_claims": [
-          "Most post-training recipes differ primarily in actor source (student vs teacher), advantage assignment, and target loss term.",
-          "Unifying loss terms (RL loss, Cross-Entropy loss, Reference KL loss) into selectable primitives allows rapid experimentation with novel algorithms."
+          "All modern post-training algorithms are combinations of three core loss components: RL advantage loss, Cross-Entropy (CE) loss, and Reference KL loss.",
+          "Researchers can define new algorithms simply by instantiating a class that defines credit assignment and target loss selection."
         ],
         "examples": [
-          "On-Policy Distillation (OPD) querying a teacher model for reference logprobs on student-generated rollouts.",
-          "Self-distillation (OPSD) using hint-conditioned prompts as the teacher."
+          "On-Policy Distillation (OPD) using a frozen teacher model to score student rollouts via KL divergence."
         ],
         "terminology": [
           "GRPO",
           "OPD (On-Policy Distillation)",
           "OPSD (On-Policy Self-Distillation)",
           "ECHO",
-          "Selectable Loss Terms"
+          "Advantage Assignment"
         ],
-        "why_it_matters": "Simplifies research iteration by letting developers swap algorithms via configuration files without refactoring training infrastructure."
+        "why_it_matters": "Simplifies algorithm research by allowing researchers to swap loss objectives via configuration without modifying underlying distributed training code."
       }
     ],
     "key_points": [
       {
-        "point": "Environments are the universal language for specifying model behavior",
-        "explanation": "An environment encapsulates the task data, interaction harness (agent driver), and verification/reward scoring into a single installable package.",
-        "evidence": "By defining environments using Verifiers v1, the same environment package runs evaluation with `uv run eval` or feeds into `prime-rl` training without rewriting code.",
-        "practical_implication": "Teams should write evals using environment-first abstractions so that those evals can instantly become training environments."
+        "point": "Evals and RL training environments are identical abstractions.",
+        "explanation": "An environment consists of a taskset, interaction harness, and verification scoring logic. This same package serves both offline evaluation and online RL rollout collection.",
+        "evidence": "Prime Intellect's Verifiers library uses the exact same Python package for `uv run eval` and `prime train`.",
+        "practical_implication": "Engineering teams only need to write evaluation harnesses once; they can immediately use them for reinforcement learning or distillation."
       },
       {
-        "point": "Asynchronous RL is necessary for long-horizon agent training",
-        "explanation": "Agentic coding and tool-use tasks exhibit severe rollout length variance. Synchronous step-locking stalls trainer GPUs on long-tail outlier rollouts.",
-        "evidence": "prime-rl decouples vLLM inference servers, an orchestrator process, and PyTorch/FSDP2 trainer processes, streaming rollouts asynchronously.",
-        "practical_implication": "Allows training trillion-parameter MoE models on long-horizon SWE tasks in under 3 days (~$50k cost) on 28 nodes instead of weeks on larger clusters."
+        "point": "Asynchronous RL is mandatory for agentic post-training.",
+        "explanation": "Agentic rollouts have long-tail execution times (from 30 seconds to hours). Synchronous RL wastes GPU time waiting for the slowest rollout, whereas async RL updates weights continuously as rollouts complete.",
+        "evidence": "prime-rl decouples vLLM inference nodes from TorchTitan trainer nodes, maintaining stability up to off-policy delays of 16+ steps.",
+        "practical_implication": "Reduces training costs by several multiples when doing RL on complex multi-turn environment tasks like SWE-bench."
       },
       {
-        "point": "Interception servers decouple agent harnesses from RL code",
-        "explanation": "Rather than modifying agent harness code to capture logprobs and handle policy steps, an interception server acts as a proxy providing fake base URLs (OpenAI/Anthropic compatible).",
-        "evidence": "Standard CLI agents (e.g. Claude Code, Codex, SWE-agent) run unmodified against the interception proxy while prime-rl records exact trace graphs.",
-        "practical_implication": "Existing agent codebases and frameworks can be trained via RL with zero code modifications to the agent driver."
+        "point": "Re-tokenization drift ruins RL training stability.",
+        "explanation": "Converting sampled tokens to text and back through standard chat templates alters token boundaries and introduces subtle discrepancies between inference logprobs and training logprobs.",
+        "evidence": "Prime Intellect's 'renderers' library enforces exact Token-In, Token-Out (TITO) tracking across all model families (Qwen, DeepSeek, Llama).",
+        "practical_implication": "Eliminates phantom off-policy divergence caused by chat-template whitespace stripping or Jinja rendering bugs."
       },
       {
-        "point": "Group rewards solve the length explosion problem in reasoning models",
-        "explanation": "Reasoning models tend to over-generate thought tokens unless incentivized for efficiency. Fixed length thresholds fail because optimal lengths vary per problem.",
-        "evidence": "Group rewards (`vf.group_reward`) compare N rollouts generated for the same task prompt and reward the most concise correct response relative to its peer group.",
-        "practical_implication": "Incentivizes model conciseness and efficiency without needing manual, hardcoded length thresholds per task."
+        "point": "Trillion-parameter MoE RL is viable on modest cluster sizes.",
+        "explanation": "With proper parallelisms (FSDP2, Expert Parallelism, Context Parallelism, FP8 training), trillion-parameter MoE models can be trained efficiently via RL on under 30 nodes.",
+        "evidence": "GLM-5 (~1T MoE) trained with 131k context lengths on 28 H200 nodes achieved step times under 5 minutes, costing ~$50k for a 1,000-step run.",
+        "practical_implication": "Enterprise post-training on frontier open weights is financially accessible without requiring tens of thousands of GPUs."
       }
     ],
     "frameworks": [
       {
         "name": "Verifiers v1 Abstraction",
-        "how_it_works": "Decomposes agent interaction into three orthogonal, hot-swappable components: Taskset (data + reward function), Harness (agent driver/program), and Runtime (execution environment).",
+        "how_it_works": "Composes rollouts by combining three independent, interchangeable modules: Taskset (data & reward scoring), Harness (agent driver program), and Runtime (execution sandbox).",
         "components": [
-          "Taskset (e.g. HuggingFace, Harbor, OpenEnv)",
-          "Harness (e.g. Default tool loop, RLM, Codex CLI)",
-          "Runtime (e.g. Subprocess, Local Docker, Prime Sandbox, Modal/E2B)",
-          "Interception Server (Proxy for recording traces and logprobs)"
+          "Taskset (HF datasets, Harbor, Nemogym, OpenEnv)",
+          "Harness (Default, RLM, Codex, Mini-SWE-Agent)",
+          "Runtime (Subprocess, Docker, Prime Sandbox, Modal/E2B)"
         ],
-        "when_to_use": "When building evals or RL training environments for multi-turn tool-using agents."
+        "when_to_use": "When building evals or RL training environments for multi-turn AI agents or coding assistants."
       },
       {
-        "name": "prime-rl Decoupled Architecture",
-        "how_it_works": "Runs Inference, Orchestrator, and Trainer in separate processes across GPUs/nodes. Inference serves live policy; Orchestration runs rollouts and scores them; Trainer performs FSDP2/EP steps and broadcasts updated weights back to inference.",
+        "name": "prime-rl Asynchronous RL Framework",
+        "how_it_works": "Separates system into three distinct server processes: Inference Servers running vLLM, an Orchestrator managing rollout batches and scoring, and a Trainer running PyTorch/TorchTitan for FSDP2 weight updates.",
         "components": [
-          "Inference Engine (vLLM / Live Policy)",
-          "Orchestrator (Rollouts, Algorithms, Scoring, Filtering)",
-          "Trainer (PyTorch, FSDP2, Expert Parallelism, Context Parallelism)",
-          "In-flight Weight Broadcaster"
+          "Inference Engine (vLLM with live policy)",
+          "Orchestrator (Rollout manager & verifier scoring)",
+          "Trainer (FSDP2 + EP + CP gradient computation)"
         ],
-        "when_to_use": "When conducting large-scale RL or post-training on models ranging from small dense models up to 1T+ parameter MoEs."
+        "when_to_use": "When conducting large-scale RL (GRPO, PPO, OPD) on long-context or agentic workloads."
+      },
+      {
+        "name": "Unified Post-Training Loss Taxonomy",
+        "how_it_works": "Expresses total loss as a weighted combination of RL loss (advantage-weighted), Cross-Entropy loss (supervised target), and Reference KL loss (distillation from teacher).",
+        "components": [
+          "rl_loss (GRPO, max_RL)",
+          "ce_loss (SFT, ECHO)",
+          "ref_kl_loss (OPD, OPSD)"
+        ],
+        "when_to_use": "When implementing or experimenting with custom post-training algorithms without altering distributed training code."
       }
     ],
     "examples": [
       {
-        "what_happened": "Prime Intellect trained GLM-5 (~1T parameter MoE) on long-horizon SWE-bench style coding tasks using prime-rl 0.6.0.",
-        "illustrates": "Large-scale asynchronous RL capability on massive mixture-of-experts models.",
-        "lesson": "With 131k max sequence lengths and 256 rollouts per batch across 28 H200 nodes, step times remained under 5 minutes, achieving a 1,000-step RL run in 3 days for ~$50k."
+        "what_happened": "Prime Intellect trained GLM-5 (~1T parameter MoE model) using prime-rl on SWE-bench style long-horizon coding tasks.",
+        "illustrates": "Large-scale RL efficiency using asynchronous execution and FP8 precision on 28 H200 nodes.",
+        "lesson": "Step times remain flat even at 131k sequence context lengths, enabling a 1,000-step RL run to complete in ~3 days for ~$50,000."
       },
       {
-        "what_happened": "Swapping runtime backends on the same SWE task set using the Verifiers CLI (`uv run eval harbor -n 1 --harness.runtime.type docker` vs `type prime`).",
-        "illustrates": "Hot-swappable execution runtimes in Verifiers v1.",
-        "lesson": "Developers can prototype agent evaluation locally in a simple subprocess or Docker container on a laptop, then switch the runtime parameter to a cloud sandbox for distributed training without touching environment code."
+        "what_happened": "Standard Jinja chat templates stripped trailing newlines from assistant responses during rollout generation.",
+        "illustrates": "Re-tokenization drift causing training-inference mismatches in RL.",
+        "lesson": "Token IDs generated during inference must be preserved directly using TITO/renderers rather than re-parsed through text chat templates."
       }
     ],
     "takeaways": {
       "immediate": [
-        "Check out the public `lab-cookbook` repo on GitHub (`github.com/PrimeIntellect-ai/lab-cookbook`) to follow along with post-training guides.",
-        "Use the standalone `renderers` Python library to replace brittle Jinja chat templates and stop re-tokenization drift in multi-turn agent training.",
-        "Use `vf.group_reward` to apply group-relative penalties (like conciseness bonuses) when training reasoning models with GRPO."
+        "Use the open-source 'verifiers' library to write evaluations that double as RL training environments.",
+        "Adopt 'renderers' to handle token-in, token-out (TITO) chat templates and prevent tokenization drift in RL.",
+        "Utilize group rewards (e.g., conciseness bonuses) to combat verbosity bias in reasoning models."
       ],
       "strategic": [
-        "Standardize internal evals into installable environment packages (`taskset + harness + verification`) so they immediately double as RL/SFT training environments.",
-        "Adopt asynchronous RL architecture to decouple inference from training, eliminating GPU idle time caused by long-tail agent execution times.",
-        "Leverage multi-tenant LoRA RL or hosted full finetuning to lower post-training iteration costs relative to expensive API calls."
+        "Decouple inference infrastructure from training infrastructure to handle long-tail agent rollout latency asynchronously.",
+        "Amortize post-training costs into inference budgets through continuous iterative model refinement loops.",
+        "Build custom domain expert models by combining RL on domain tasks with on-policy distillation into a unified base model."
       ],
       "questions_to_investigate": [
-        "How far off-policy can asynchronous agentic rollouts go before DPPO/GRPO updates degrade in stability?",
-        "What are the trade-offs between on-policy distillation (OPD) from proprietary teacher models versus self-distillation (OPSD) using hint-conditioned prompts?"
+        "How far off-policy can asynchronous RL go before gradient updates become unstable in multi-turn environments?",
+        "What are the optimal mixing ratios between GRPO advantage loss and reference KL distillation loss during multi-task expert blending?",
+        "How do MCP (Model Context Protocol) servers compare to containerized sandboxes for agent execution security vs speed?"
       ]
     },
     "claims_to_verify": [
       {
-        "claim": "GLM-5 (~1T parameter MoE) RL step times stay under 5 minutes for 131k sequence lengths across 28 H200 nodes.",
-        "claim_type": "benchmark"
+        "claim": "GLM-5 (~1T params MoE) can run RL steps with 131k context in <5 minutes on 28 H200 nodes.",
+        "claim_type": "empirical"
       },
       {
-        "claim": "A 1,000-step RL training run on a 1T-parameter MoE model costs roughly $50,000 on rental GPUs.",
-        "claim_type": "cost estimate"
+        "claim": "A 1,000-step RL training run on a 1T MoE model costs ~$50,000 at current rental GPU prices.",
+        "claim_type": "financial"
+      },
+      {
+        "claim": "TorchTitan provides greater hackability and modularity for custom RL parallelism compared to Megatron-LM.",
+        "claim_type": "technical"
       }
     ],
     "quotes": [
       {
-        "text": "environments are a language for specifying what you want your model to do.",
-        "timestamp": 353
+        "text": "Environments are a language for specifying what you want your model to do.",
+        "timestamp": 354
       },
       {
-        "text": "the same package, two uses—no rewriting evals to train.",
-        "timestamp": 572
+        "text": "Our goal is to make doing large-scale open source AI research easier.",
+        "timestamp": 85
+      },
+      {
+        "text": "One of the reasons why you really want to do async is that there is a long tail of how long your coding agents take.",
+        "timestamp": 2011
       }
     ],
     "compressed": {
       "bullets": [
-        "Prime Intellect provides an Open Superintelligence Stack encompassing compute, trainer (prime-rl), verifiers, and hosted Lab platform.",
-        "Verifiers v1 composes environments via `taskset x harness x runtime`, making evals identical to training environments.",
-        "Renderers library prevents re-tokenization drift and chat template mismatch between inference and training.",
-        "prime-rl uses decoupled, asynchronous processes for inference, orchestration, and training to handle long-tail agentic rollouts efficiently.",
-        "Successfully scaled async RL to trillion-parameter MoE models (GLM-5) with 131k context lengths at sub-5 minute step times on 28 H200 nodes.",
-        "Selectable loss terms unify GRPO, SFT, OPD, OPSD, and ECHO under simple Python class primitives."
+        "Prime Intellect provides an open superintelligence stack spanning compute, prime-rl, verifiers, and Lab platforms.",
+        "Verifiers v1 modularizes post-training into Taskset (data/scoring), Harness (agent driver), and Runtime (sandbox).",
+        "Exact Token-In, Token-Out (TITO) rendering prevents tokenization drift between inference and training.",
+        "prime-rl uses fully asynchronous architecture decoupling vLLM inference nodes from TorchTitan trainer nodes.",
+        "RL scaling demonstrated on GLM-5 (~1T MoE) with 131k context in <5 min step time on 28 H200 nodes.",
+        "Post-training algorithms (GRPO, OPD, OPSD, ECHO, SFT) are unified under selectable RL, CE, and KL loss terms."
       ],
       "keywords": [
         "post-training",
         "reinforcement-learning",
-        "verifiers",
         "prime-rl",
-        "async-rl",
+        "verifiers",
+        "vllm",
         "grpo"
       ],
-      "core_insight": "Modern post-training for AI agents requires modular environment composition, renderer-based token control, and fully asynchronous RL architecture to efficiently scale long-horizon reasoning models."
+      "core_insight": "Modern post-training unifies evaluations and RL into modular environments, leveraging asynchronous, decoupled training stacks to make frontier-scale model optimization accessible and reliable."
     }
   },
   "validation_passed": true,
-  "retries": 1,
-  "elapsed_seconds": 156.2557,
-  "prompt_tokens": 513486,
-  "completion_tokens": 7353,
-  "cost_usd": 0.412688
+  "retries": 0,
+  "contract_violations": 7,
+  "elapsed_seconds": 92.0755,
+  "prompt_tokens": 256739,
+  "completion_tokens": 4155,
+  "cost_usd": 0.208136
 }

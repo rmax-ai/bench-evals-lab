@@ -1,234 +1,245 @@
 {
-  "generated_at": "2026-08-20T23:43:00.502167+00:00",
+  "generated_at": "2026-08-21T01:49:45.718391+00:00",
   "results_dir": "results/2026-08-20-video-summarization",
   "fact_sheets": {
     "I6aiEf3aEFQ": {
       "built": true,
       "builder_model": "gemini-3.1-pro-preview",
-      "elapsed_seconds": 85.8223,
-      "cost_usd": 0.243382,
+      "builder_models": [
+        "gemini-3.1-pro-preview",
+        "gemini-2.5-pro"
+      ],
+      "elapsed_seconds": 153.8759,
+      "cost_usd": 0.692464,
       "errors": []
     },
     "MkRYPFIMCSA": {
       "built": true,
       "builder_model": "gemini-3.1-pro-preview",
-      "elapsed_seconds": 79.1423,
-      "cost_usd": 0.226504,
+      "builder_models": [
+        "gemini-3.1-pro-preview",
+        "gemini-2.5-pro"
+      ],
+      "elapsed_seconds": 146.1649,
+      "cost_usd": 0.665352,
       "errors": []
     },
     "V-EDrhIhHzQ": {
       "built": true,
       "builder_model": "gemini-3.1-pro-preview",
-      "elapsed_seconds": 83.4185,
-      "cost_usd": 0.532238,
+      "builder_models": [
+        "gemini-3.1-pro-preview",
+        "gemini-2.5-pro"
+      ],
+      "elapsed_seconds": 227.9484,
+      "cost_usd": 1.599853,
       "errors": []
     },
     "ow1we5PzK-o": {
       "built": true,
       "builder_model": "gemini-3.1-pro-preview",
-      "elapsed_seconds": 92.1542,
-      "cost_usd": 0.222414,
+      "builder_models": [
+        "gemini-3.1-pro-preview",
+        "gemini-2.5-pro"
+      ],
+      "elapsed_seconds": 126.0948,
+      "cost_usd": 0.659356,
       "errors": []
     },
     "RjfbvDXpFls": {
       "built": true,
       "builder_model": "gemini-3.1-pro-preview",
-      "elapsed_seconds": 87.0631,
-      "cost_usd": 0.226468,
+      "builder_models": [
+        "gemini-3.1-pro-preview"
+      ],
+      "elapsed_seconds": 161.2524,
+      "cost_usd": 0.223672,
       "errors": []
     }
   },
   "candidates": {
     "gemini-3.5-flash-lite": {
       "latency": {
-        "avg": 77.44,
-        "min": 43.5557,
-        "max": 124.2768
+        "avg": 59.9,
+        "min": 38.9913,
+        "max": 90.9449
       },
       "cost_usd": {
-        "total": 0.355004,
-        "avg": 0.071001
+        "total": 0.310758,
+        "avg": 0.062152
+      },
+      "judges": {
+        "gemini-3.1-pro-preview": {
+          "structure": 5.0,
+          "faithfulness": 2.0,
+          "coverage": 4.25,
+          "precision": 2.75,
+          "compression": 4.25,
+          "total": 3.65,
+          "accuracy": 2.38,
+          "hallucination_total": 24,
+          "judged": 4,
+          "elapsed_seconds": 390.4444,
+          "cost_usd": 0.057728,
+          "errors": []
+        },
+        "deepseek-v4-pro": {
+          "structure": 4.0,
+          "faithfulness": 2.0,
+          "coverage": 3.25,
+          "precision": 2.25,
+          "compression": 3.0,
+          "total": 2.9,
+          "accuracy": 2.12,
+          "hallucination_total": 67,
+          "judged": 4,
+          "elapsed_seconds": 349.9866,
+          "cost_usd": 0.026988,
+          "errors": []
+        }
+      },
+      "validation_failures": 1,
+      "contract_violations": 0,
+      "retries": 3,
+      "errors": [
+        "JSONDecodeError: response text is not JSON: line 1 column 1 (char 0)"
+      ]
+    },
+    "gemini-2.5-pro": {
+      "latency": {
+        "avg": 102.82,
+        "min": 87.3166,
+        "max": 131.938
+      },
+      "cost_usd": {
+        "total": 2.928728,
+        "avg": 0.585746
+      },
+      "judges": {
+        "gemini-3.1-pro-preview": {
+          "structure": 4.8,
+          "faithfulness": 2.8,
+          "coverage": 4.6,
+          "precision": 3.4,
+          "compression": 4.4,
+          "total": 4.0,
+          "accuracy": 3.1,
+          "hallucination_total": 24,
+          "judged": 5,
+          "elapsed_seconds": 548.2044,
+          "cost_usd": 0.091908,
+          "errors": []
+        },
+        "deepseek-v4-pro": {
+          "structure": 4.0,
+          "faithfulness": 2.0,
+          "coverage": 3.4,
+          "precision": 2.0,
+          "compression": 2.2,
+          "total": 2.72,
+          "accuracy": 2.0,
+          "hallucination_total": 59,
+          "judged": 5,
+          "elapsed_seconds": 488.744,
+          "cost_usd": 0.041207,
+          "errors": []
+        }
+      },
+      "validation_failures": 0,
+      "contract_violations": 20,
+      "retries": 0,
+      "errors": []
+    },
+    "gemini-3.6-flash": {
+      "latency": {
+        "avg": 82.38,
+        "min": 45.7457,
+        "max": 143.6799
+      },
+      "cost_usd": {
+        "total": 0.657412,
+        "avg": 0.131482
       },
       "judges": {
         "gemini-3.1-pro-preview": {
           "structure": 5.0,
           "faithfulness": 2.6,
-          "coverage": 4.4,
+          "coverage": 4.8,
           "precision": 3.4,
-          "compression": 4.6,
-          "total": 4.0,
+          "compression": 4.4,
+          "total": 4.04,
           "accuracy": 3.0,
-          "hallucination_total": 20,
+          "hallucination_total": 28,
           "judged": 5,
-          "elapsed_seconds": 483.838,
-          "cost_usd": 0.061784,
+          "elapsed_seconds": 526.4854,
+          "cost_usd": 0.083596,
           "errors": []
         },
         "deepseek-v4-pro": {
-          "structure": 3.8,
+          "structure": 4.4,
           "faithfulness": 1.8,
-          "coverage": 2.8,
-          "precision": 1.8,
+          "coverage": 3.8,
+          "precision": 2.0,
           "compression": 2.4,
-          "total": 2.52,
-          "accuracy": 1.8,
-          "hallucination_total": 73,
+          "total": 2.88,
+          "accuracy": 1.9,
+          "hallucination_total": 93,
           "judged": 5,
-          "elapsed_seconds": 574.9235,
-          "cost_usd": 0.035951,
+          "elapsed_seconds": 458.9609,
+          "cost_usd": 0.038317,
           "errors": []
         }
       },
       "validation_failures": 0,
-      "retries": 2,
+      "contract_violations": 24,
+      "retries": 1,
       "errors": []
     },
-    "gemini-2.5-pro": {
+    "gemini-2.5-flash": {
       "latency": {
-        "avg": 227.21,
-        "min": 200.7163,
-        "max": 303.4457
+        "avg": 207.67,
+        "min": 67.4245,
+        "max": 357.6889
       },
       "cost_usd": {
-        "total": 5.843555,
-        "avg": 1.168711
-      },
-      "judges": {
-        "gemini-3.1-pro-preview": {
-          "structure": null,
-          "faithfulness": null,
-          "coverage": null,
-          "precision": null,
-          "compression": null,
-          "total": null,
-          "accuracy": null,
-          "hallucination_total": 0,
-          "judged": 0,
-          "elapsed_seconds": 0.0,
-          "cost_usd": 0.0,
-          "errors": []
-        },
-        "deepseek-v4-pro": {
-          "structure": null,
-          "faithfulness": null,
-          "coverage": null,
-          "precision": null,
-          "compression": null,
-          "total": null,
-          "accuracy": null,
-          "hallucination_total": 0,
-          "judged": 0,
-          "elapsed_seconds": 0.0,
-          "cost_usd": 0.0,
-          "errors": []
-        }
-      },
-      "validation_failures": 5,
-      "retries": 10,
-      "errors": [
-        "ValidationError: 5 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[125, 248], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string",
-        "ValidationError: 5 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[34, 134], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string ",
-        "ValidationError: 3 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[113, 152], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string",
-        "ValidationError: 6 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[104, 148], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string",
-        "ValidationError: 1 validation error for SummarySchema\noverview.channel\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type"
-      ]
-    },
-    "gemini-3.6-flash": {
-      "latency": {
-        "avg": 140.9,
-        "min": 111.9289,
-        "max": 191.3669
-      },
-      "cost_usd": {
-        "total": 1.040376,
-        "avg": 0.208075
+        "total": 0.965129,
+        "avg": 0.193026
       },
       "judges": {
         "gemini-3.1-pro-preview": {
           "structure": 5.0,
           "faithfulness": 2.5,
           "coverage": 5.0,
-          "precision": 3.0,
-          "compression": 3.0,
-          "total": 3.7,
-          "accuracy": 2.75,
-          "hallucination_total": 14,
-          "judged": 2,
-          "elapsed_seconds": 217.9157,
-          "cost_usd": 0.026678,
+          "precision": 3.5,
+          "compression": 4.0,
+          "total": 4.0,
+          "accuracy": 3.0,
+          "hallucination_total": 17,
+          "judged": 4,
+          "elapsed_seconds": 458.2925,
+          "cost_usd": 0.091452,
           "errors": []
         },
         "deepseek-v4-pro": {
-          "structure": 4.0,
+          "structure": 3.75,
           "faithfulness": 2.0,
-          "coverage": 3.5,
-          "precision": 2.0,
+          "coverage": 3.75,
+          "precision": 1.75,
           "compression": 2.0,
-          "total": 2.7,
-          "accuracy": 2.0,
-          "hallucination_total": 50,
-          "judged": 2,
-          "elapsed_seconds": 218.1272,
-          "cost_usd": 0.013174,
+          "total": 2.65,
+          "accuracy": 1.88,
+          "hallucination_total": 60,
+          "judged": 4,
+          "elapsed_seconds": 344.8167,
+          "cost_usd": 0.033727,
           "errors": []
         }
       },
-      "validation_failures": 3,
-      "retries": 7,
+      "validation_failures": 1,
+      "contract_violations": 39,
+      "retries": 3,
       "errors": [
-        "ValidationError: 5 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[85, 228], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string ",
-        "ValidationError: 6 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[64, 108], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string ",
-        "ValidationError: 4 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[30, 305], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string "
-      ]
-    },
-    "gemini-2.5-flash": {
-      "latency": {
-        "avg": 313.75,
-        "min": 149.7587,
-        "max": 762.2156
-      },
-      "cost_usd": {
-        "total": 1.453523,
-        "avg": 0.290705
-      },
-      "judges": {
-        "gemini-3.1-pro-preview": {
-          "structure": null,
-          "faithfulness": null,
-          "coverage": null,
-          "precision": null,
-          "compression": null,
-          "total": null,
-          "accuracy": null,
-          "hallucination_total": 0,
-          "judged": 0,
-          "elapsed_seconds": 0.0,
-          "cost_usd": 0.0,
-          "errors": []
-        },
-        "deepseek-v4-pro": {
-          "structure": null,
-          "faithfulness": null,
-          "coverage": null,
-          "precision": null,
-          "compression": null,
-          "total": null,
-          "accuracy": null,
-          "hallucination_total": 0,
-          "judged": 0,
-          "elapsed_seconds": 0.0,
-          "cost_usd": 0.0,
-          "errors": []
-        }
-      },
-      "validation_failures": 5,
-      "retries": 10,
-      "errors": [
-        "ValidationError: 8 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[85, 291], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string ",
-        "ValidationError: 6 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[34, 245], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string ",
-        "ValidationError: 10 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[0, 320], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string ",
-        "ValidationError: 11 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[104, 149], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid strin",
-        "ValidationError: 4 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[29, 443], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string "
+        "JSONDecodeError: response text is not JSON: line 1 column 1 (char 0)"
       ]
     }
   },
@@ -237,38 +248,38 @@
     "rank": [
       {
         "candidate": "gemini-3.5-flash-lite",
-        "quality": 3.26,
-        "cost_per_video": 0.071001,
-        "quality_per_cost": 45.9148,
+        "quality": 3.27,
+        "cost_per_video": 0.062152,
+        "quality_per_cost": 52.6129,
         "rank": 1
       },
       {
         "candidate": "gemini-3.6-flash",
-        "quality": 3.2,
-        "cost_per_video": 0.208075,
-        "quality_per_cost": 15.3791,
+        "quality": 3.46,
+        "cost_per_video": 0.131482,
+        "quality_per_cost": 26.3154,
         "rank": 2
       },
       {
-        "candidate": "gemini-2.5-pro",
-        "quality": null,
-        "cost_per_video": 1.168711,
-        "quality_per_cost": null,
+        "candidate": "gemini-2.5-flash",
+        "quality": 3.33,
+        "cost_per_video": 0.193026,
+        "quality_per_cost": 17.2516,
         "rank": 3
       },
       {
-        "candidate": "gemini-2.5-flash",
-        "quality": null,
-        "cost_per_video": 0.290705,
-        "quality_per_cost": null,
+        "candidate": "gemini-2.5-pro",
+        "quality": 3.36,
+        "cost_per_video": 0.585746,
+        "quality_per_cost": 5.7363,
         "rank": 4
       }
     ]
   },
   "totals": {
-    "cost_usd": 8.692458,
-    "elapsed_seconds": 5718.9049,
-    "retries": 29,
-    "validation_failures": 13
+    "cost_usd": 4.862027,
+    "elapsed_seconds": 6645.0545,
+    "retries": 7,
+    "validation_failures": 2
   }
 }

@@ -2,23 +2,32 @@
   "judged_candidate": "gemini-3.5-flash-lite",
   "judge_model": "deepseek-v4-pro",
   "scores": {
-    "structure": 5,
+    "structure": 4,
     "faithfulness": 2,
     "coverage": 3,
     "precision": 2,
     "compression": 3
   },
-  "total": 3.0,
-  "rationale": "Structure is well organized with clear sections. Faithfulness suffers from fabricated formula 'Intelligence + Continual Learning = Expertise', an invented graph, and a wrong Anthropic statistic ($40B vs $40-60M). Coverage misses the bug-review example, many notable quotes, and two components of the continual-learning framework (world models, value estimation). Precision is low: all quote timestamps are incorrect (e.g., 635s vs 06:34), and quotes are not verbatim ('reusable structure' vs 'reusable structures'; expertise quote mixed with definition). Compression is moderate: definitions and points are repeated across overview, topic_map, and compressed sections.",
+  "total": 2.8,
+  "rationale": "Faithfulness 2: unsupported additions include channel 'Maxi', Claude Code interface, token-inefficiency, reliability-plasticity tradeoff, healthcare/finance/tutoring/executive assistant domains, parametric/non-parametric distinctions. Coverage 3: missing OpenGlass Inbox Deletion example, several exact terminology definitions (Local Physics, Escape Intelligence), and many notable quotes/stats details. Precision 2: quote timestamps wrong (325 vs 210 sec, 1050 vs 650 sec; first quote 45 vs 46), channel incorrect. Compression 3: redundant restatement across topic_map, key_points, takeaways, and compressed sections.",
   "hallucinations": [
-    "Intelligence + Continual Learning = Expertise",
-    "Anthropic's annualized run rate grew 400 times to $40 billion in under two years.",
-    "Graph of Expertise vs. Raw Intelligence showing strong continual learning achieving exponential escape expertise.",
-    "Different continual learning algorithms set the slope of the learning curve relative to raw intelligence.",
-    "MIT report showing 95% of generative AI pilots at companies failing due to brittle errors in enterprise settings.",
-    "Expertise is accumulated and situated competence: the ability to act reliably, efficiently, and with judgment to achieve reproducibly superior performance in a particular domain.",
-    "Continual learning is adaptive compression of experience into reusable structure for future behavior."
+    "Maxi",
+    "We are standing between intelligence and expertise.",
+    "Current agents are good at coding but terrible at everything else.",
+    "Current agents are token-inefficient.",
+    "Company token-maxing efforts in enterprise settings.",
+    "Claude Code interface.",
+    "Graphs plotting expertise versus raw intelligence with different continual learning slopes.",
+    "Healthcare, finance, tutoring, and executive assistant use cases.",
+    "We need to answer how to measure expertise and handle the reliability-plasticity tradeoff.",
+    "parametric learning",
+    "non-parametric learning",
+    "reliability",
+    "plasticity",
+    "How to measure expertise in specific environments?",
+    "How to balance the trade-off between system reliability and plasticity?",
+    "How to synergize parametric and non-parametric learning?"
   ],
-  "elapsed_seconds": 124.3275,
-  "cost_usd": 0.007572
+  "elapsed_seconds": 103.3778,
+  "cost_usd": 0.006641
 }

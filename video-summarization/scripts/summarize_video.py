@@ -156,6 +156,49 @@ def resolve_title(video_id: str) -> str:
     return ""
 
 
+def resolve_channel(video_id: str) -> str:
+    """Look up the video channel from corpus/manifest.json; '' when unknown."""
+    try:
+        document = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return ""
+    for item in document.get("items") or []:
+        if item.get("video_id") == video_id:
+            return item.get("channel") or ""
+    return ""
+
+
+def coerce_timestamp_ranges(obj: Any) -> int:
+    """Recursively coerce ``timestamp_range`` values that are ``[start, end]``.
+
+    The SummarySchema contract requires ``timestamp_range`` to be a string
+    ("start-end"). Some candidates emit a two-integer list instead. That is a
+    contract violation, not a content failure: coerce it to "start-end" in
+    place and return how many coercions were performed so the run can count
+    them as a metric instead of failing.
+    """
+    count = 0
+    if isinstance(obj, dict):
+        for key, value in obj.items():
+            if (
+                key == "timestamp_range"
+                and isinstance(value, list)
+                and len(value) == 2
+                and all(
+                    isinstance(number, int) and not isinstance(number, bool)
+                    for number in value
+                )
+            ):
+                obj[key] = f"{value[0]}-{value[1]}"
+                count += 1
+            else:
+                count += coerce_timestamp_ranges(value)
+    elif isinstance(obj, list):
+        for item in obj:
+            count += coerce_timestamp_ranges(item)
+    return count
+
+
 def build_prompt(title: str, video_id: str, channel: str = "") -> str:
     """Fill the summary.md template with the video title, id, and channel."""
     prompt = load_prompt().replace("{title}", title).replace("{channel}", channel or "")
@@ -273,12 +316,13 @@ def run_summarize(
     if candidate not in CANDIDATES:
         raise ValueError(f"unknown candidate {candidate!r}")
 
-    prompt = build_prompt(resolve_title(video_id), video_id)
+    prompt = build_prompt(resolve_title(video_id), video_id, resolve_channel(video_id))
     started = time.perf_counter()
     retries = 0
     error_note = ""
     prompt_tokens = completion_tokens = 0
     cost_usd = 0.0
+    contract_violations = 0
     data: dict | None = None
 
     for attempt in (0, 1):
@@ -298,6 +342,7 @@ def run_summarize(
         try:
             if parsed is None:
                 raise json.JSONDecodeError("response text is not JSON", raw, 0)
+            contract_violations += coerce_timestamp_ranges(parsed)
             data = SummarySchema.model_validate(parsed).model_dump(mode="json")
             break
         except (json.JSONDecodeError, ValidationError, KeyError, TypeError) as parse_error:
@@ -312,6 +357,7 @@ def run_summarize(
             "data": None,
             "validation_passed": False,
             "retries": retries,
+            "contract_violations": contract_violations,
             "elapsed_seconds": round(elapsed, 4),
             "prompt_tokens": prompt_tokens,
             "completion_tokens": completion_tokens,
@@ -327,6 +373,7 @@ def run_summarize(
         "data": data,
         "validation_passed": True,
         "retries": retries,
+        "contract_violations": contract_violations,
         "elapsed_seconds": round(elapsed, 4),
         "prompt_tokens": prompt_tokens,
         "completion_tokens": completion_tokens,

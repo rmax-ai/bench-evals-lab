@@ -1,0 +1,20 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 5,
+    "precision": 3,
+    "compression": 4
+  },
+  "total": 3.8,
+  "rationale": "The candidate JSON covers the main concepts effectively and is well-structured, but it introduces several specific details not present in the fact sheet. These include the channel name 'Maxi', terms like 'httpjail', 'Crab Trap', 'Agent Vault', 'yolo mode', 'clopatrol run codex --yolo', and 'pg-staging', which significantly impacts faithfulness and precision.",
+  "hallucinations": [
+    "Channel is named 'Maxi' instead of 'AI Engineer'.",
+    "References to 'httpjail', 'Crab Trap', and 'Agent Vault'.",
+    "Mentions of 'yolo mode', 'yellow mode', the command 'clopatrol run codex --yolo', and 'pg-staging'."
+  ],
+  "elapsed_seconds": 111.5626,
+  "cost_usd": 0.015722
+}

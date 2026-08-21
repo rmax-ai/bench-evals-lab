@@ -1,0 +1,39 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 1,
+    "compression": 2
+  },
+  "total": 2.6,
+  "rationale": "Faithfulness 2: channel 'Maxi', 'CEO/creator of Node.js', PagerDuty, GitHub/Grafana, kubectl delete namespace prod, MCP 'Message Channel Protocol', yolo/clopatrol command, pg-staging, httpjail/Crab Trap/Agent Vault, and many quotes are unsupported. Precision 1: quotes are not verbatim ('fishy thinking', 'bites over the wire', 'Dino/no JS'), MCP expansion wrong, timestamps differ, omitted 1,000-line HCL stat. Compression 2: topic_map, key_points, takeaways, and compressed repeatedly restate external boundary/network proxy/alignment. Structure 4 organized; coverage 4 largely includes core claims/examples.",
+  "hallucinations": [
+    "Maxi",
+    "CEO of Deno and creator of Node.js",
+    "PagerDuty",
+    "GitHub",
+    "Grafana",
+    "kubectl delete namespace prod",
+    "MCP (Message Channel Protocol)",
+    "yolo mode (yellow mode, meaning it will obey instructions without immediate checks) by `clopatrol run codex --yolo`",
+    "pg-staging",
+    "httpjail",
+    "Crab Trap",
+    "Agent Vault",
+    "My name is Ryan. Um, I'm going to I'm I'm the CEO at Dino and uh, yeah, you've been developing software for for quite a while at this point. You might know one of my projects, no JS.",
+    "This is very powerful uh because the agents can actually get all of the context.",
+    "But it is very dangerous of course, because these agents could do nefarious things.",
+    "This is not sufficient, right? Security can't just be fishy thinking that will always obey your your wishes.",
+    "Effectively, every nefarious action that that in could take every good action that it takes comes in the form of some network communication. Some some bites over the wire.",
+    "We must ensure it never can DROP TABLE.",
+    "Just give the agent safe read-only endpoints and let it compose them.",
+    "Nothing else closes the gap.",
+    "A proxy that terminates the wire, holds credentials, evaluates every action against rules written in HCL.",
+    "I think we can we'll never be able to fully trust uh AIs."
+  ],
+  "elapsed_seconds": 68.1284,
+  "cost_usd": 0.006385
+}

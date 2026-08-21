@@ -1,0 +1,26 @@
+{
+  "judged_candidate": "gemini-3.6-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 5
+  },
+  "total": 4.4,
+  "rationale": "The candidate JSON is excellently structured, deeply comprehensive, and effectively compresses the information from the fact sheet. It captures the complex frameworks, quotes, and core insights exceptionally well. However, faithfulness and precision are significantly impacted by several hallucinations and external knowledge injections, particularly regarding the channel name, the speaker's external background, and specific numerical statistics associated with the Slack clone example.",
+  "hallucinations": [
+    "Channel is stated as 'Maxi' instead of 'AI Engineer'.",
+    "Speaker's last name is spelled 'Alvoeiro' instead of 'Alvezio'.",
+    "Speaker is claimed to be 'creator of Goose at Block', which is not present in the fact sheet.",
+    "Slack clone total runtime is listed as 16.5 hours instead of 18.5 hours.",
+    "Slack clone agent runs are listed as 185 instead of 195.",
+    "Lines of code for the Slack clone is listed as 38.5k instead of 35.8k.",
+    "Test coverage is listed as 89.2% instead of 89.25%.",
+    "Claims '95.7% prompt cache savings', which is nowhere in the fact sheet.",
+    "Timestamps in the topic map are fabricated ranges (e.g., '64-109', '109-243') instead of the specific MM:SS timestamps provided in the fact sheet."
+  ],
+  "elapsed_seconds": 108.8115,
+  "cost_usd": 0.020224
+}

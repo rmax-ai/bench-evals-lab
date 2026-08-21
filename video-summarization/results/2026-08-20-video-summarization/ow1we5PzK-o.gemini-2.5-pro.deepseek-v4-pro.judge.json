@@ -1,0 +1,25 @@
+{
+  "judged_candidate": "gemini-2.5-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 2,
+    "coverage": 3,
+    "precision": 2,
+    "compression": 2
+  },
+  "total": 2.6,
+  "rationale": "Faithfulness suffers from fabricated quotes and incorrect speaker/channel/title. Coverage misses enterprise use cases, Droid Whispering, 16/30-day runs, 195 agent runs, 60.5%/37.2% phase split. Precision suffers from misspelled speaker 'Alvoeiro', wrong channel 'Maxi', altered/invented quotes, rounded stats. Compression is low due to heavy redundancy across overview, topic_map, key_points, takeaways, compressed. Structure is coherent and populated.",
+  "hallucinations": [
+    "Luke Alvoeiro",
+    "Maxi",
+    "The Multi-Agent Architecture That Actually Ships — Luke Alvoeiro, Factory",
+    "What if the human decides what to build, and the system figures out how?",
+    "For multi-day runs, correctness compounds.",
+    "When a better model drops, the system just gets smarter. No code changes needed.",
+    "Describe what you want. Argue with the orchestrator about scope. Approve the plan. Then go do something else.",
+    "Missions ensure discipline, the models provide intelligence."
+  ],
+  "elapsed_seconds": 70.3324,
+  "cost_usd": 0.006757
+}

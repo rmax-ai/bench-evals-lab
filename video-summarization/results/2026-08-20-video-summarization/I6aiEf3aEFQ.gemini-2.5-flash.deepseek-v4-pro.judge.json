@@ -1,0 +1,32 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 2
+  },
+  "total": 2.8,
+  "rationale": "Structure 4: well-organized but sections overlap and timestamp ranges are not grounded. Faithfulness 2: multiple invented strings, e.g. 'Maxi', 'NeoCognition', 'OpenClaw', 'Andrej Karpathy', and fabricated quotes. Coverage 4: captures core themes but misses 'OpenGlass Inbox Deletion', the bug-report example, and the financial-stat caveat. Precision 2: fabricated/misattributed quotes and names; timestamps inconsistent. Compression 2: key ideas repeated across overview, topic_map, key_points, takeaways, and compressed sections.",
+  "hallucinations": [
+    "Maxi",
+    "NeoCognition",
+    "OpenClaw",
+    "brittle and silly errors",
+    "Andrej Karpathy's observation",
+    "token-inefficient",
+    "Use the cheap model here. Escalate there. This answer is technically correct but not good enough.",
+    "I've seen this type of customer escalation before.",
+    "This policy applies only if these preconditions hold.",
+    "I understand that I'm standing between you and the lunch, so I'll try to be quick.",
+    "We don't need stronger intelligence anymore. Continue learning will bring us like unbounded expertise once we have like a reasonable level of intelligence.",
+    "Specialization can lead to better generalization.",
+    "Personal healthcare, finance advisors, tutors, executive assistants enabled by scaled expertise.",
+    "Parametric and non-parametric learning",
+    "self-improving"
+  ],
+  "elapsed_seconds": 113.9427,
+  "cost_usd": 0.009526
+}

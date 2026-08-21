@@ -1,0 +1,27 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 3,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 2
+  },
+  "total": 2.6,
+  "rationale": "Structure is organized but redundant and contradictory (executive summary says five strategies vs. Missions' four). Faithfulness suffers from numerous unsupported strings: misspelled speaker, wrong channel, invented 'Mission Control' section, unsupported quotes and questions. Precision is poor due to misspelled name 'Alvoeiro', wrong channel 'Maxi', and non-verbatim quote texts. Compression is very low due to extensive repeated material across topic_map, key_points, frameworks, examples, takeaways, and compressed sections. Coverage is strong, including all major topics, strategies, architecture, validation loop, stats, and examples.",
+  "hallucinations": [
+    "Luke Alvoeiro",
+    "Maxi",
+    "The Multi-Agent Architecture That Actually Ships — Luke Alvoeiro, Factory",
+    "Mission Control Interface",
+    "A standard chat interface is inadequate for multi-day autonomous work.",
+    "ML research",
+    "Today's models are smart enough to figure out all 50 of these tasks but there's not enough uh just bandwidth to supervise their implementation.",
+    "What if a human decides what to build and then a system figures out how to do so?",
+    "Try running slash missions, argue with the orchestrator about the scope. Approve the plan and then go do something else.",
+    "The data from production missions is clear. This works on real projects at scale today."
+  ],
+  "elapsed_seconds": 82.2088,
+  "cost_usd": 0.009349
+}

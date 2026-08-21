@@ -1,0 +1,23 @@
+{
+  "judged_candidate": "gemini-2.5-pro",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 5,
+    "precision": 3,
+    "compression": 4
+  },
+  "total": 3.8,
+  "rationale": "The candidate JSON demonstrates excellent structure and comprehensive coverage of the fact sheet's core concepts. However, it severely struggles with faithfulness. It hallucinates the channel name, alters the speaker's surname, invents highly specific timestamp ranges for the topic map, and fabricates multiple exact quotes that do not appear in the ground truth. These unverified additions significantly reduce both faithfulness and precision.",
+  "hallucinations": [
+    "Identifies the channel as 'Maxi' instead of 'AI Engineer'.",
+    "Lists the speaker as 'Luke Alvoeiro' instead of 'Luke Alvezio'.",
+    "Invents specific timestamp ranges for all items in the topic_map (e.g., '64-108', '109-236').",
+    "Fabricates the quote: 'What if the human decides what to build, and the system figures out how?'",
+    "Fabricates the quote: 'When a better model drops, the system just gets smarter. No code changes needed.'",
+    "Fabricates the quote: 'Describe what you want. Argue with the orchestrator about scope. Approve the plan. Then go do something else.'"
+  ],
+  "elapsed_seconds": 100.5846,
+  "cost_usd": 0.019606
+}

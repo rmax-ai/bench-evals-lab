@@ -1,0 +1,29 @@
+{
+  "judged_candidate": "gemini-2.5-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 2
+  },
+  "total": 3.0,
+  "rationale": "Faithfulness is low due to multiple unsupported specifics: channel 'Maxi'; CEO/Node.js; PagerDuty/GitHub/Grafana; 'pretty well'; 'kubectl delete namespace prod'; plugin system; '#agent-ops'; Claude Haiku; AWS SigV4/bearer tokens; quote 'We give OpenClaw read/write access to prod'; reason 'schema/privilege changes must land via a migration PR'. Coverage misses MCP terminology and the 1,000-line HCL statistic. Precision suffers from wrong quote timestamps (e.g., 141 vs 00:21) and invented quote/reason. Compression is poor due to repeated restatement across overview, topic_map, key_points, and compressed sections.",
+  "hallucinations": [
+    "Maxi",
+    "Ryan Dahl, CEO of Deno and creator of Node.js, argues",
+    "This pattern of using AI agents as SRE first responders is working 'pretty well' for the Deno team.",
+    "When PagerDuty fires, an OpenClaw agent investigates by accessing systems like Postgres, Kubernetes, Clickhouse, AWS, GitHub, Slack, and Grafana.",
+    "Agents can solve a significant number of incidents that previously required a human SRE.",
+    "An agent could execute `kubectl delete namespace prod`.",
+    "It includes a plugin system to handle custom protocols beyond its built-in support.",
+    "Routing a potentially dangerous action to an '#agent-ops' Slack channel for approval.",
+    "Using a smaller, faster LLM like Claude Haiku to judge if a database query is attempting to access secret data.",
+    "Injecting AWS SigV4 signatures, Postgres passwords, or API bearer tokens at the proxy layer.",
+    "We give OpenClaw read/write access to prod.",
+    "schema/privilege changes must land via a migration PR"
+  ],
+  "elapsed_seconds": 135.2731,
+  "cost_usd": 0.010953
+}

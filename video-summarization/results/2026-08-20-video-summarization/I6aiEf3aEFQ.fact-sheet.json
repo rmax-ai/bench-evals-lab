@@ -1,189 +1,270 @@
 {
   "speaker": "Yu Su",
   "channel": "AI Engineer",
-  "main_topic": "The distinction between intelligence and expertise in AI agents, and how continual learning is necessary to bridge this gap and achieve specialized, expert-level performance in diverse digital micro-worlds.",
+  "main_topic": "The distinction between intelligence and expertise in AI, and how continual learning is the bridge to creating expert agents.",
   "key_claims": [
+    "Multimodal LLMs have ushered AI into a new evolutionary stage by unifying sensory inputs into representations conducive to symbolic reasoning.",
+    "Language agents found their first mass market in coding because code is inherently a language-native, symbolic world.",
+    "When AI agents leave the structured world of code for everyday digital work, they often fail, illustrating a 'Modern Moravec's Paradox'.",
+    "Modern society is not a single unified environment, but millions of heterogeneous 'micro-worlds', each with unique local physics and constraints.",
+    "Experts do not simply memorize more facts than novices; they perceive the world differently through pattern recognition, deep structure, conditional knowledge, and judgment.",
+    "Intelligence and expertise are orthogonal dimensions; increasing intelligence without the ability to learn continually only produces the 'world's smartest novice'.",
+    "Continual learning is the essential mechanism that compresses raw experience into reusable structures for future behavior.",
+    "Once raw intelligence crosses a certain threshold, continuous learning can lead to 'escape intelligence', unlocking unbounded expertise.",
+    "Raw intelligence is rapidly becoming abundant and commoditized, but true expertise remains scarce.",
+    "Making expertise abundant through human-AI learning loops will lower friction and make new types of work economically viable.",
     {
-      "claim": "AI agents have entered a new evolutionary stage with the advent of Language Agents.",
-      "supporting_details": "Language agents build upon multimodal LLMs, combining unified neural representation of multi-sensory inputs with the ability to perform symbolic reasoning and communication."
+      "claim": "There is a fundamental difference between intelligence and expertise.",
+      "details": "Intelligence is the general capacity to solve unfamiliar problems from context, while expertise is accumulated, situated competence for reliable performance in a specific domain."
     },
     {
-      "claim": "Language agents found their first mass market in coding because coding is a language-native world.",
-      "supporting_details": "In coding, goals, tools, errors, history, and rewards are all expressed symbolically, making it the ideal environment for language models. Anthropic's rapid revenue growth exemplifies this success."
+      "claim": "Current AI agents (LLMs) are highly intelligent but lack expertise, making them 'the world's smartest novices.'",
+      "details": "They can reason through new problems but lack the deep, accumulated knowledge that enables reliable and efficient performance in specialized real-world environments."
     },
     {
-      "claim": "AI agents struggle significantly when they leave the privileged world of code, leading to a modern Moravec's Paradox.",
-      "supporting_details": "An MIT report shows 95% of generative AI pilots are failing. Agents excel at complex symbolic reasoning (like coding and math) but fail at everyday digital work because real-world tasks require different cognitive competencies."
+      "claim": "The success of AI agents in coding is an exception, not the rule.",
+      "details": "Coding is a 'language-native world' with clear symbolic rules and feedback, a privileged environment that doesn't represent the complexity of most other tasks."
     },
     {
-      "claim": "Modern society consists of millions of heterogeneous and dynamic micro-worlds, not just one unified world.",
-      "supporting_details": "Every domain, profession, organization, and software configuration has its own unique 'local physics' (structures, constraints, affordances). A single monolithic model cannot compress all this into one static representation."
+      "claim": "The real world is composed of millions of heterogeneous 'micro-worlds' that monolithic models cannot capture.",
+      "details": "Each profession, organization, or software system has its own unique 'local physics' (structures, constraints, dynamics) that requires specialized knowledge."
     },
     {
-      "claim": "Intelligence is fundamentally different from expertise.",
-      "supporting_details": "Intelligence is the general capacity to reason through unfamiliar problems using provided context, whereas expertise is accumulated, situated competence that allows for reliable and efficient action in a specific domain."
+      "claim": "Continual learning is the key mechanism to bridge the gap between intelligence and expertise.",
+      "details": "It allows agents to adapt and specialize to different micro-worlds by compressing experience into reusable structures for future behavior."
     },
     {
-      "claim": "Experts perceive the world differently than novices do.",
-      "supporting_details": "Experts rely on pattern recognition, understanding of deep structures, conditional knowledge (knowing when rules apply and when they can be bent), and judgment/taste to build a functional world model of their environment."
+      "claim": "Scaling expertise, not just raw intelligence, is the next major frontier for AI.",
+      "details": "While raw intelligence is becoming an abundant, rentable commodity, expertise remains scarce and is the key to unlocking widespread AI adoption and value."
     },
     {
-      "claim": "Continual learning is the essential bridge from intelligence to expertise.",
-      "supporting_details": "Continual learning is the adaptive compression of experience into reusable structures for future behavior. It allows agents to accumulate situated knowledge and compress the search space of problem-solving."
-    },
-    {
-      "claim": "Scaling raw intelligence without continual learning only creates the 'world's smartest novice.'",
-      "supporting_details": "Without continual learning, an AI will brute-force problems by expanding search, but it will never accumulate the specialized expertise needed to solve problems efficiently and reliably."
-    },
-    {
-      "claim": "Strong continual learning can unlock 'escape intelligence' and unbounded expertise.",
-      "supporting_details": "Once raw intelligence crosses a certain threshold, a strong continual learning algorithm allows an agent to achieve unbounded expertise without requiring further increases in base intelligence."
+      "claim": "A strong continual learning capability can lead to 'unbounded expertise from bounded intelligence.'",
+      "details": "Once a base level of 'escape intelligence' is reached, an effective continual learning process can enable expertise to grow exponentially without needing to further scale the base intelligence."
     }
   ],
   "frameworks": [
     {
-      "name": "Evolutionary Stages of Machine Intelligence",
+      "name": "Modern Moravec's Paradox",
       "components": [
-        "Logical Agent (1960s-1980s): Expert systems with limited facets of reasoning.",
-        "Neural Agent (2010s): Deep RL-based agents focusing on perception and single modalities.",
-        "Language Agent (Recent): Built on multimodal LLMs, encoding multi-sensory inputs into unified neural representations conducive to symbolic reasoning."
+        "Symbolic Reasoning: The visible 'tip of the iceberg' (e.g., math, coding) where modern AI excels.",
+        "Everyday Digital Work: The submerged, much larger portion (e.g., planning, grounding, world modeling, social norms) where AI currently struggles."
       ]
     },
     {
       "name": "Intelligence vs. Expertise",
       "components": [
-        "Intelligence: General, relies on inference-time reasoning, solves from provided context, expands search space, can be rented.",
-        "Expertise: Situated, accumulated over time, brings the right context to the problem, compresses search space, must be learned in situ."
+        "Intelligence: General, inference-time reasoning, solves problems from given context, expands the search space, can be rented.",
+        "Expertise: Situated, accumulated over time, brings the right context to the problem, compresses the search space, must be learned in situ."
       ]
     },
     {
-      "name": "How Experts See the World",
+      "name": "Definition of Continual Learning",
       "components": [
-        "Pattern recognition: Recognizing meaningful patterns over isolated facts.",
-        "Deep structure: Operating via underlying structures rather than surface forms.",
-        "Conditional knowledge: Knowing when rules apply, when they don't, and when exceptions can be made.",
-        "Judgment and taste: Knowing what constitutes high quality, assessing effort and risk, and knowing when to stop."
+        "Experience: What is learned (episodes, facts, procedures, feedback).",
+        "Compression: How it is learned (embedding, indexing, distillation, reinforcement learning).",
+        "Structure: Where it is stored (parameters, vectors, graphs, skills, world models).",
+        "Usage: How it is applied (recall, prediction, planning, control, value estimation)."
       ]
     },
     {
-      "name": "The Continual Learning Framework",
+      "name": "Evolution of Machine Intelligence Agents",
       "components": [
-        "What experience? Episodes, facts, procedures, feedback.",
-        "How compressed? Embedding, indexing, distillation, RL.",
-        "What structure? Parameters, vectors, graphs, skills, world models.",
-        "How used? Recall, prediction, planning, control, value estimation."
+        "Logical Agent (1960s-80s): Expert systems, symbolic reasoning.",
+        "Neural Agent (2010s): Deep RL-based agents for perception and decision-making.",
+        "Language Agent (Present): Built on multimodal LLMs, unifying multi-sensory input with symbolic reasoning."
+      ]
+    },
+    {
+      "name": "Expertise Characteristics",
+      "components": [
+        "Pattern Recognition: Recognizing meaningful patterns, not just isolated facts.",
+        "Deep Structure: Operating on underlying principles, not surface forms.",
+        "Conditional Knowledge: Knowing when a rule applies and when it does not.",
+        "Judgment and Taste: Knowing effort, risk, quality, and when to stop."
+      ]
+    },
+    {
+      "name": "Continual Learning Definition & Components",
+      "definition": "Adaptive compression of experience into reusable structure for future behavior.",
+      "components": [
+        "What Experience: Episodes, facts, procedures, feedback.",
+        "How Compressed: Embedding, indexing, distillation, RL.",
+        "What Structure: Parameters, vectors, graphs, skills, world models.",
+        "How Used: Recall, prediction, planning, control, value."
       ]
     }
   ],
   "examples": [
     {
-      "example": "Anthropic's rapid revenue growth.",
-      "lesson": "Illustrates how language agents quickly found a mass market in coding because code is already a symbolically structured, language-native environment."
+      "example": "Anthropic's rapid revenue growth",
+      "lesson": "Demonstrates that language agents easily found a mass market in coding because the coding environment provides immediate symbolic feedback and structured logic."
     },
     {
-      "example": "An expert reviewing a gigantic bug report.",
-      "lesson": "Demonstrates pattern recognition; the expert immediately locates the most plausible places where things went wrong, rather than reading the entire report like a novice."
+      "example": "An expert reading a bug report",
+      "lesson": "Illustrates pattern recognition; an expert does not read isolated facts but immediately locates plausible areas where a failure occurred based on surface patterns."
     },
     {
-      "example": "Scheduling a meeting.",
-      "lesson": "Demonstrates deep structure; an expert understands it is not just finding a shared calendar slot, but a constraint optimization problem involving authority, urgency, and dependencies."
+      "example": "Scheduling a meeting",
+      "lesson": "Highlights deep structure and conditional knowledge; an expert views scheduling not merely as finding an open time slot, but as a constraint optimization problem involving authority, urgency, and changing priorities."
+    },
+    {
+      "example": "AI for Coding",
+      "lesson": "This is the first mass market for language agents because code is a 'language-native world' with clear symbolic rules, tools, and feedback loops, making it an ideal, but privileged, environment for AI."
+    },
+    {
+      "example": "Failing AI Pilots in Enterprises",
+      "lesson": "Most generative AI pilots in companies fail because enterprise environments are complex 'micro-worlds' that require specialized expertise, which general-purpose, non-learning agents lack."
+    },
+    {
+      "example": "OpenGlass Inbox Deletion",
+      "lesson": "This illustrates the brittleness of intelligent agents that lack situated expertise. The agent misunderstood a simple instruction and performed a destructive action, a failure in 'computer use' that an expert would avoid."
+    },
+    {
+      "example": "Meeting Scheduling",
+      "lesson": "An expert understands this not as just finding an open time slot (surface form), but as a complex constraint optimization problem involving authority, urgency, and dependencies (deep structure)."
     }
   ],
   "terminology": [
-    {
-      "term": "Language Agent",
-      "definition": "An AI agent built on multimodal LLMs that unifies multi-sensory inputs into a neural representation capable of symbolic reasoning."
-    },
-    {
-      "term": "Modern Moravec's Paradox",
-      "definition": "The phenomenon where modern AI easily performs complex symbolic reasoning (like coding and math) but struggles with everyday digital work."
-    },
-    {
-      "term": "Micro-worlds",
-      "definition": "Specific professional domains, organizations, or software ecosystems that have unique structures, constraints, and dynamics (local physics)."
-    },
     {
       "term": "Intelligence",
       "definition": "The capacity to reason through unfamiliar problems from available context."
     },
     {
       "term": "Expertise",
-      "definition": "The accumulated and situated competence to act reliably, efficiently, and with judgment to achieve reproducibly superior performance in a particular domain."
+      "definition": "Accumulated and situated competence; the ability to act reliably, efficiently, and with judgment to achieve reproducibly superior performance in a particular domain."
+    },
+    {
+      "term": "Micro-worlds",
+      "definition": "Specific domains, professions, or organizational environments that operate with their own unique structures, constraints, affordances, and dynamics."
     },
     {
       "term": "Continual Learning",
-      "definition": "The adaptive compression of experience into reusable structures for future behavior."
+      "definition": "The adaptive compression of experience into reusable structure for future behavior."
     },
     {
       "term": "World's Smartest Novice",
-      "definition": "An AI system with high raw intelligence but lacking continual learning, meaning it can tackle new problems but never accumulates situated expertise."
+      "definition": "An AI system that possesses high raw intelligence and reasoning capabilities but lacks the accumulated, situational expertise necessary for complex, real-world tasks."
     },
     {
       "term": "Escape Intelligence",
-      "definition": "A theoretical threshold of raw intelligence where, if paired with strong continual learning, an agent can achieve unbounded expertise without further scaling of its base intelligence."
+      "definition": "A theoretical tipping point where an agent has enough raw intelligence that, when paired with continual learning, it can autonomously accumulate unbounded expertise."
+    },
+    {
+      "term": "Local Physics",
+      "definition": "The unique structures, constraints, affordances, and dynamics of a specific micro-world."
+    },
+    {
+      "term": "The World's Smartest Novice",
+      "definition": "A term for a highly intelligent system (like a base LLM) that lacks domain-specific, accumulated expertise."
     }
   ],
   "takeaways": [
-    "AI agents have succeeded in coding because it is a language-native world, but they fail in everyday digital work due to the complex, diverse nature of micro-worlds.",
-    "Intelligence (general problem-solving capacity) does not equate to expertise (situated, reliable, efficient competence).",
-    "To function effectively in the real world, AI agents must build world models by recognizing deep structures, conditional rules, and applying judgment.",
-    "Continual learning is the critical missing piece required to convert raw intelligence into true expertise by compressing experience into reusable structures.",
-    "Instead of solely scaling raw intelligence to create the 'world's smartest novice,' the industry must develop strong continual learning algorithms to achieve unbounded expertise."
+    "Scaling raw intelligence alone will not solve real-world digital tasks; AI must be capable of developing situated expertise.",
+    "Expertise cannot be pre-programmed; it requires continuous learning within specific micro-worlds.",
+    "Continual learning is the critical bridge that transforms general intelligence into practical expertise.",
+    "Organizations should build human-AI learning loops to convert agent interactions into institutional memory.",
+    "As expertise becomes abundant, the friction of doing complex tasks will drop, opening up entirely new economic opportunities.",
+    "The AI industry's focus should expand from scaling raw intelligence to scaling expertise.",
+    "Intelligence can be rented (via APIs), but expertise must be learned 'in situ' through continuous interaction with a specific environment.",
+    "Continual learning is the critical process that transforms general intelligence into specialized, valuable expertise.",
+    "The future of impactful AI lies in creating agents that can adapt and become experts in the numerous 'micro-worlds' of professional and personal life."
   ],
   "notable_quotes": [
     {
-      "quote": "For the first time, we have a neural model that is able to encode multi-sensory inputs into a unified neural representation that is also conducive to symbolic reasoning and communication.",
-      "timestamp": "02:14"
+      "quote": "Intelligence plus continual learning equals expertise.",
+      "timestamp": "00:00:46"
     },
     {
-      "quote": "Coding is the ideal market for these language agents because code is already a language-native world.",
-      "timestamp": "03:28"
+      "quote": "For the first time, we have a neural model that is able to encode multisensory inputs into a unified neural representation that is also conducive to symbolic reasoning and communication.",
+      "timestamp": "00:02:13"
+    },
+    {
+      "quote": "Coding is the first mass market because code is already a language-native world.",
+      "timestamp": "00:03:30"
     },
     {
       "quote": "I think we are actually witnessing a modern version of the Moravec's paradox.",
-      "timestamp": "04:52"
+      "timestamp": "00:04:52"
     },
     {
-      "quote": "Modern society is really not just one unified world, it's millions of these micro-worlds.",
-      "timestamp": "05:34"
-    },
-    {
-      "quote": "Intelligence is the capacity to reason through unfamiliar problems from available context.",
-      "timestamp": "06:34"
-    },
-    {
-      "quote": "Expertise is accumulated and situated competence.",
-      "timestamp": "07:03"
+      "quote": "Modern society is really not just one unified world. It's millions of these micro-worlds.",
+      "timestamp": "00:05:34"
     },
     {
       "quote": "Experts don't just know more facts. They actually see the world differently.",
-      "timestamp": "07:35"
+      "timestamp": "00:07:34"
     },
     {
-      "quote": "Continual learning is adaptive compression of experience into reusable structures for future behavior.",
-      "timestamp": "10:54"
+      "quote": "Intelligence tend to expand our search... well expertise will actually try to compress the search space.",
+      "timestamp": "00:09:50"
+    },
+    {
+      "quote": "Continual learning is adaptive compression of experience into reusable structure for future behavior.",
+      "timestamp": "00:10:50"
     },
     {
       "quote": "If you don't have continual learning, all you do is scaling your model to get better raw intelligence, then what we will get is what I call the world's smartest novice.",
-      "timestamp": "13:02"
+      "timestamp": "00:13:01"
     },
     {
-      "quote": "What if we can come up with a continual learning algorithm such that once the raw intelligence has crossed a certain threshold, we don't need stronger intelligence anymore... continual learning will bring us unbounded expertise.",
-      "timestamp": "14:24"
+      "quote": "Intelligence is becoming abundant. Expertise is still scarce.",
+      "timestamp": "00:17:40"
+    },
+    {
+      "quote": "Intelligence + Continual Learning = Expertise",
+      "timestamp": "00:46"
+    },
+    {
+      "quote": "They just don't work... They don't have enough intelligence... they can't do computer use... They don't have continual learning... It will take about a decade to work through all of those issues.",
+      "timestamp": "04:17"
+    },
+    {
+      "quote": "Let's start scaling expertise.",
+      "timestamp": "07:34"
     }
   ],
   "statistics": [
-    "Anthropic's annualized run rate grew 400 times in under two years, reaching approximately $40 million to $60 million.",
-    "According to an MIT report, 95% of generative AI pilots at companies are failing."
+    "Anthropic's annualized run rate grew 400 times in under two years (the speaker notes it reached $40 billion to $60 billion, likely misstating millions as billions).",
+    "According to an MIT report cited in the presentation, 95% of generative AI pilots at companies are currently failing.",
+    {
+      "statistic": "95% of generative AI pilots at companies are failing.",
+      "source": "MIT report (as cited by speaker)",
+      "timestamp": "03:57"
+    },
+    {
+      "statistic": "Speaker claims Anthropic's revenue grew 400x to $40-60 billion. Note: The on-screen graph shows Annualized Run Rate (ARR) growth to $44.1 million.",
+      "source": "Speaker's statement with reference to on-screen graph.",
+      "timestamp": "03:02"
+    }
   ],
   "metadata": {
-    "builder_model": "gemini-3.1-pro-preview",
     "video_id": "I6aiEf3aEFQ",
-    "elapsed_seconds": 85.8223,
-    "cost_usd": 0.243382,
-    "tokens": {
-      "prompt_tokens": 107765,
-      "completion_tokens": 2321
-    }
+    "builder_model": "gemini-3.1-pro-preview",
+    "builder_models": [
+      "gemini-3.1-pro-preview",
+      "gemini-2.5-pro"
+    ],
+    "builders": {
+      "gemini-3.1-pro-preview": {
+        "status": "ok",
+        "elapsed_seconds": 71.1111,
+        "cost_usd": 0.23617,
+        "tokens": {
+          "prompt_tokens": 107765,
+          "completion_tokens": 1720
+        }
+      },
+      "gemini-2.5-pro": {
+        "status": "ok",
+        "elapsed_seconds": 82.7635,
+        "cost_usd": 0.456294,
+        "tokens": {
+          "prompt_tokens": 349091,
+          "completion_tokens": 1993
+        }
+      }
+    },
+    "elapsed_seconds": 153.8759,
+    "cost_usd": 0.692464
   }
 }

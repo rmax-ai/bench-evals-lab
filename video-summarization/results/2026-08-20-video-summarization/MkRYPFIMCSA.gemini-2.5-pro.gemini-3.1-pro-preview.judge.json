@@ -1,0 +1,22 @@
+{
+  "judged_candidate": "gemini-2.5-pro",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 5,
+    "precision": 3,
+    "compression": 4
+  },
+  "total": 3.8,
+  "rationale": "The candidate JSON has an excellent structure and comprehensively covers all the major points from the fact sheet, including Claw Patrol, credential injection, and the core argument against alignment as a security boundary. However, it suffers from severe hallucinations by incorporating outside knowledge (Node.js, CEO of Deno, Claude Haiku), misidentifying the channel, and fabricating integer timestamp ranges that were not present in the ground truth.",
+  "hallucinations": [
+    "Channel is stated as 'Maxi', but the fact sheet says 'AI Engineer'.",
+    "Refers to Ryan Dahl as 'CEO of Deno and creator of Node.js', which is outside knowledge not present in the fact sheet.",
+    "Mentions 'Claude Haiku' as a judge agent, whereas the fact sheet only mentions 'Opus'.",
+    "Fabricates integer timestamp ranges in the topic_map (e.g., '34-134') and quotes (e.g., '141', '33') instead of the MM:SS timestamps provided in the fact sheet.",
+    "Invented timestamps in key points evidence sections (e.g., '14:40', '11:01')."
+  ],
+  "elapsed_seconds": 102.4163,
+  "cost_usd": 0.0183
+}

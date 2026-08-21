@@ -61,6 +61,7 @@ def init_stats() -> dict[str, Any]:
             item["video_id"]: {
                 "built": False,
                 "builder_model": None,
+                "builder_models": [],
                 "elapsed_seconds": 0.0,
                 "cost_usd": 0.0,
                 "errors": [],
@@ -72,6 +73,7 @@ def init_stats() -> dict[str, Any]:
                 "elapsed": [],
                 "cost_usd": 0.0,
                 "validation_failures": 0,
+                "contract_violations": 0,
                 "retries": 0,
                 "errors": [],
             }
@@ -105,6 +107,7 @@ def record_candidate_result(stats: dict[str, Any], candidate: str,
         if result.get("error"):
             entry["errors"].append(result["error"])
     entry["retries"] += int(result.get("retries") or 0)
+    entry["contract_violations"] += int(result.get("contract_violations") or 0)
     entry["cost_usd"] += float(result.get("cost_usd") or 0.0)
     entry["elapsed"].append(float(result.get("elapsed_seconds") or 0.0))
 
@@ -144,6 +147,7 @@ def build_metrics(stats: dict[str, Any]) -> dict[str, Any]:
         metrics["fact_sheets"][video_id] = {
             "built": facts["built"],
             "builder_model": facts["builder_model"],
+            "builder_models": facts["builder_models"],
             "elapsed_seconds": round(facts["elapsed_seconds"], 4),
             "cost_usd": round(facts["cost_usd"], 6),
             "errors": facts["errors"],
@@ -164,6 +168,7 @@ def build_metrics(stats: dict[str, Any]) -> dict[str, Any]:
             },
             "judges": {},
             "validation_failures": cand["validation_failures"],
+            "contract_violations": cand["contract_violations"],
             "retries": cand["retries"],
             "errors": cand["errors"],
         }
@@ -304,6 +309,7 @@ def main(argv: list[str] | None = None) -> int:
                 metadata = facts.get("metadata") or {}
                 stats["fact_sheets"][video_id]["built"] = True
                 stats["fact_sheets"][video_id]["builder_model"] = metadata.get("builder_model")
+                stats["fact_sheets"][video_id]["builder_models"] = metadata.get("builder_models") or []
                 stats["fact_sheets"][video_id]["elapsed_seconds"] = float(metadata.get("elapsed_seconds") or 0.0)
                 stats["fact_sheets"][video_id]["cost_usd"] = float(metadata.get("cost_usd") or 0.0)
             except (OSError, json.JSONDecodeError):
@@ -316,6 +322,7 @@ def main(argv: list[str] | None = None) -> int:
                 metadata = facts.get("metadata") or {}
                 stats["fact_sheets"][video_id]["built"] = True
                 stats["fact_sheets"][video_id]["builder_model"] = metadata.get("builder_model")
+                stats["fact_sheets"][video_id]["builder_models"] = metadata.get("builder_models") or []
                 stats["fact_sheets"][video_id]["elapsed_seconds"] = float(metadata.get("elapsed_seconds") or 0.0)
                 stats["fact_sheets"][video_id]["cost_usd"] = float(metadata.get("cost_usd") or 0.0)
                 fact_ok = True

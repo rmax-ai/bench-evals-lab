@@ -1,0 +1,21 @@
+{
+  "judged_candidate": "gemini-2.5-pro",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 5,
+    "precision": 3,
+    "compression": 5
+  },
+  "total": 4.2,
+  "rationale": "The candidate strictly follows the requested schema and provides an excellent summary and coverage of the ground truth topics. However, it introduces notable hallucinations, including an incorrect channel name, specific model parameter counts (1.7 trillion, MoE) not present in the source, and fabricated or merged direct quotes with invented timestamps.",
+  "hallucinations": [
+    "Listed the channel as 'Maxi' instead of 'AI Engineer'.",
+    "Introduced the specific details '1.7 trillion-parameter MoE' and '1.7 trillion-parameter GLM-5 model', whereas the ground truth only mentions '1T scale' and 'GLM-5'.",
+    "Fabricated the exact quote 'Any taskset plus any harness plus any runtime equals one typed trace.' with a timestamp of 997.",
+    "Extended the quote starting with 'Our goal is to make doing large-scale open source AI research easier...' with additional text not present in the ground truth quotes."
+  ],
+  "elapsed_seconds": 117.0502,
+  "cost_usd": 0.02109
+}

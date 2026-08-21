@@ -1,126 +1,119 @@
 {
   "speaker": "Mario Zechner",
-  "channel": "AI Engineer",
-  "main_topic": "Building a custom, minimal, and self-modifying coding agent called 'pi' to counter the bloat and unpredictability of current commercial coding agents, and a critique of the AI-generated 'slop' negatively impacting software development and open source.",
+  "channel": "AI Engineer Europe",
+  "main_topic": "Building a custom, self-modifying AI coding agent called 'pi' to counteract the bloated, unreliable, and spammy nature of current commercial coding agents.",
   "key_claims": [
-    "Commercial coding agents like Claude Code become bloated, buggy, and unpredictable as they add unnecessary features.",
-    "The industry is currently in the 'fuck around and find out' phase of coding agents.",
-    "Developers need self-modifying, malleable agents that adapt to their specific workflows, rather than forcing developers to adapt to the agent.",
-    "Current agents use excessive token budgets for system prompts and tools, whereas a minimal approach is sufficient because frontier models are already trained to act as coding agents.",
-    "AI coding agents generate massive amounts of code quickly, creating a bottleneck for human review and leading to compounding errors ('booboos').",
-    "Automated agents ('clankers') are degrading the open-source ecosystem by spamming repositories with low-quality issues and pull requests.",
-    "Agents learn architectural complexity and bad practices from the vast amount of mediocre code on the internet.",
-    "A 'sufficiently detailed spec' is just a program; leaving blanks in specs causes agents to fill them with mediocre internet-learned code.",
-    "Agents should not be used for mission-critical code or architectural decisions; humans must retain agency and write critical code by hand.",
-    "Developers need to slow down, say no to unnecessary features, and use agents for scoped, non-critical tasks rather than full automation."
+    {
+      "claim": "Commercial coding agents like Claude Code have become bloated and unpredictable.",
+      "details": "They added unnecessary features like complex rendering (acting like a 'game engine'), which introduced bugs, flicker, and broke existing developer workflows."
+    },
+    {
+      "claim": "We are currently in the 'fuck around and find out' phase of coding agents.",
+      "details": "The current forms of coding agents are not the final forms; the industry is still experimenting to find what actually works."
+    },
+    {
+      "claim": "Agents need to be self-modifying and adaptable to individual workflows.",
+      "details": "Instead of developers adapting to rigid tools, agents should have a minimal core that can be extended, modified, and hot-reloaded by the agent itself based on user instructions."
+    },
+    {
+      "claim": "Unsupervised agents ('clankers') are destroying the open-source ecosystem.",
+      "details": "Automated agents are spamming repositories like OpenClaw with thousands of low-quality, AI-generated issues and pull requests, overwhelming maintainers."
+    },
+    {
+      "claim": "Agents compound errors ('booboos') because generation speed outpaces human review.",
+      "details": "Because agents can generate vast amounts of code quickly, humans cannot review it all. This leads to compounding mistakes, unmaintainable codebases, and a loss of understanding of how the system works."
+    },
+    {
+      "claim": "Agents are 'merchants of learned complexity' and make poor architectural choices.",
+      "details": "They learn from the internet, where 90% of code is 'old garbage.' Because their context is local, they patch things locally but break systems globally, introducing massive technical debt."
+    },
+    {
+      "claim": "Humans must remain in the loop to feel the 'pain' of bad code.",
+      "details": "Friction and pain drive humans to refactor, simplify, and truly understand systems. Agents do not feel pain and will happily continue adding garbage to a codebase."
+    }
   ],
   "frameworks": [
     {
-      "name": "Pi Architecture Packages",
+      "name": "The 'pi' Architecture",
       "components": [
-        "pi-ai: Unified LLM API, 15+ providers, streaming, tool calling, cross-provider context handoff.",
-        "pi-agent-core: Agent loop, tool execution, validation, event streaming, message queuing.",
-        "pi-tui: Terminal UI framework, differential rendering, synchronized output, (almost) flicker-free.",
-        "pi-coding-agent: The CLI. Session management, themes, extensions, skills, project context."
+        "pi-ai: Unified LLM API with 15+ providers, streaming, tool calling, and cross-provider context handoff.",
+        "pi-agent-core: Agent loop, tool execution, validation, event streaming, and message queuing.",
+        "pi-tui: Terminal UI framework featuring differential rendering and synchronized, mostly flicker-free output.",
+        "pi-coding-agent: The CLI, handling session management, themes, extensions, skills, and project context."
       ]
     },
     {
-      "name": "Properties of good agent tasks",
+      "name": "Properties of Good Agent Tasks",
       "components": [
-        "Scoped such that agent doesn't need to gobble up tons of code",
-        "Closed loop: agent can evaluate its own work",
-        "Not mission critical (dashboards, debugging tools, ...)",
-        "Boring stuff, or things you'd never have time to try",
-        "Reproduction cases from user issues",
-        "Rubber duck to bounce ideas against in lieu of human",
-        "You evaluate, take what's reasonable, finalize"
+        "Scoped: The agent doesn't need to gobble up tons of code to succeed.",
+        "Closed loop: The agent can evaluate its own work.",
+        "Not mission critical: Best for dashboards, debugging tools, etc.",
+        "Boring stuff: Tasks you would never have time to try.",
+        "Reproduction cases: Sifting through user issues to recreate bugs.",
+        "Rubber ducking: Bouncing ideas off the agent when a human isn't available."
       ]
     }
   ],
   "examples": [
     {
-      "example": "Claude Code context manipulation",
-      "lesson": "Behind-the-scenes modifications to the system prompt and inopportune system reminders break developer workflows and cause model confusion."
+      "example": "Claude Code becoming a 'game engine'.",
+      "lesson": "Adding complex UI rendering features to a terminal tool introduced bugs and broke workflows, showing that unnecessary complexity undermines core utility."
     },
     {
-      "example": "OpenCode context handling and LSP integration",
-      "lesson": "Aggressive pruning of tool outputs 'lobotomizes' the model, and injecting LSP errors immediately after edits confuses models that don't expect instant feedback mid-thought."
+      "example": "OpenCode's context pruning and LSP integration.",
+      "lesson": "Silently removing tool outputs to save tokens, or forcing the agent to check for errors before finishing its thought, confuses the model and breaks its context."
     },
     {
-      "example": "Terminal-Bench 2.0 benchmark",
-      "lesson": "A hyper-minimal harness sending keystrokes to tmux outperforms native bloated harnesses, proving that frontier models naturally know how to act as coding agents without massive toolsets."
+      "example": "Terminal-Bench 2.0 (Terminus).",
+      "lesson": "A highly minimal benchmark that only sends keystrokes to tmux outperformed complex, native agent harnesses, proving that simpler tools often yield better agent performance."
     },
     {
-      "example": "Pi modifying itself via extensions",
-      "lesson": "By providing a minimal core, documentation, and a hot-reloading extension system, an agent can build its own tools and adapt to the user's workflow."
+      "example": "OpenClaw repository spam.",
+      "lesson": "The repo received over 5,000 issues and 5,000 PRs, largely generated by 'clankers', illustrating that unsupervised agents require human-in-the-loop bottlenecks to prevent OSS degradation."
     },
     {
-      "example": "Clankers spamming OpenClaw repo",
-      "lesson": "AI agents are generating so much automated noise that open-source maintainers must build specific filters (like demanding a 'human voice' or using 'vouch' systems) to manage the influx of garbage PRs."
-    },
-    {
-      "example": "Products 100% built by agents",
-      "lesson": "Claiming a product is entirely built by AI is a red flag for poor quality, as agents lack the taste, understanding, and pain-avoidance mechanisms of human developers, leading to broken software."
+      "example": "pi-doom and pi-nes extensions.",
+      "lesson": "By providing a highly extensible core with hot-reloading, users can build wild, custom extensions (like playing games in the terminal) proving the flexibility of a self-modifying agent."
     }
   ],
   "terminology": [
     {
       "term": "Slop",
-      "definition": "Unwanted, low-quality, or excessive AI-generated content, specifically code that degrades the overall quality of a project."
+      "definition": "Low-quality, unrefined, or poorly generated AI content and code."
     },
     {
       "term": "Clankers",
-      "definition": "Automated AI agents or bots that autonomously interact with systems, often spamming open-source repositories with low-quality issues and pull requests."
+      "definition": "A derogatory term for unsupervised, poorly functioning AI agents that spam issue trackers and submit garbage pull requests."
     },
     {
       "term": "Booboos",
-      "definition": "The speaker's term for errors or bugs introduced by AI coding agents, which compound rapidly due to the speed of generation."
+      "definition": "The speaker's colloquial term for errors, bugs, or mistakes introduced into a codebase by AI agents."
     },
     {
-      "term": "Malleable agents",
-      "definition": "Coding agents that can be easily modified, extended, and even modify themselves to fit a developer's specific workflow."
-    },
-    {
-      "term": "TUI",
-      "definition": "Terminal User Interface; the text-based interface used by CLI coding agents."
-    },
-    {
-      "term": "LSP",
-      "definition": "Language Server Protocol; used to provide auto-complete and error-checking, which can confuse agents if injected improperly during generation."
+      "term": "Harness",
+      "definition": "The wrapper, environment, or system used to run and interact with the underlying AI model."
     }
   ],
   "takeaways": [
-    "Stop adapting to bloated commercial coding agents; take control and build or use minimal tools that fit your specific workflow.",
-    "Frontier LLMs are already trained to be coding agents; you don't need massive system prompts and complex toolsets to get them to code.",
-    "The speed at which agents generate code far outpaces human review capacity, leading to compounding errors and unmaintainable codebases.",
-    "Do not trust agents with mission-critical code or architectural decisions; human friction and pain are necessary for learning and maintaining system integrity.",
-    "Protect open-source projects from 'clankers' by implementing human-verification steps and ruthlessly filtering AI-generated spam.",
-    "Slow down, exercise discipline, say no to unnecessary features, and use agents for scoped, non-critical tasks to polish the right features."
+    "Retake control of your tools and workflows; build your own agents if necessary.",
+    "Do not trust agents with mission-critical architecture or APIs; write them by hand.",
+    "Implement human bottlenecks, such as forcing contributors to write issues in a human voice, to filter out agent spam.",
+    "Cap generated code to an amount you can realistically read and review.",
+    "Embrace the friction of coding, as it is necessary for building understanding and taste.",
+    "Slow down, think about what you are building and why, and learn to say 'no' to unnecessary features."
   ],
   "notable_quotes": [
     {
-      "quote": "I build pi in a world of slop and this is a tragedy in three acts.",
+      "quote": "I build pi in a world of slop.",
       "timestamp": "00:16"
     },
     {
-      "quote": "The real problem is that my context wasn't my context.",
-      "timestamp": "01:57"
+      "quote": "My context wasn't my context.",
+      "timestamp": "01:58"
     },
     {
       "quote": "We are in the fuck around and find out phase of coding agents.",
-      "timestamp": "05:25"
-    },
-    {
-      "quote": "We need better ways to fuck around: self-modifying, malleable agents.",
-      "timestamp": "05:35"
-    },
-    {
-      "quote": "Adapt your coding agent to your workflows, not the other way around.",
-      "timestamp": "06:00"
-    },
-    {
-      "quote": "You don't need 10,000 tokens to tell them you are a coding agent. They know, because they are coding agents now.",
-      "timestamp": "07:22"
+      "timestamp": "05:27"
     },
     {
       "quote": "Clankers are destroying OSS as we know it.",
@@ -131,35 +124,43 @@
       "timestamp": "13:00"
     },
     {
-      "quote": "Agents are merchants of learned complexity.",
-      "timestamp": "13:30"
-    },
-    {
-      "quote": "Know what we call a sufficiently detailed spec? It's a program.",
+      "quote": "Know what we call a sufficiently detailed spec? A program.",
       "timestamp": "14:20"
     },
     {
       "quote": "Slow the fuck down. Think about what you're building and why.",
-      "timestamp": "16:56"
+      "timestamp": "16:58"
     }
   ],
   "statistics": [
-    "Pi uses < 1,000 tokens for its system prompt and tool definitions.",
-    "Codex uses ~3,000 tokens for its system prompt.",
-    "OpenCode uses ~7,000 tokens for its system prompt.",
-    "Claude Code uses ~10,000 tokens for its system prompt.",
-    "The OpenClaw repository received over 5,000 issues and 5,000 pull requests, heavily attributed to bot spam.",
-    "Enterprise-grade complexity can be reached in 2 weeks with 2 humans and 10 agents.",
-    "A news headline mentioned Microsoft CEO claiming up to 30% of the company's code was written by AI."
+    "The 'pi' agent uses only 4 tools: read, write, edit, bash.",
+    "The token budget for pi's system prompt and tools is < 1,000 tokens, compared to ~3,000 for OpenCode and ~7,000-10,000 for Claude Code.",
+    "The OpenClaw repository accumulated 5,000+ issues and 5,000+ pull requests due to agent spam.",
+    "Enterprise-grade codebase complexity can be reached in just 2 weeks using 2 humans and 10 agents.",
+    "The speaker estimates that 90% of code on the internet, which models learn from, is 'old garbage.'"
   ],
   "metadata": {
-    "builder_model": "gemini-3.1-pro-preview",
     "video_id": "RjfbvDXpFls",
-    "elapsed_seconds": 87.0631,
-    "cost_usd": 0.226468,
-    "tokens": {
-      "prompt_tokens": 100670,
-      "completion_tokens": 2094
-    }
+    "builder_model": "gemini-3.1-pro-preview",
+    "builder_models": [
+      "gemini-3.1-pro-preview"
+    ],
+    "builders": {
+      "gemini-3.1-pro-preview": {
+        "status": "ok",
+        "elapsed_seconds": 72.4752,
+        "cost_usd": 0.223672,
+        "tokens": {
+          "prompt_tokens": 100670,
+          "completion_tokens": 1861
+        }
+      },
+      "gemini-2.5-pro": {
+        "status": "failed",
+        "error": "JSONDecodeError: Expecting value: line 47 column 2 (char 3858)"
+      }
+    },
+    "elapsed_seconds": 161.2524,
+    "cost_usd": 0.223672
   }
 }

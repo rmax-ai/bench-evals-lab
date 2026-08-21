@@ -1,0 +1,29 @@
+{
+  "judged_candidate": "gemini-3.6-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 3
+  },
+  "total": 3.0,
+  "rationale": "Structure is well organized but some redundancy, so 4. Faithfulness suffers from many unsupported details: speaker 'Luke Alvoeiro'/'Maxi', 'creator of Goose at Block', prompt-caching 95.7%, Slack stats 16.5h/185 runs/38.5k/89.2%, '100% initial failures', '~700 lines', Claude 3.5 Sonnet. Coverage captures most fact-sheet topics, frameworks, and takeaways, missing only some definitions. Precision is low: name/channel misspelled, Slack numbers wrong, quotes lowercased/extra words, fabricated quote 'Slower on paper...'. Compression is moderate despite length; compressed section repeats much.",
+  "hallucinations": [
+    "Luke Alvoeiro",
+    "Maxi",
+    "The Multi-Agent Architecture That Actually Ships — Luke Alvoeiro, Factory",
+    "Core Agent Harness Lead at Factory (and creator of Goose at Block)",
+    "Slower on paper, but for multi-day runs, correctness compounds.",
+    "16.5 hours total runtime, 185 agent runs, 778.5M tokens (95.7% prompt cache savings), 38.5k lines of code, 52.5% test code, 89.2% test coverage.",
+    "initial validation attempts failed 100% of the time",
+    "Factory's orchestration logic lives in ~700 lines of prompt text and skills",
+    "Using Claude 3.5 Sonnet for implementation while using a separate provider or open-weights model for validation.",
+    "Prompt caching delivered 95.7% token cost savings during the 778.5M token Slack clone mission.",
+    "Planning requires slow, careful reasoning; implementation requires fast code fluency; validation requires strict instruction-following.",
+    "Using a different model provider for validation eliminates training-data bias."
+  ],
+  "elapsed_seconds": 79.1035,
+  "cost_usd": 0.007589
+}

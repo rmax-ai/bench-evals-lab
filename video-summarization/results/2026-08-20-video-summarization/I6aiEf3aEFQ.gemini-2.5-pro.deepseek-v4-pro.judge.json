@@ -1,0 +1,30 @@
+{
+  "judged_candidate": "gemini-2.5-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 3,
+    "faithfulness": 2,
+    "coverage": 3,
+    "precision": 2,
+    "compression": 3
+  },
+  "total": 2.6,
+  "rationale": "Structure: 'frameworks' and 'examples' fields are empty despite rich content. Faithfulness: numerous unsupported strings, e.g., 'AI Engineer Foundation', 'Andrej Karpathy', 'slope', 'decade of agents', and 'healthcare, finance, tutoring'. Coverage: main theme captured, but many fact-sheet frameworks and examples (Anthropic ARR, OpenGlass deletion, expertise characteristics) omitted. Precision: quotes paraphrased or extended ('Coding is the first mass market... goals, tools, errors, history, and rewards are expressed symbolically'); timestamps don't match fact sheet. Compression: insights repeated across overview, topic_map, key_points, and compressed sections.",
+  "hallucinations": [
+    "AI Engineer Foundation",
+    "a trait previously unique to humans",
+    "This new stage has dramatically increased the expressiveness, reasoning ability, and adaptivity of AI agents.",
+    "An Andrej Karpathy quote suggesting it will take a 'decade of agents' because they lack computer use skills and continual learning.",
+    "Andrej Karpathy stated it will take about a decade to work through all of the issues with AI agents because 'they don't have enough intelligence... they can't do computer use... they don't have continual learning'.",
+    "Coding is the first mass market because code is already a language-native world: goals, tools, errors, history, and rewards are expressed symbolically.",
+    "planning, world modeling, memory, social norms",
+    "the effectiveness of the continual learning mechanism determines the 'slope' at which an agent can convert its intelligence into expertise.",
+    "Frontier models already possess a high level of general reasoning ability ('raw intelligence'), arguably more than the average human.",
+    "The speaker presents a conceptual graph where the rate of expertise growth is directly tied to the strength of the CL system, with 'no CL' resulting in a flat line and 'strong CL' resulting in a steep, potentially exponential curve.",
+    "An agent that is good at general web browsing may be useless for a specific company's internal reimbursement process.",
+    "this is a forward-looking hypothesis presented through a conceptual graph showing an exponential takeoff in expertise once 'escape intelligence' is reached. It draws an analogy to human experts who become world-class through practice and experience, not necessarily by having a fundamentally different brain structure.",
+    "healthcare, finance, tutoring"
+  ],
+  "elapsed_seconds": 133.4963,
+  "cost_usd": 0.009153
+}

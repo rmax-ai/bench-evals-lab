@@ -5,259 +5,274 @@
     "overview": {
       "title": "Modern Post-Training: A Deep Dive",
       "speaker": "Will Brown",
-      "channel": "",
-      "main_topic": "Modern post-training infrastructure, verifiers, reinforcement learning (prime-rl), and the open superintelligence stack.",
-      "executive_summary": "Will Brown, Head of Applied Research at Prime Intellect, delivers a comprehensive tech talk on the modern post-training stack. He explores environments, verifiers (v1), reinforcement learning with prime-rl, custom algorithms (GRPO, PPO, DPO, self-distillation, ECHO, Dagger), and large-scale training optimizations like FSDP, expert parallelism, tiered KV offloading, and asynchronous RL. The talk covers the open-source toolkit for doing large-scale AI research and building production-grade agentic training loops.",
-      "purpose": "Provide a deep dive into modern post-training architectures, verifiers, and asynchronous reinforcement learning frameworks for open-source AI engineering."
+      "channel": "Maxi",
+      "main_topic": "Modern AI post-training with verifiers and prime-rl",
+      "executive_summary": "Will Brown, Head of Applied Research at Prime Intellect, presents a deep dive into modern post-training techniques using verifiers and prime-rl, covering the open superintelligence stack, environments, verifiers v1, training with prime-rl, custom algorithms, large-scale training, and the lab platform.",
+      "purpose": "To provide an in-depth technical walkthrough of modern post-training pipelines, open-source tools, verifiers, and asynchronous RL frameworks built by Prime Intellect."
     },
     "topic_map": [
       {
-        "topic": "The Prime Intellect Stack & Overview",
+        "topic": "Introduction and The Open Superintelligence Stack",
         "timestamp_range": null,
-        "explanation": "Introduction to Prime Intellect's goal of making large-scale open-source AI research easier, focusing on post-training, verifiers, and prime-rl.",
+        "explanation": "Introduction of Will Brown and the Open Superintelligence Stack developed at Prime Intellect, covering frontier model training, lab workflows, environments, prime-rl, and decentralized compute marketplaces.",
         "key_claims": [
-          "Post-training is critical for empowering real-world agentic use cases.",
-          "The open superintelligence stack spans compute, prime-rl, environments, lab platform, and frontier model training."
+          "Prime Intellect aims to make large-scale open-source AI research easier and enable companies to train and deploy their own customized models.",
+          "The stack sits on top of compute (over 10,000 GPUs operated globally), prime-rl, environments, lab workflows, and frontier model training."
         ],
         "examples": [
-          "Operating over 10,000 GPUs across global data centers for distributed model training."
+          "Intellect series models and customer model training."
         ],
         "terminology": [
           "Prime Intellect",
+          "Open Superintelligence Stack",
           "prime-rl",
-          "verifiers",
-          "open superintelligence stack"
+          "Verifiers"
         ],
-        "why_it_matters": "Provides a reproducible, open-source stack for frontier model post-training without requiring massive proprietary lab infrastructure."
+        "why_it_matters": "Provides a comprehensive open-source alternative for post-training and RL infrastructure at scale."
       },
       {
-        "topic": "The Post-Training Loop & Environments (Verifiers v1)",
+        "topic": "The Post-Training Loop and Environments",
         "timestamp_range": null,
-        "explanation": "Deconstructing the post-training loop into build, evaluate, train, and deploy, introducing the Verifiers v1 framework.",
+        "explanation": "Breaking down the post-training loop from environment building to evaluation, training (RL/SFT/OPD), and deployment.",
         "key_claims": [
-          "Environments are a language for specifying model goals, data, and scoring rules.",
-          "Verifiers v1 decouples taskset, harness, and runtime for maximum modularity."
+          "Environments are a language for specifying what you want your model to do, encapsulating data, scenarios, interaction loops, and scoring.",
+          "Environments and evals are essentially the same artifact: the same package grades a model and trains one."
         ],
         "examples": [
-          "Integrating HuggingFace datasets, Harbor, Nemotron, and OpenEnv into tasksets."
+          "Building an environment with tasksets and rewards, evaluating rollouts, and training via RL or SFT."
+        ],
+        "terminology": [
+          "Post-training loop",
+          "Environments",
+          "Evals",
+          "Taskset",
+          "Harness"
+        ],
+        "why_it_matters": "Unifies evaluation and training into a single reusable artifact, streamlining the ML engineering workflow."
+      },
+      {
+        "topic": "Verifiers v1: Taskset, Harness, and Runtime",
+        "timestamp_range": null,
+        "explanation": "Detailed explanation of Verifiers v1 architecture where rollouts compose three swappable pieces: taskset, harness, and runtime.",
+        "key_claims": [
+          "Tasksets are agent-agnostic data and scoring rules (e.g., Hugging Face datasets, Harbor, Nemotron, OpenEnv).",
+          "Harnesses are driver programs containing system prompts, tools, and loops (e.g., default, Codex, mini-sme-agent, LangChain, DSPy).",
+          "Runtimes specify where execution happens (subprocess, local Docker, Prime sandboxes, Modal, Daytona, E2B)."
+        ],
+        "examples": [
+          "Using `uv run eval` to mix and match tasksets, harnesses, and runtimes seamlessly."
         ],
         "terminology": [
           "Verifiers v1",
-          "taskset",
-          "harness",
-          "runtime",
-          "environments hub"
-        ],
-        "why_it_matters": "Standardizes evaluation and RL rollout generation into a clean, reusable Python package."
-      },
-      {
-        "topic": "Rewards, Metrics, and Group Rewards",
-        "timestamp_range": null,
-        "explanation": "Designing reward functions, metrics, and group-level comparisons for reinforcement learning rollouts.",
-        "key_claims": [
-          "Group rewards help balance correctness and efficiency (e.g., length penalties, conciseness bonuses).",
-          "Variance across multiple rollouts per task is essential for RL signal shaping."
-        ],
-        "examples": [
-          "Using async def reward function in Verifiers to grade rollout traces against ground-truth answers."
-        ],
-        "terminology": [
-          "group rewards",
-          "correctness award",
-          "length penalty",
-          "variance"
-        ],
-        "why_it_matters": "Enables robust RL optimization by mitigating runaway token generation and incentivizing concise, correct reasoning."
-      },
-      {
-        "topic": "Tools, User Simulators, and the Interception Server",
-        "timestamp_range": null,
-        "explanation": "Integrating Model Context Protocol (MCP) servers, user simulators, and interception servers into agentic rollouts.",
-        "key_claims": [
-          "Interception servers allow standard model endpoints to be wrapped for RL training without breaking harness code.",
-          "User simulators model multi-turn agent interactions effectively."
-        ],
-        "examples": [
-          "Using MCP servers for toolsets and user simulations inside rollout runtimes."
-        ],
-        "terminology": [
-          "MCP server",
-          "user simulator",
-          "interception server",
-          "uv script"
-        ],
-        "why_it_matters": "Bridges standard API-based harness execution with RL training loops seamlessly."
-      },
-      {
-        "topic": "Prime-RL Architecture & Asynchronous RL",
-        "timestamp_range": null,
-        "explanation": "Detailed architectural breakdown of prime-rl separating inference, orchestration, and training into decoupled processes.",
-        "key_claims": [
-          "Asynchronous RL prevents forward progress speed from being bottlenecked by slow agent rollouts.",
-          "Decoupling inference and trainer processes eliminates GPU sharing conflicts and optimizes utilization."
-        ],
-        "examples": [
-          "Running GLM-5 1T parameter models across 28 H200 nodes with sub-5 minute step times and 131k context lengths."
-        ],
-        "terminology": [
-          "prime-rl",
-          "orchestrator",
-          "asynchronous RL",
-          "weight broadcast",
-          "DPPO"
-        ],
-        "why_it_matters": "Massively scales training throughput and handles long-tail agentic rollout latencies without wasting GPU cycles."
-      },
-      {
-        "topic": "Algorithms and the Post-Training Family",
-        "timestamp_range": null,
-        "explanation": "Unified algorithm abstraction covering SFT, GRPO, PPO, ECHO, OPD, self-distillation, and Dagger.",
-        "key_claims": [
-          "Algorithms are classes that assign advantages and select loss terms per training step.",
-          "On-policy distillation and self-distillation eliminate the need for external models."
-        ],
-        "examples": [
-          "Configuring training runs via YAML files specifying orchestrator algorithms and batch sizes."
-        ],
-        "terminology": [
-          "GRPO",
-          "PPO",
-          "OPD",
-          "ECHO",
-          "self-distillation",
-          "Dagger",
-          "renderers"
-        ],
-        "why_it_matters": "Allows practitioners to mix and match loss functions and distillation strategies easily within a single framework."
-      },
-      {
-        "topic": "Scaling and Deployment (Multi-Tenant LoRA & Full Finetuning)",
-        "timestamp_range": null,
-        "explanation": "Strategies for multi-tenant LoRA inference/training and upcoming full-finetuning capabilities on Prime infrastructure.",
-        "key_claims": [
-          "Multi-tenant LoRA allows multiple adapters to share a single base model inference pool.",
-          "Torch Titan provides a modular base for modern distributed training optimizations (FSDP, expert parallelism, Ulysses/Ring)."
-        ],
-        "examples": [
-          "Deploying LoRA tenant adapters on top of shared base model weights with per-token pricing."
-        ],
-        "terminology": [
-          "multi-tenant LoRA",
-          "FSDP",
-          "expert parallelism",
-          "Ulysses ring",
-          "Torch Titan"
-        ],
-        "why_it_matters": "Drastically reduces inference and training costs for enterprises running custom models at scale."
-      }
-    ],
-    "key_points": [
-      {
-        "point": "Environments as the Core Unit of Post-Training",
-        "explanation": "Environments encapsulate tasksets, data, scoring, and harnesses into a single installable package usable for evaluation, SFT, and RL.",
-        "evidence": "Verifiers v1 framework architecture and code snippets.",
-        "practical_implication": "Eliminates redundant data formatting and rewriting when transitioning between evaluation and training workflows."
-      },
-      {
-        "point": "Asynchronous RL is Essential for Agentic Workflows",
-        "explanation": "Agentic rollouts have long-tail execution times. Asynchronous aggregation decouples rollout generation from trainer optimizer steps.",
-        "evidence": "Prime-rl architecture diagram showing decoupled inference, orchestrator, and trainer processes.",
-        "practical_implication": "Maximizes GPU utilization and prevents fast rollouts from waiting on slow outlier tasks."
-      },
-      {
-        "point": "Unified Algorithm Abstraction via Class-Based Losses",
-        "explanation": "Treating algorithms and loss terms as modular Python classes allows effortless combination of reinforcement learning, distillation, and SFT objectives.",
-        "evidence": "Python code samples for DPPO, GRPO, and OPD algorithm implementations in prime-rl.",
-        "practical_implication": "Simplifies experimentation with novel training recipes without burying logic deep inside monolithic codebases."
-      }
-    ],
-    "frameworks": [
-      {
-        "name": "Verifiers v1 Framework",
-        "how_it_works": "Combines tasksets (data + scoring), harnesses (driver program/agent loop), and runtimes (execution environment) into composable Python packages.",
-        "components": [
           "Taskset",
           "Harness",
           "Runtime",
           "Interception Server"
         ],
-        "when_to_use": "When setting up reproducible evaluation, reinforcement learning rollouts, or policy distillation pipelines."
+        "why_it_matters": "De-couples components to allow flexible prototyping locally and seamless scaling to cloud sandboxes."
       },
       {
-        "name": "Prime-RL Architecture",
-        "how_it_works": "Separates training into three asynchronous processes: Inference (vLLM server serving live policy), Orchestrator (running rollouts, scoring, and filtering), and Trainer (DPPO/FSDP weight updates).",
-        "components": [
-          "Inference Server",
-          "Orchestrator",
-          "Trainer",
-          "Weight Broadcast"
+        "topic": "Rewards, Metrics, and Group Rewards",
+        "timestamp_range": null,
+        "explanation": "Discussion on grading, rewards, metrics, and group-level comparisons in RL post-training.",
+        "key_claims": [
+          "Rewards drive progress in RL, while metrics log tool usage and error counts.",
+          "Group rewards utilize multiple rollouts per sample to balance correctness and efficiency, handling variance in model reasoning chains."
         ],
-        "when_to_use": "When scaling reinforcement learning or post-training on large language models across multiple cluster nodes."
+        "examples": [
+          "Implementing group rewards using length penalties or conciseness bonuses across multiple rollouts."
+        ],
+        "terminology": [
+          "Rewards",
+          "Metrics",
+          "Group rewards",
+          "GRPO",
+          "Length penalty"
+        ],
+        "why_it_matters": "Enables sophisticated multi-objective optimization and prevents runaway generation lengths in LLMs."
+      },
+      {
+        "topic": "Tools, User Simulators, and MCP Servers",
+        "timestamp_range": null,
+        "explanation": "Incorporating tools and user simulators as Model Context Protocol (MCP) servers within rollouts.",
+        "key_claims": [
+          "MCP servers act as a backend framework interacting with runtimes for both tools and user simulators.",
+          "Interception servers allow harnesses to talk to standard endpoints while fake base URLs manage mock APIs for training."
+        ],
+        "examples": [
+          "Using user simulators in the loop for multi-turn agent interactions."
+        ],
+        "terminology": [
+          "MCP servers",
+          "User simulator",
+          "Interception server",
+          "Model Context Protocol"
+        ],
+        "why_it_matters": "Brings realistic multi-turn agent interaction and tool use into standard RL pipelines without modifying base harnesses."
+      },
+      {
+        "topic": "Prime-RL Architecture: Asynchronous RL",
+        "timestamp_range": null,
+        "explanation": "Architecture of prime-rl separating inference, orchestration, and training into asynchronous processes.",
+        "key_claims": [
+          "Inference serves the live policy, orchestrator runs rollouts and scores them, and trainer updates weights via FSDP/Megatron.",
+          "Asynchronous RL decouples slow agent rollouts from fast trainer steps, preventing bottlenecks from long-tail outlier tasks."
+        ],
+        "examples": [
+          "Training a 1-trillion parameter GLM-5 model on 28 H200 nodes using 131k context length."
+        ],
+        "terminology": [
+          "prime-rl",
+          "Asynchronous RL",
+          "Orchestrator",
+          "FSDP",
+          "Weight broadcast"
+        ],
+        "why_it_matters": "Maximizes GPU utilization and prevents training stalls during long-horizon coding or agentic tasks."
+      },
+      {
+        "topic": "The Post-Training Family and Loss Functions",
+        "timestamp_range": null,
+        "explanation": "Categorizing post-training methods (SFT, RL/GRPO, ECHO, OPD, OPD-self, DAgger) into selectable loss terms.",
+        "key_claims": [
+          "Post-training recipes combine loss functions (reinforcement, cross-entropy, reference KL) with actor-teacher configurations.",
+          "Algorithms are modeled as Python classes where custom loss targets and advantage assignments can be plugged in easily."
+        ],
+        "examples": [
+          "Implementing GRPO, On-Policy Distillation (OPD), and DAgger using selectable loss terms."
+        ],
+        "terminology": [
+          "SFT",
+          "GRPO",
+          "ECHO",
+          "OPD",
+          "DAgger",
+          "Loss functions"
+        ],
+        "why_it_matters": "Unifies disparate post-training literature into a single extensible framework."
+      },
+      {
+        "topic": "Scaling and Multi-Tenant LoRA RL",
+        "timestamp_range": null,
+        "explanation": "Inference and training at scale using FSDP, wide expert parallelism, tiered KV offloading, and multi-tenant LoRA.",
+        "key_claims": [
+          "Multi-tenant LoRA allows multiple adapters to share a single base model in inference pools while training separate LoRAs.",
+          "Full finetuning is supported on dedicated GPU clusters for deep algorithmic customization."
+        ],
+        "examples": [
+          "Serving multiple tenants on shared base models with per-token pricing."
+        ],
+        "terminology": [
+          "Multi-tenant LoRA",
+          "Full finetuning",
+          "FSDP",
+          "Expert parallelism",
+          "KV offloading"
+        ],
+        "why_it_matters": "Drastically reduces inference infrastructure costs for multi-user fine-tuning environments."
+      }
+    ],
+    "key_points": [
+      {
+        "point": "Environments encapsulate evaluation and training",
+        "explanation": "Treating environments as unified packages containing tasks, harnesses, and verification eliminates duplicate code between eval and training pipelines.",
+        "evidence": "Verifiers v1 library design patterns in the lab-cookbook.",
+        "practical_implication": "Developers can write evals once and use them directly for reinforcement learning and distillation."
+      },
+      {
+        "point": "Asynchronous RL overcomes long-tail rollouts",
+        "explanation": "By decoupling inference servers and trainers via an orchestrator, slow agent rollouts do not block trainer optimization steps.",
+        "evidence": "prime-rl architecture separating inference, orchestration, and training processes.",
+        "practical_implication": "Allows efficient training on complex agentic and coding tasks with highly variable execution times."
+      },
+      {
+        "point": "Multi-tenant LoRA enables cost-effective training and serving",
+        "explanation": "Sharing a frozen base model across multiple tenants while training distinct LoRA adapters optimizes GPU usage.",
+        "evidence": "Multi-tenant LoRA RL architecture diagram and pricing model.",
+        "practical_implication": "Enables per-token pricing and multi-tenant fine-tuning without reserving dedicated GPU clusters for every user."
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "Verifiers v1 Architecture",
+        "how_it_works": "Composes rollouts using three swappable pieces: tasksets (data/scoring), harnesses (driver programs/tools), and runtimes (execution environments).",
+        "components": [
+          "Taskset",
+          "Harness",
+          "Runtime"
+        ],
+        "when_to_use": "When building modular evaluation or reinforcement learning environments for LLM agents."
+      },
+      {
+        "name": "Prime-RL Asynchronous Architecture",
+        "how_it_works": "Employs three decoupled processes: Inference servers serving live policies, an Orchestrator running rollouts and scoring, and a Trainer performing weight updates.",
+        "components": [
+          "Inference server",
+          "Orchestrator",
+          "Trainer"
+        ],
+        "when_to_use": "When scaling reinforcement learning for large frontier models with long-horizon agentic rollouts."
       }
     ],
     "examples": [
       {
-        "what_happened": "Running 1T parameter GLM-5 models on 28 H200 nodes for long-horizon coding tasks.",
-        "illustrates": "Scalability and efficiency of asynchronous RL and Prime-rl framework.",
-        "lesson": "Large-scale RL runs can be executed cost-effectively and rapidly with proper infrastructure decoupling."
+        "what_happened": "Training GLM-5 (1 trillion parameters) on 28 H200 nodes using prime-rl.",
+        "illustrates": "Scalability and efficiency of asynchronous RL on long-horizon coding tasks with 131k context lengths.",
+        "lesson": "Large-scale RL can be executed efficiently with high throughput and manageable rental costs."
       }
     ],
     "takeaways": {
       "immediate": [
-        "Check out the lab-cookbook repository on GitHub for practical guides and configs.",
-        "Explore Verifiers v1 to structure evaluation and RL environments."
+        "Explore the lab-cookbook repository on GitHub for guides, configs, and environments.",
+        "Use Verifiers v1 to decouple tasksets, harnesses, and runtimes in your pipelines."
       ],
       "strategic": [
-        "Adopt asynchronous RL architectures to handle long-tail latencies in agentic workflows.",
-        "Leverage multi-tenant LoRA and tiered KV offloading to optimize inference and training costs."
+        "Adopt asynchronous RL patterns to handle variable rollout durations in agentic workflows.",
+        "Leverage multi-tenant LoRA infrastructure to optimize GPU utilization and reduce serving costs."
       ],
       "questions_to_investigate": [
-        "How optimal is token-based pricing in multi-tenant LoRA production environments?",
-        "What are the precise trade-offs between on-policy distillation and asynchronous reinforcement learning across diverse agentic tasks?"
+        "How do different group reward formulations impact reasoning trajectory length in coding tasks?",
+        "What are the precise latency trade-offs between synchronous and asynchronous RL at scale?"
       ]
     },
     "claims_to_verify": [
       {
-        "claim": "GLM-5 step time stays flat at ~5 minutes for 131k context length across 28 H200 nodes.",
-        "claim_type": "benchmark"
-      },
-      {
-        "claim": "Prime-rl supports multi-tenant LoRA training with per-token pricing and no reserved GPUs.",
-        "claim_type": "architectural feature"
+        "claim": "prime-rl can train a trillion-parameter model on agentic SWE tasks using 28 H200 nodes with step times under 5 minutes.",
+        "claim_type": "Performance benchmark"
       }
     ],
     "quotes": [
       {
         "text": "Environments are a language for specifying what you want your model to do.",
-        "timestamp": 554
+        "timestamp": null
       },
       {
-        "text": "Asynchronous RL is one of those things that I think people were kind of one foot in, one foot out.",
-        "timestamp": 2939
+        "text": "The goal is to make doing large-scale open-source AI research easier.",
+        "timestamp": null
       }
     ],
     "compressed": {
       "bullets": [
-        "Verifiers v1 decouples tasksets, harnesses, and runtimes for flexible post-training.",
-        "Prime-rl uses a 3-process asynchronous architecture (inference, orchestrator, trainer) to scale RL efficiently.",
-        "Modular algorithm classes support GRPO, PPO, DPO, OPD, ECHO, self-distillation, and custom loss functions.",
-        "Multi-tenant LoRA and Torch Titan optimizations enable high-performance, cost-effective training and inference at scale."
+        "Prime Intellect's Open Superintelligence Stack unifies post-training, verifiers, and RL.",
+        "Verifiers v1 modularizes post-training into tasksets, harnesses, and runtimes.",
+        "Asynchronous RL decouples slow agent rollouts from fast GPU training steps.",
+        "Multi-tenant LoRA architecture reduces serving costs and enables scalable fine-tuning."
       ],
       "keywords": [
         "post-training",
         "reinforcement learning",
         "verifiers",
-        "prime-rl",
         "asynchronous rl",
         "lora"
       ],
-      "core_insight": "Decoupling inference, orchestration, and training processes via asynchronous reinforcement learning and modular verifiers enables scalable, open-source frontier model post-training."
+      "core_insight": "Modularizing post-training into swappable verifier environments and decoupling RL inference from training via asynchronous orchestration enables scalable, cost-effective agentic model improvement."
     }
   },
   "validation_passed": true,
-  "retries": 1,
-  "elapsed_seconds": 90.1795,
-  "prompt_tokens": 513486,
-  "completion_tokens": 6362,
-  "cost_usd": 0.169951
+  "retries": 0,
+  "contract_violations": 0,
+  "elapsed_seconds": 49.5374,
+  "prompt_tokens": 256739,
+  "completion_tokens": 3123,
+  "cost_usd": 0.084829
 }

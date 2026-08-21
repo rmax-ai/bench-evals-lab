@@ -30,10 +30,12 @@ Re-judge existing candidate outputs without re-running summarization:
   `summarize_video()` call exactly (native `generateContent`, `file_data`
   YouTube ingestion, JSON output mode, 65536-token cap, `usageMetadata`
   accounting). One retry on JSON/schema failure.
-- `scripts/ground_truth.py` — one fact sheet per video, built once
-  (gemini-3.1-pro-preview, falling back to gemini-2.5-pro on native-video
-  rejection, recorded in the fact-sheet metadata). This is the ground truth
-  every candidate is scored against.
+- `scripts/ground_truth.py` — two fact sheets per video (gemini-3.1-pro-preview
+  and gemini-2.5-pro), merged into one ground-truth file: union of all
+  sections, keeping claims/quotes found by only one extractor and collapsing
+  duplicates. If one extractor fails entirely, the other's fact sheet stands
+  alone; the metadata records both builder models and any failure. This merged
+  ground truth is what every candidate is scored against.
 - `scripts/judge.py` — one judge run: gemini-3.1-pro-preview (native text
   prompt, no video) or deepseek-v4-pro (OpenAI-compatible) scores the
   candidate JSON against the fact sheet on five fidelity dimensions and lists
@@ -52,6 +54,10 @@ Per candidate (aggregated in `metrics.json`):
   total, accuracy, hallucination totals
 - accuracy = mean(faithfulness, precision) per judge
 - quality = judge total per judge
+- contract_violations: total per candidate of `timestamp_range` values emitted
+  as a `[start, end]` integer list instead of the contract's `"start-end"`
+  string. These are coerced to `"start-end"` before pydantic validation and
+  counted as a metric rather than a validation failure.
 - validation_failures, retries, and errors per stage
 
 The summary section ranks candidates by quality/cost (cost per video).

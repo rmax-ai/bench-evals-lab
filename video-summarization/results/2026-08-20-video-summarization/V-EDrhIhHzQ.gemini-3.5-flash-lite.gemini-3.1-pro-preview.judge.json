@@ -5,19 +5,21 @@
     "structure": 5,
     "faithfulness": 2,
     "coverage": 4,
-    "precision": 3,
+    "precision": 2,
     "compression": 4
   },
-  "total": 3.6,
-  "rationale": "The candidate nicely structures the provided information and successfully captures the core narrative about Prime Intellect's verifiers framework, prime-rl, and asynchronous RL. However, it fails terribly on faithfulness by injecting a large amount of external knowledge not found in the fact sheet. It hallucinates specific model parameters, step times, dataset integrations, architectural tools, RL algorithms, and GitHub repositories. Additionally, it fabricates timestamps for the provided quotes and misses the key claim regarding the 'renderer' abstraction to prevent tokenization drift.",
+  "total": 3.4,
+  "rationale": "The candidate captures the high-level concepts well, organizing the information logically and concisely. However, it introduces a significant amount of hallucinated information not present in the fact sheet, particularly regarding specific technologies, frameworks, and features like multi-tenant LoRA, LangChain, and DSPy.",
   "hallucinations": [
-    "Mentions 'GLM-5 1T parameter models' and 'sub-5 minute step times' which are not in the fact sheet.",
-    "Lists integrations like 'HuggingFace datasets, Harbor, Nemotron, and OpenEnv' not present in the source.",
-    "Introduces terms and technologies not mentioned, including 'Model Context Protocol (MCP) servers', 'uv script', 'Torch Titan', 'Ulysses/Ring', and 'multi-tenant LoRA'.",
-    "Lists specific algorithms 'GRPO, PPO, DPO, ECHO, Dagger, DPPO' not found in the fact sheet.",
-    "References a 'lab-cookbook repository on GitHub' which is absent from the text.",
-    "Fabricates quote timestamps (554 and 2939) that do not match the fact sheet."
+    "Channel is stated as 'Maxi' instead of 'AI Engineer'.",
+    "Speaker's title is stated as 'Head of Applied Research' which is not in the fact sheet.",
+    "Mentions 'lab-cookbook repository on GitHub'.",
+    "Lists 'Nemotron, OpenEnv' instead of 'Nemogym, OpenFns'.",
+    "Lists 'LangChain, DSPy' as harnesses.",
+    "Lists 'Modal, Daytona, E2B' as runtimes.",
+    "Mentions 'Megatron' being used for training.",
+    "Claims the use of 'multi-tenant LoRA', 'wide expert parallelism', and 'tiered KV offloading', none of which are in the source text."
   ],
-  "elapsed_seconds": 102.1366,
-  "cost_usd": 0.013788
+  "elapsed_seconds": 114.5254,
+  "cost_usd": 0.018432
 }

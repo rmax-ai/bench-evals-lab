@@ -1,0 +1,18 @@
+{
+  "judged_candidate": "gemini-2.5-pro",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 4,
+    "coverage": 3,
+    "precision": 5,
+    "compression": 5
+  },
+  "total": 4.2,
+  "rationale": "The candidate correctly identifies the main topics, key points, and overall narrative of the ground truth, compressing the information well. However, it completely fails to populate the 'frameworks' and 'examples' arrays despite the ground truth providing rich data for these sections, reducing its coverage score. Additionally, it introduces an external attribution (Andrej Karpathy) not found in the ground truth fact sheet.",
+  "hallucinations": [
+    "The candidate explicitly names 'Andrej Karpathy' as the source of a quote regarding a 'decade of agents', which is entirely absent from the provided fact sheet."
+  ],
+  "elapsed_seconds": 117.679,
+  "cost_usd": 0.01608
+}

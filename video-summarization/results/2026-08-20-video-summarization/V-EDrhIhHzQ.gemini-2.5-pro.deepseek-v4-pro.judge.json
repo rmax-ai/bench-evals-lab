@@ -1,0 +1,27 @@
+{
+  "judged_candidate": "gemini-2.5-pro",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 4,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 2
+  },
+  "total": 2.8,
+  "rationale": "Structure is well-formed but has redundant repeated sections. Faithfulness suffers from unsupported strings: channel 'Maxi', title 'Head of Applied Research at Prime Intellect', version 0.6.0, 1.7T MoE, TITO, and several non-verbatim quotes. Coverage is strong on frameworks, loop, and architecture but misses 'Model Thinking Too Long' and OPD lesson details. Precision is poor: wrong channel, invented title/timestamps, expanded quotes, 1.7T instead of 1T-scale, missing exact quote forms. Compression is low due to repeated overview/topic/key takeaways/bullets restating the same points.",
+  "hallucinations": [
+    "Maxi",
+    "Modern Post-Training: A Deep Dive",
+    "Head of Applied Research at Prime Intellect",
+    "Our goal is to make doing large-scale open source AI research easier and to enable companies to train their own models and deploy them and have them improve based on the scenarios that they actually see in production.",
+    "Any taskset plus any harness plus any runtime equals one typed trace.",
+    "We want to train big models, and we want to train them really efficiently because as models get bigger, the compute starts adding up.",
+    "prime-rl 0.6.0 can train a 1.7 trillion-parameter MoE on long-horizon coding tasks with sub-5-minute step times on 28 H200 nodes.",
+    "The 'renderers' library provides a token-in, token-out (TITO) approach that completely eliminates re-tokenization drift in training pipelines.",
+    "A thousand-step RL run on a 1.7T model costs about $50,000 in rental prices on their platform.",
+    "1.7 trillion-parameter GLM-5 model"
+  ],
+  "elapsed_seconds": 77.6258,
+  "cost_usd": 0.007769
+}

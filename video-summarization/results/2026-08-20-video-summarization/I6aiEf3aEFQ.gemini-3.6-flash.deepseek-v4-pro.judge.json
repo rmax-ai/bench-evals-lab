@@ -1,0 +1,38 @@
+{
+  "judged_candidate": "gemini-3.6-flash",
+  "judge_model": "deepseek-v4-pro",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 3
+  },
+  "total": 3.2,
+  "rationale": "Well-structured JSON, but faithfulness is undermined by numerous unsupported details: channel 'Maxi'; Yu Su's university/company titles; GitHub Copilot; healthcare, education, finance; stability-plasticity; and an unsupported $4B run-rate. Coverage captures main claims, frameworks, and examples but misses some exact quotes and Anthropic correction. Precision suffers from wrong channel, wrong monetary figure, timestamp formatting, and non-verbatim quotes. Compression is redundant across overview, topic_map, key_points, takeaways, and compressed sections, reducing density.",
+  "hallucinations": [
+    "Maxi",
+    "Yu Su (Professor at The Ohio State University and COO of NeoCognition)",
+    "reliable, token-efficient, expert AI agents",
+    "explicit tools, state, and rewards",
+    "developer coding assistants",
+    "unhandled UI states",
+    "underlying architectural issues rather than reading surface-level text",
+    "Search Space Compression",
+    "parameter distillation",
+    "Updating model parameter adapters, knowledge graphs, or skill abstractions following task execution feedback.",
+    "Parametric Learning",
+    "Non-parametric Learning",
+    "healthcare, education, and finance",
+    "Enabling personalized expert assistants in healthcare, tutoring, and corporate decision-making.",
+    "GitHub Copilot",
+    "Foundation models consuming huge context windows to solve domain-specific tasks repeatedly without gaining long-term efficiency.",
+    "Theoretical mapping showing that continual learning efficiency determines the slope of the curve between intelligence and expertise.",
+    "proprietary institutional memory",
+    "cost-effective base models",
+    "How can live agent adaptation overcome the stability-plasticity dilemma to avoid catastrophic forgetting?",
+    "Anthropic's annualized run rate grew 400x in under two years to over $4 billion."
+  ],
+  "elapsed_seconds": 116.723,
+  "cost_usd": 0.008628
+}

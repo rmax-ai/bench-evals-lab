@@ -1,0 +1,21 @@
+{
+  "judged_candidate": "gemini-3.6-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 5,
+    "precision": 3,
+    "compression": 4
+  },
+  "total": 3.8,
+  "rationale": "The candidate JSON is highly structured and provides excellent coverage of the fact sheet's core concepts, frameworks, and arguments. However, it suffers from several notable hallucinations by bringing in outside knowledge not present in the ground truth (such as the speaker's job titles), altering the channel name, hallucinating specific integer timestamp ranges, and changing the Anthropic revenue statistic.",
+  "hallucinations": [
+    "Listed the channel as 'Maxi' instead of 'AI Engineer'.",
+    "Added external biographical details: 'Professor at The Ohio State University and COO of NeoCognition'.",
+    "Claimed Anthropic's revenue grew to 'over $4 billion', which contradicts the fact sheet ($40-60 billion spoken error, $44.1 million on screen).",
+    "Fabricated exact integer timestamp ranges (e.g., '75-229', '383-626') and quote timestamps (e.g., '395', '650') that do not align with the provided ground truth."
+  ],
+  "elapsed_seconds": 98.4299,
+  "cost_usd": 0.01587
+}

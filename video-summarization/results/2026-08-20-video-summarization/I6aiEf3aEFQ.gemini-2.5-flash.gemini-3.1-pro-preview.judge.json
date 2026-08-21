@@ -1,0 +1,21 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 4
+  },
+  "total": 4.2,
+  "rationale": "The candidate provides a very thorough and well-organized summary that covers the core concepts, frameworks, and examples from the ground truth. However, it introduces several hallucinations not found in the ground truth, such as attributing a quote to Andrej Karpathy, naming the speaker's company as 'NeoCognition', stating the channel is 'Maxi', and referencing an agent named 'OpenClaw' instead of 'OpenGlass'. The timestamps in the topic map are also malformed.",
+  "hallucinations": [
+    "Attributing the quote about agents not working and lacking computer use to Andrej Karpathy.",
+    "Stating the speaker is from 'NeoCognition'.",
+    "Listing the channel as 'Maxi' instead of 'AI Engineer'.",
+    "Naming the AI agent 'OpenClaw' instead of 'OpenGlass'."
+  ],
+  "elapsed_seconds": 111.529,
+  "cost_usd": 0.020698
+}

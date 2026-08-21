@@ -1,50 +1,70 @@
 {
   "speaker": "Luke Alvezio",
   "channel": "AI Engineer",
-  "main_topic": "Assembling long-running, autonomous multi-agent teams for complex software engineering tasks.",
+  "main_topic": "Assembling agent teams to solve complex software engineering problems, specifically focusing on the 'Missions' framework developed by Factory to enable autonomous, multi-day agent workflows.",
   "key_claims": [
     {
-      "claim": "Intelligence is no longer the bottleneck in software engineering; human attention is.",
-      "details": "Engineers have a backlog of features but can only drive a few forward daily because every task requires human supervision for implementation and review, even though current AI models are smart enough to build them."
+      "claim": "The bottleneck in software engineering is no longer intelligence, but human attention.",
+      "support": "Best engineers have backlogs of 50 features but can only drive a few forward per day because each task requires attention and review. Models are smart enough to build all 50, but lack human supervision bandwidth."
     },
     {
-      "claim": "Tests written after implementation don't catch bugs, they confirm decisions.",
-      "details": "When an agent builds a feature and then writes the tests for it, the tests are shaped by the code, not the original intent. True validation must be independent and adversarial."
+      "claim": "Current multi-agent frameworks are a mess, with varying terminology and opinions.",
+      "support": "Luke proposes a five-strategy taxonomy to clarify the landscape: Delegation, Creator-Verifier, Direct Communication, Negotiation, and Broadcast."
     },
     {
-      "claim": "Serial execution beats parallel execution for multi-agent software development.",
-      "details": "Running multiple agents in parallel on a codebase leads to conflicts, duplicated work, and high coordination overhead that burns tokens without speed gains. Serial execution with structured handoffs allows for clean context and compounding correctness."
+      "claim": "Validation must be independent of implementation to avoid the system drifting.",
+      "support": "Tests written after implementation don't catch bugs; they confirm decisions. Factory's system writes a 'validation contract' during planning, before any code is written, which can include hundreds of assertions."
+    },
+    {
+      "claim": "Validation in a multi-day agent system must be adversarial.",
+      "support": "Neither the Scrutiny Validator nor the User-Testing Validator sees the code before verifying it. They are not invested in the implementation."
+    },
+    {
+      "claim": "Serial execution of features is better than parallel execution for software development tasks.",
+      "support": "Parallelism leads to agents conflicting, stepping on each other's changes, duplicating work, and making inconsistent architectural decisions. Serial execution (with targeted internal parallelization for read-only tasks) reduces error rates."
     },
     {
       "claim": "A model-agnostic architecture provides a compounding advantage.",
-      "details": "No single model is best at planning, implementation, and validation. Locking into one provider constrains you to their weakest capability. Mixing models ensures strict instruction following and avoids training-data bias during validation."
+      "support": "Different models excel at different roles (e.g., planning vs. implementation vs. validation). Being locked into one provider restricts the system to that family's weakest capability."
+    },
+    {
+      "claim": "The 'Missions' system is designed to improve automatically as underlying models improve.",
+      "support": "Most orchestration logic is defined in prompts and skills rather than hardcoded state machines, and worker behavior is driven by skills defined per-mission. Only bookkeeping (validation triggering, blocking progress) is deterministic."
+    },
+    {
+      "claim": "The primary bottleneck in software engineering is no longer intelligence, but human attention.",
+      "details": "Engineers have large backlogs (e.g., 50 features) but can only advance a few per day because each step requires their supervision. Current AI models are intelligent enough to handle the entire backlog, but are limited by the need for human oversight."
+    },
+    {
+      "claim": "A mission is an ecosystem of agents, not a single agent session.",
+      "details": "Missions consist of multiple specialized agents (Orchestrator, Workers, Validators) that coordinate through structured handoffs and a shared state to complete complex, long-running tasks."
+    },
+    {
+      "claim": "Serial execution of features beats parallel execution for complex software development.",
+      "details": "Parallel execution leads to agent conflicts, duplicated work, and inconsistent architecture, where the coordination overhead negates speed gains. A serial approach, where features are built sequentially, ensures correctness, which compounds over multi-day runs."
+    },
+    {
+      "claim": "The 'Missions' architecture is designed to improve as AI models improve, without requiring code changes.",
+      "details": "Almost all orchestration logic (feature decomposition, failure handling) is defined in prompts and skills, not hardcoded. This means when a new, better model is released, the system's performance naturally improves by simply swapping the model."
     }
   ],
   "frameworks": [
     {
       "name": "Five Multi-Agent Strategies",
       "components": [
-        "Delegation: One agent spawns another for a subtask; the simplest pattern.",
-        "Creator-Verifier: One agent builds, a different agent checks; enforces separation of concerns and removes sunk-cost bias.",
-        "Direct Communication: Peer-to-peer interaction without a central coordinator; hard to maintain state fragments.",
-        "Negotiation: Agents coordinate over shared resources; best when there is a possible win-win outcome.",
-        "Broadcast: One agent sends status updates and shared context to many; critical for long-running coherence."
+        "Delegation: One agent spawns another for a subtask (e.g., sub-agents encoding tools).",
+        "Creator-Verifier: One agent builds, a different agent checks (separates concerns, removes sunk-cost bias).",
+        "Direct Communication: Agents talk peer-to-peer without a coordinator (hard to get right, no single source of truth).",
+        "Negotiation: Agents coordinate over shared resources (best for win-win situations, non-adversarial).",
+        "Broadcast: One agent sends status updates to many (critical for coherence over long tasks)."
       ]
     },
     {
-      "name": "Missions Three-Role Architecture",
+      "name": "Missions (Factory's System)",
       "components": [
-        "Orchestrator: Handles planning, defining features, setting milestones, and writing the validation contract before any code is written.",
-        "Workers (Child): Handle implementation; they start with fresh context, no accumulated baggage, implement a specific feature, and commit via git.",
-        "Validators (Child): Handle adversarial verification; they have never seen the implementation code before running tests or QA."
-      ]
-    },
-    {
-      "name": "Validation Loop",
-      "components": [
-        "Validation Contract: Written by the orchestrator during planning; consists of hundreds of assertions defining correctness independently of implementation.",
-        "Scrutiny Validator: Runs traditional checks like test suites, typechecking, linting, and spawns dedicated code review agents.",
-        "User-Testing Validator: Acts as a QA engineer; launches the live application, navigates via computer-use, clicks buttons, fills forms, and verifies end-to-end functional flows."
+        "Orchestrator: Handles planning, acts as a sounding board, defines features, milestones, and the validation contract.",
+        "Workers: Handle implementation; get clean context per feature, implement, and commit via git.",
+        "Validators: Handle verification using an adversarial approach; includes Scrutiny Validator (tests, linting, code review) and User-Testing Validator (acts like a QA engineer, interacts with the app end-to-end)."
       ]
     },
     {
@@ -52,85 +72,249 @@
       "components": [
         "What was implemented",
         "What was left undone",
-        "Commands run and their exit codes",
+        "Commands run + exit codes",
         "Issues discovered",
-        "Whether procedures defined by the orchestrator were followed"
+        "Whether procedures were followed"
+      ]
+    },
+    {
+      "name": "Five Multi-Agent Strategies Taxonomy",
+      "description": "A classification of five primary strategies for how multiple AI agents can interact.",
+      "components": [
+        "Delegation: One agent spawns another for a subtask.",
+        "Creator-Verifier: One agent builds, and a separate, unbiased agent checks the work.",
+        "Direct Communication: Peer-to-peer agent communication without a central coordinator.",
+        "Negotiation: Agents coordinate over shared resources to find a win-win outcome.",
+        "Broadcast: One agent sends status updates and shared context to many agents to maintain coherence."
+      ]
+    },
+    {
+      "name": "Missions Workflow",
+      "description": "A system that combines the multi-agent strategies into a cohesive, long-running workflow.",
+      "components": [
+        "A human describes a software goal.",
+        "The system scopes the goal through a conversation with the user.",
+        "The user approves a detailed plan generated by the system.",
+        "The 'Mission' system handles the execution autonomously for hours or days."
+      ]
+    },
+    {
+      "name": "Three-Role Architecture",
+      "description": "The core architectural model for Missions, dividing responsibilities among three agent types.",
+      "components": [
+        "The Orchestrator: Handles high-level planning, breaks down the goal into features and milestones, and creates the 'Validation Contract'.",
+        "Workers: Implement individual features with fresh context for each task. They commit code via git and create a structured handoff report upon completion.",
+        "Validators: Perform adversarial verification. They have never seen the code before and check its correctness against the Validation Contract. There are two types: Scrutiny Validator (static analysis, code review) and User-Testing Validator (end-to-end behavioral testing)."
+      ]
+    },
+    {
+      "name": "The Validation Loop",
+      "description": "A core process in Missions to ensure correctness and prevent drift.",
+      "components": [
+        "Planning Phase: An upfront 'Validation Contract' is written by the Orchestrator, defining 'done' before any code is written, independent of implementation.",
+        "After each milestone: A 'Scrutiny Validator' runs static checks (tests, linting, code review) and a 'User-Testing Validator' performs dynamic, end-to-end behavioral tests like a QA engineer."
       ]
     }
   ],
   "examples": [
     {
       "example": "Building a clone of Slack",
-      "lessons": "Demonstrated a 16.5-hour autonomous run where 60% of time and tokens were spent on implementation. Validation never succeeded on the first attempt, proving the system's ability to self-correct by spawning follow-up features. Resulted in a highly robust codebase where 50% of the lines of code were tests, achieving 90% test coverage."
+      "lesson": "Demonstrated that validation rarely succeeds on the first try (requiring follow-up features) and that 60% of time and tokens were spent on implementation. It resulted in 50% of the final codebase being tests, with 90% test coverage."
     },
     {
-      "example": "Enterprise use cases at Factory",
-      "lessons": "Missions are used to prototype new ideas and features overnight, rapidly build internal tools, execute large-scale refactors and migrations for ML research, and modernize codebases to increase overall agent readiness and productivity."
+      "example": "Enterprise use cases of Missions",
+      "lesson": "Missions are being used to prototype new ideas overnight, build internal tools rapidly, run huge refactors/migrations, and modernize codebases."
+    },
+    {
+      "example": "Enterprise use cases",
+      "lesson": "Missions are used for practical enterprise tasks such as prototyping new features overnight, building internal tools, performing large-scale code refactors and migrations, and modernizing legacy codebases to make them more 'agent-ready'."
     }
   ],
   "terminology": [
     {
-      "term": "Goose",
-      "definition": "An open-source coding agent created by the speaker during his previous tenure at Block."
-    },
-    {
       "term": "Missions",
-      "definition": "Factory's proprietary system that combines delegation, creator-verifier, broadcast, and negotiation into a single workflow capable of running autonomously for days."
+      "definition": "Factory's system that combines delegation, creator-verifier, broadcast, and negotiation into a single workflow for multi-day autonomous software development."
     },
     {
       "term": "Validation Contract",
-      "definition": "A set of hundreds of assertions defining what 'done' means for a project, generated before any coding begins to prevent system drift."
+      "definition": "A set of assertions written by the orchestrator during planning, before any code is written, defining what 'done' means independently of implementation."
+    },
+    {
+      "term": "Scrutiny Validator",
+      "definition": "A validator that runs tests, typechecking, and linting, and spawns dedicated code review agents."
+    },
+    {
+      "term": "User-Testing Validator",
+      "definition": "A validator that acts like a QA engineer, spawning the application and interacting with it via computer-use to verify end-to-end functional flows."
     },
     {
       "term": "Droid Whispering",
-      "definition": "The emerging engineering skill of mentally modeling how different LLMs interact, where they fail, and how those failures compound over long-running, multi-day executions."
+      "definition": "The skill of mentally modeling how different LLMs interact, where they fail, how failures compound, and selecting the right model for specific roles in an agent ecosystem."
+    },
+    {
+      "term": "Agent Teams",
+      "definition": "Groups of multiple, often specialized, AI agents collaborating to solve a problem that is too complex for a single agent."
+    },
+    {
+      "term": "Structured Handoffs",
+      "definition": "Detailed reports generated by worker agents after completing a task to ensure context is passed coherently to subsequent agents in a long-running process."
     }
   ],
   "takeaways": [
-    "To build agent teams that solve truly difficult problems, developers must transition from single-session chats to asynchronous systems that can run autonomously for days.",
-    "Adversarial validation—where the testing agent has no prior knowledge of the implementation code and ideally uses a different underlying model—is necessary to prevent systemic drift.",
-    "Serial execution, combined with rigorous, structured written handoffs between agents, is more effective for complex software development than attempting to run multiple agents in parallel.",
-    "Utilizing different, specialized models for specific roles (e.g., planning vs. implementation vs. validation) yields better results and avoids the weaknesses inherent in relying on a single model family."
+    {
+      "takeaway": "To build multi-day autonomous agent systems, validation must be independent, adversarial, and behavioral (end-to-end)."
+    },
+    {
+      "takeaway": "Maintaining context across long-running tasks requires agents to explicitly document handoffs (what was done, what failed, exit codes) rather than relying on memory."
+    },
+    {
+      "takeaway": "Serial execution of development tasks, combined with parallelization of read-only research tasks, is more effective than fully parallel execution."
+    },
+    {
+      "takeaway": "Using the right model for each specific role (planning vs. coding vs. validating) creates a compounding advantage over relying on a single model family."
+    },
+    "Multi-agent systems can solve problems that are orders of magnitude more complex than what single agents can handle.",
+    "The key to successful long-running agentic systems is not just intelligence, but a structured architecture that ensures discipline, correctness, and coherence.",
+    "A model-agnostic architecture, where logic is in prompts rather than hard-coded, is crucial for future-proofing systems against rapid model improvements.",
+    "Effective validation must be adversarial, separating the implementation agent from the verification agent to avoid confirmation bias and catch real bugs.",
+    "For software development, a serial execution of features combined with targeted parallelism for non-conflicting sub-tasks (like research) is more effective than full parallelism."
   ],
   "notable_quotes": [
     {
       "quote": "The bottleneck in software engineering nowadays is not intelligence. It's now limited by human attention.",
-      "timestamp": "01:05"
+      "timestamp": "01:06"
     },
     {
       "quote": "Tests written after implementation don't catch bugs. They confirm decisions.",
-      "timestamp": "06:24"
+      "timestamp": "06:23"
     },
     {
-      "quote": "Validation is adversarial by design.",
-      "timestamp": "08:05"
+      "quote": "Neither validator has seen the code before... validation is adversarial by design.",
+      "timestamp": "08:00"
     },
     {
       "quote": "You're only as strong as your weakest link. And if you're locked into one model provider, then you're constrained by that family's weakest capability.",
-      "timestamp": "12:29"
+      "timestamp": "12:28"
     },
     {
-      "quote": "Validation never succeeds on the first go.",
-      "timestamp": "13:24"
+      "quote": "My goal is that 20 minutes from now, you'll be able to assemble agent teams that can complete tasks orders of magnitude harder than what you can complete with a single agent today.",
+      "timestamp": "00:18"
+    },
+    {
+      "quote": "A mission is not a single agent session that runs for a long time. It's an ecosystem of agents coordinating through structured handoffs and shared state.",
+      "timestamp": "04:27"
+    },
+    {
+      "quote": "Neither validator has ever seen the code. Validation is adversarial by design.",
+      "timestamp": "08:00"
+    },
+    {
+      "quote": "Missions ensure discipline. The models provide intelligence.",
+      "timestamp": "15:39"
     }
   ],
   "statistics": [
-    "Targeting problems 15x harder than what single agents can solve.",
-    "The longest successful mission ran for 16 days, with the belief it can scale to 30 days.",
-    "Slack clone example: 16.5 hours total runtime.",
-    "Slack clone example: 60% of time and tokens were spent on implementation.",
-    "Slack clone example: 50% of the final lines of code were tests.",
-    "Slack clone example: 90% test coverage achieved.",
-    "The system can increase a 5-engineer team's capacity from 10 concurrent workstreams to 30."
+    {
+      "statistic": "15x",
+      "context": "Agent teams can solve problems 15x harder than single agents can (from presentation title)."
+    },
+    {
+      "statistic": "16 days",
+      "context": "The longest mission run by Factory lasted 16 days."
+    },
+    {
+      "statistic": "30 days",
+      "context": "The speaker believes the system can run for 30 days."
+    },
+    {
+      "statistic": "10 to 30",
+      "context": "Missions can increase concurrent workstreams for a team of 5 engineers from 10 to 30."
+    },
+    {
+      "statistic": "60%",
+      "context": "In the Slack clone example, 60% of time and 60% of tokens were spent on implementation."
+    },
+    {
+      "statistic": "50%",
+      "context": "In the Slack clone example, 50% of the final code lines were tests."
+    },
+    {
+      "statistic": "90%",
+      "context": "In the Slack clone example, 90% of the code was covered by tests."
+    },
+    {
+      "value": "15x",
+      "context": "Agent teams can solve problems 15x harder than single agents can (from the title slide)."
+    },
+    {
+      "value": "50",
+      "context": "An example backlog size for a software engineer, of which they can only complete a few per day."
+    },
+    {
+      "value": "18.5 hours",
+      "context": "Total runtime for the mission to build a clone of Slack."
+    },
+    {
+      "value": "60.5%",
+      "context": "Percentage of the Slack clone mission's runtime spent on Implementation (9.98h)."
+    },
+    {
+      "value": "37.2%",
+      "context": "Percentage of the Slack clone mission's runtime spent on Validation (6.14h)."
+    },
+    {
+      "value": "195",
+      "context": "Total number of agent runs in the Slack clone mission."
+    },
+    {
+      "value": "778.5M",
+      "context": "Total tokens consumed during the Slack clone mission."
+    },
+    {
+      "value": "35.8k",
+      "context": "Total lines of code generated in the Slack clone mission."
+    },
+    {
+      "value": "52.5%",
+      "context": "Percentage of the generated code that were tests in the Slack clone mission."
+    },
+    {
+      "value": "89.25%",
+      "context": "Test coverage achieved for the generated code in the Slack clone mission."
+    },
+    {
+      "value": "10 -> 30",
+      "context": "The potential increase in concurrent workstreams for a team of 5 engineers using these systems."
+    }
   ],
   "metadata": {
-    "builder_model": "gemini-3.1-pro-preview",
     "video_id": "ow1we5PzK-o",
-    "elapsed_seconds": 92.1542,
-    "cost_usd": 0.222414,
-    "tokens": {
-      "prompt_tokens": 101133,
-      "completion_tokens": 1679
-    }
+    "builder_model": "gemini-3.1-pro-preview",
+    "builder_models": [
+      "gemini-3.1-pro-preview",
+      "gemini-2.5-pro"
+    ],
+    "builders": {
+      "gemini-3.1-pro-preview": {
+        "status": "ok",
+        "elapsed_seconds": 46.5315,
+        "cost_usd": 0.225714,
+        "tokens": {
+          "prompt_tokens": 101133,
+          "completion_tokens": 1954
+        }
+      },
+      "gemini-2.5-pro": {
+        "status": "ok",
+        "elapsed_seconds": 79.5619,
+        "cost_usd": 0.433642,
+        "tokens": {
+          "prompt_tokens": 327834,
+          "completion_tokens": 2385
+        }
+      }
+    },
+    "elapsed_seconds": 126.0948,
+    "cost_usd": 0.659356
   }
 }

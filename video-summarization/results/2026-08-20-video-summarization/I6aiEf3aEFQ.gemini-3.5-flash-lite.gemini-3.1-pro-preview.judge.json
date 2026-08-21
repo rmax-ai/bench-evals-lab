@@ -3,17 +3,20 @@
   "judge_model": "gemini-3.1-pro-preview",
   "scores": {
     "structure": 5,
-    "faithfulness": 3,
+    "faithfulness": 2,
     "coverage": 5,
-    "precision": 4,
+    "precision": 3,
     "compression": 5
   },
-  "total": 4.4,
-  "rationale": "The candidate provides an excellent, well-structured summary with high coverage of the core concepts, frameworks, and examples from the fact sheet. However, it contains a significant hallucination regarding financial statistics (stating $40 billion instead of $40-$60 million) and includes fabricated or incorrectly converted integer timestamps for quotes that do not align with the fact sheet.",
+  "total": 4.0,
+  "rationale": "The candidate JSON is extremely well-structured and achieves excellent coverage of the fact sheet, accurately reflecting the core frameworks, definitions, and themes of the presentation. However, it severely struggles with faithfulness, importing external knowledge and hallucinating several specific details not present in the source text, which also negatively impacts its precision.",
   "hallucinations": [
-    "Stated Anthropic's run rate reached '$40 billion' instead of the fact sheet's '$40 million to $60 million'.",
-    "Generated incorrect integer timestamps for quotes (635, 702, 1090) that do not match the fact sheet's timestamps (06:34, 07:03, 10:54) in either raw format or converted seconds."
+    "Identifies the channel as 'Maxi' instead of 'AI Engineer'.",
+    "Mentions 'token-inefficient' and 'company token-maxing efforts' in the topic map, which are absent from the fact sheet.",
+    "Cites 'Claude Code interface' as an example, which is not in the source.",
+    "Introduces the terminology 'parametric learning' and 'non-parametric learning', which are not listed in the ground truth.",
+    "Lists specific use cases such as 'Healthcare, finance, tutoring, and executive assistant' that do not appear in the provided fact sheet."
   ],
-  "elapsed_seconds": 89.7579,
-  "cost_usd": 0.012008
+  "elapsed_seconds": 89.3618,
+  "cost_usd": 0.015052
 }

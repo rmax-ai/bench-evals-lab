@@ -1,12 +1,234 @@
 {
   "candidate": "gemini-3.6-flash",
   "video_id": "I6aiEf3aEFQ",
-  "data": null,
-  "validation_passed": false,
-  "retries": 2,
-  "elapsed_seconds": 111.9289,
-  "prompt_tokens": 217010,
-  "completion_tokens": 5990,
-  "cost_usd": 0.18522,
-  "error": "ValidationError: 5 validation errors for SummarySchema\ntopic_map.0.timestamp_range\n  Input should be a valid string [type=string_type, input_value=[85, 228], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntopic_map.1.timestamp_range\n  Input should be a valid string "
+  "data": {
+    "overview": {
+      "title": "Intelligence + Continual Learning = Expertise",
+      "speaker": "Yu Su",
+      "channel": "Maxi",
+      "main_topic": "Continual learning and building specialized agent expertise from general intelligence models",
+      "executive_summary": "In this presentation, Yu Su (Professor at The Ohio State University and COO of NeoCognition) outlines why general-purpose language agents struggle when moving beyond coding into real-world enterprise digital workflows. He frame this challenge through a 'Modern Moravec's Paradox': while coding environments are language-native and symbolically structured, real-world work spans millions of heterogeneous micro-worlds with unique local rules. Su establishes a clear distinction between raw intelligence (inference-time reasoning from context that expands search) and expertise (accumulated, situated competence that compresses search). He argues that continual learning—defined as the adaptive compression of experience into reusable structures—is the essential link needed to transform raw model intelligence into reliable, token-efficient, expert AI agents.",
+      "purpose": "To explain the cognitive difference between raw intelligence and domain expertise, demonstrate why agent pre-training alone is insufficient for complex workflows, and present continual learning as the path toward specialized AI agents."
+    },
+    "topic_map": [
+      {
+        "topic": "The Evolution of Machine Intelligence and Coding Product-Market Fit",
+        "timestamp_range": "75-229",
+        "explanation": "Traces AI agents from early logical systems and deep RL neural agents to modern LLM-based language agents, explaining why software engineering was their first major commercial success.",
+        "key_claims": [
+          "Multimodal LLMs unify multisensory sensory inputs into neural representations suitable for symbolic reasoning.",
+          "Coding became the first mass market for language agents because code is already a language-native, symbolically structured world with explicit tools, state, and rewards."
+        ],
+        "examples": [
+          "Anthropic's exponential revenue growth driven primarily by developer coding assistants."
+        ],
+        "terminology": [
+          "Logical Agent",
+          "Neural Agent",
+          "Language Agent"
+        ],
+        "why_it_matters": "Explains why coding agents succeeded early and why non-coding digital tasks require additional cognitive capabilities."
+      },
+      {
+        "topic": "Modern Moravec's Paradox in Digital Work",
+        "timestamp_range": "229-383",
+        "explanation": "Addresses why current agents perform poorly outside of code execution and software engineering environments.",
+        "key_claims": [
+          "Enterprise generative AI initiatives frequently fail due to agent brittleness and inability to adapt.",
+          "Society is composed of millions of idiosyncratic 'micro-worlds' (organizations, workflows, software systems), each with distinct local physics.",
+          "No single static foundation model can compress the infinite heterogeneity of digital workflows into a single representation."
+        ],
+        "examples": [
+          "An MIT report finding that 95% of generative AI enterprise pilots fail.",
+          "Computer-use agents making destructive errors when navigating unhandled UI states."
+        ],
+        "terminology": [
+          "Modern Moravec's Paradox",
+          "Micro-worlds",
+          "Local Physics"
+        ],
+        "why_it_matters": "Shows that real-world deployment requires models that adapt on the job rather than relying solely on static pre-training."
+      },
+      {
+        "topic": "Distinguishing Intelligence from Expertise",
+        "timestamp_range": "383-626",
+        "explanation": "Differentiates general intelligence from domain expertise across key cognitive dimensions.",
+        "key_claims": [
+          "Intelligence is the ability to reason through novel problems using context provided at inference time.",
+          "Expertise is situated, accumulated competence that achieves reproducibly superior performance in a specific domain.",
+          "Experts perceive deep domain structures, rely on conditional knowledge, and exercise judgment and taste.",
+          "Intelligence brute-forces problem solving by expanding search, whereas expertise compresses search through learned shortcuts."
+        ],
+        "examples": [
+          "An expert developer analyzing a bug report immediately recognizes underlying architectural issues rather than reading surface-level text.",
+          "Meeting scheduling viewed as a constraint optimization problem over authority, urgency, and dependencies rather than simple calendar slot searching."
+        ],
+        "terminology": [
+          "Intelligence",
+          "Expertise",
+          "Situated Competence",
+          "Search Space Compression"
+        ],
+        "why_it_matters": "Clarifies why larger base models produce 'smart novices' that remain token-inefficient without domain-specific expertise."
+      },
+      {
+        "topic": "A Functional Framework for Continual Learning",
+        "timestamp_range": "626-881",
+        "explanation": "Defines continual learning as an adaptive compression pipeline that converts experience into reusable operational structures.",
+        "key_claims": [
+          "Continual learning is the adaptive compression of experience into reusable structure for future behavior.",
+          "Experience encompasses episodes, semantic facts, procedures, and feedback.",
+          "Compression mechanisms include embeddings, indexing, parameter distillation, and reinforcement learning."
+        ],
+        "examples": [
+          "Updating model parameter adapters, knowledge graphs, or skill abstractions following task execution feedback."
+        ],
+        "terminology": [
+          "Adaptive Compression",
+          "Reusable Structure",
+          "Parametric Learning",
+          "Non-parametric Learning"
+        ],
+        "why_it_matters": "Provides a formal structure for evaluating and implementing continual learning in agent architectures."
+      },
+      {
+        "topic": "The Escape Intelligence Hypothesis and Scaling Expertise",
+        "timestamp_range": "881-1155",
+        "explanation": "Presents a model where continual learning sets the slope for turning raw intelligence into domain expertise, proposing an 'escape intelligence' threshold.",
+        "key_claims": [
+          "Without continual learning, scaling model size only yields 'the world's smartest novice'.",
+          "Beyond an 'escape intelligence' threshold, strong continual learning enables unbounded domain expertise without requiring continuously larger base models.",
+          "Scaling expertise will democratize expert support across healthcare, education, and finance, converting human-AI interaction into institutional memory."
+        ],
+        "examples": [
+          "Enabling personalized expert assistants in healthcare, tutoring, and corporate decision-making."
+        ],
+        "terminology": [
+          "The World's Smartest Novice",
+          "Escape Intelligence",
+          "Bounded Intelligence",
+          "Institutional Memory"
+        ],
+        "why_it_matters": "Suggests AI research and engineering should pivot toward continual learning systems rather than solely focusing on scaling pre-training parameter counts."
+      }
+    ],
+    "key_points": [
+      {
+        "point": "Coding agents succeeded because software environments are natively language-structured",
+        "explanation": "In software engineering, goals, tools, error logs, execution histories, and feedback loops are already expressed in symbolic text form.",
+        "evidence": "Commercial growth of developer tools like Claude and GitHub Copilot compared to high failure rates in general computer-use pilots.",
+        "practical_implication": "To make agents work outside coding, engineers must expose or build explicit symbolic structures and feedback signals within non-coding environments."
+      },
+      {
+        "point": "General intelligence expands search spaces, while domain expertise compresses them",
+        "explanation": "Inference-time reasoning uses brute-force exploration across wide search trees, making raw intelligence token-inefficient. Expertise uses accumulated experience to shortcut directly to viable solutions.",
+        "evidence": "Foundation models consuming huge context windows to solve domain-specific tasks repeatedly without gaining long-term efficiency.",
+        "practical_implication": "Agent systems must be designed to store and reuse operational shortcuts rather than re-evaluating full context trees on every request."
+      },
+      {
+        "point": "Continual learning enables unbounded domain expertise from bounded raw intelligence",
+        "explanation": "Once a model passes a baseline raw intelligence threshold ('escape intelligence'), effective continual learning allows its domain performance to grow rapidly without needing larger foundation models.",
+        "evidence": "Theoretical mapping showing that continual learning efficiency determines the slope of the curve between intelligence and expertise.",
+        "practical_implication": "AI teams can achieve state-of-the-art domain agents using smaller, cheaper base models paired with strong continual learning loops."
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "Continual Learning Experience Pipeline",
+        "how_it_works": "A four-part system mapping raw experience into usable behavioral control through adaptive compression.",
+        "components": [
+          "Experience Input: episodes, facts, procedures, feedback",
+          "Compression Method: embedding, indexing, distillation, RL",
+          "Reusable Structure: parameters, vectors, graphs, skills, world models",
+          "Behavioral Output: recall, prediction, planning, control, value estimation"
+        ],
+        "when_to_use": "When designing memory and learning architectures for long-running AI agents."
+      },
+      {
+        "name": "Intelligence vs. Expertise Comparison Matrix",
+        "how_it_works": "Contrasts general reasoning capabilities with domain-specific operational competence.",
+        "components": [
+          "Intelligence: General, Inference-time reasoning, Solves from context, Expands search, Can be rented",
+          "Expertise: Situated, Accumulated over time, Brings the right context, Compresses search, Must be learned in situ"
+        ],
+        "when_to_use": "When assessing why a high-benchmarking general LLM struggles with real-world enterprise task execution."
+      }
+    ],
+    "examples": [
+      {
+        "what_happened": "Coding tools became the dominant commercial application for LLM language agents.",
+        "illustrates": "How language agents thrive in environments where all inputs, actions, and rewards are symbolic and language-native.",
+        "lesson": "Environment accessibility and explicit feedback are prerequisites for early agent product-market fit."
+      },
+      {
+        "what_happened": "An expert approaches meeting scheduling by evaluating organizational hierarchy, urgency, and personal dependencies.",
+        "illustrates": "How experts operate based on underlying deep structure rather than surface-level calendar availability.",
+        "lesson": "True domain capability requires understanding implicit social and organizational rules within micro-worlds."
+      }
+    ],
+    "takeaways": {
+      "immediate": [
+        "Separate raw model benchmarks (intelligence) from real-world task execution reliability (expertise) when evaluating LLMs.",
+        "Identify the symbolic structures, constraints, and feedback mechanisms available in your target deployment environment."
+      ],
+      "strategic": [
+        "Shift engineering focus toward building continual learning loops that turn daily agent interactions into proprietary institutional memory.",
+        "Deploy specialized, continual-learning agents on top of cost-effective base models rather than waiting for larger foundation models."
+      ],
+      "questions_to_investigate": [
+        "How can domain-specific agent expertise be benchmarked and quantified standardizedly?",
+        "What is the optimal architecture for combining parametric updates (adapters/fine-tuning) with non-parametric storage (vector stores/knowledge graphs)?",
+        "How can live agent adaptation overcome the stability-plasticity dilemma to avoid catastrophic forgetting?"
+      ]
+    },
+    "claims_to_verify": [
+      {
+        "claim": "MIT report indicates that 95% of generative AI pilots at companies are failing.",
+        "claim_type": "statistic"
+      },
+      {
+        "claim": "Anthropic's annualized run rate grew 400x in under two years to over $4 billion.",
+        "claim_type": "statistic"
+      }
+    ],
+    "quotes": [
+      {
+        "text": "Intelligence is the capacity to reason through unfamiliar problems from available context.",
+        "timestamp": 395
+      },
+      {
+        "text": "Expertise is accumulated and situated competence: the ability to act reliably, efficiently, and with judgment to achieve reproducibly superior performance in a particular domain.",
+        "timestamp": 422
+      },
+      {
+        "text": "Continual learning is adaptive compression of experience into reusable structure for future behavior.",
+        "timestamp": 650
+      }
+    ],
+    "compressed": {
+      "bullets": [
+        "Language agents succeeded first in coding because software environments are natively symbolic and text-driven.",
+        "Deploying agents to general digital tasks triggers Modern Moravec's Paradox across millions of heterogeneous micro-worlds.",
+        "Raw intelligence operates at inference time to expand search spaces; domain expertise accumulates over time to compress them.",
+        "Scaling pre-training size without continual learning yields token-inefficient 'smart novices'.",
+        "Continual learning adaptively compresses experience into parameters, vectors, graphs, or skills to produce reliable expert agents."
+      ],
+      "keywords": [
+        "continual learning",
+        "language agents",
+        "ai expertise",
+        "moravec's paradox",
+        "search compression",
+        "neocognition"
+      ],
+      "core_insight": "Building reliable AI agents requires continual learning to adaptively compress live experience into domain expertise, moving beyond raw inference-time intelligence."
+    }
+  },
+  "validation_passed": true,
+  "retries": 0,
+  "contract_violations": 5,
+  "elapsed_seconds": 68.4245,
+  "prompt_tokens": 108501,
+  "completion_tokens": 2951,
+  "cost_usd": 0.092442
 }

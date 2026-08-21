@@ -1,0 +1,23 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 5,
+    "precision": 3,
+    "compression": 4
+  },
+  "total": 3.8,
+  "rationale": "The candidate comprehensively covers the main topics, frameworks, and key claims from the fact sheet, capturing the essence of Prime Intellect's tools and async RL architecture. However, it suffers from significant hallucinations, inventing many specific details not present in the ground truth. These include the channel name, specific model names for renderers, additional taskset examples, invented timestamp ranges, and fabricated direct quotes.",
+  "hallucinations": [
+    "Identifies the channel as 'Maxi' instead of 'AI Engineer'.",
+    "Invented specific timestamp ranges (e.g., '13-153', '153-320') and timestamps for quotes that do not exist in the fact sheet.",
+    "Lists specific tasksets not in the fact sheet, such as 'swe-grep', 'wordle', and 'wiki-search'.",
+    "Lists specific models for renderers not in the fact sheet, such as 'qwen2-3, gpt-4o, deepseek-v2, gemma, kimmotran'.",
+    "Fabricated direct quotes, such as 'Every recipe in two dials...' and 'A renderer turns a typed conversation...'",
+    "Altered a statistic to say 'router replay + FP8 cut trainer-inference RL mismatch' instead of 'router replay... Cuts trainer-inference XL mismatch'."
+  ],
+  "elapsed_seconds": 117.6262,
+  "cost_usd": 0.027534
+}

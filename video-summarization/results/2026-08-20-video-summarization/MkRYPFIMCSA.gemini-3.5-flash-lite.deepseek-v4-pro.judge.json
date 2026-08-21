@@ -4,25 +4,26 @@
   "scores": {
     "structure": 4,
     "faithfulness": 2,
-    "coverage": 3,
-    "precision": 2,
+    "coverage": 4,
+    "precision": 3,
     "compression": 3
   },
-  "total": 2.8,
-  "rationale": "Faithfulness 2: unsupported claims include MIT license, PagerDuty, GitHub/Grafana, CEL, specific SQL/kubectl commands, process sandbox. Coverage 3: core claims and Claw Patrol present but misses EKS/VPC example, Agent Vault/OpenShell terms, and statistics like 1000-line HCL config and 600s timeout. Precision 2: quotes are paraphrased or misattributed; timestamps do not match fact sheet; exact commands/functions invented. Compression 3: redundant repetition across topic_map, key_points, and compressed bullets. Structure 4: channel omitted and many null timestamps.",
+  "total": 3.2,
+  "rationale": "Structure is clear and comprehensive but has null timestamps and some redundancy. Faithfulness is low due to multiple unsupported claims: 'Maxi' channel, 'CEO of Deno', 'GitHub', 'MIT-licensed', 'httpjail', 'Crab Trap', 'SSH', 'CEL', 'YOLO mode', 'clawpatrol.dev', 'kubectl delete namespace prod'. Coverage misses the 1,000-line HCL statistic and the EKS tunneling example. Precision suffers from quote capitalizations and missing periods, plus the wrong channel. Compression is moderate; the alignment-not-security point is repeated across topic map, key points, quotes, and compressed sections.",
   "hallucinations": [
-    "open-source MIT-licensed network proxy",
-    "automated PagerDuty first responder",
-    "GitHub, Slack, and Grafana",
-    "psql -c 'DROP TABLE users'",
-    "kubectl delete namespace prod",
-    "Process sandbox",
-    "CEL",
-    "Denying pg_read_binary_file or dlink functions in Postgres queries while allowing standard queries.",
-    "Dashboard & approval router",
-    "Alignment is not a Security Boundary",
-    "Real security can't be wishful thinking"
+    "Maxi",
+    "CEO of Deno",
+    "GitHub",
+    "SRE in the loop",
+    "MIT-licensed",
+    "httpjail",
+    "Crab Trap",
+    "SSH",
+    "CEL (Common Expression Language) condition evaluator",
+    "YOLO mode",
+    "clawpatrol.dev",
+    "kubectl delete namespace prod"
   ],
-  "elapsed_seconds": 112.979,
-  "cost_usd": 0.006327
+  "elapsed_seconds": 78.476,
+  "cost_usd": 0.006283
 }

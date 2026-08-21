@@ -1,0 +1,21 @@
+{
+  "judged_candidate": "gemini-2.5-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 3,
+    "coverage": 5,
+    "precision": 4,
+    "compression": 4
+  },
+  "total": 4.2,
+  "rationale": "The candidate JSON has excellent coverage and structure, capturing the frameworks, strategies, and statistics accurately from the fact sheet. However, it introduces several hallucinations, such as the channel name 'Maxi', references to 'Open Droid' and 'AgentsMD', and a misspelling of the speaker's last name, which lowers the faithfulness score.",
+  "hallucinations": [
+    "Channel is listed as 'Maxi' instead of 'AI Engineer'.",
+    "Speaker's last name is spelled 'Alvoeiro' instead of 'Alvezio'.",
+    "Mentions 'Open Droid' (via /missions in Open Droid) which is not in the fact sheet.",
+    "Mentions 'AgentsMD' as a familiar primitive, which is absent from the fact sheet."
+  ],
+  "elapsed_seconds": 117.5747,
+  "cost_usd": 0.027498
+}

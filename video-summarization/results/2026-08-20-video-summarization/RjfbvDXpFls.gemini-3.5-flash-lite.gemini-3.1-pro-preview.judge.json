@@ -5,18 +5,18 @@
     "structure": 5,
     "faithfulness": 2,
     "coverage": 4,
-    "precision": 2,
+    "precision": 3,
     "compression": 4
   },
-  "total": 3.4,
-  "rationale": "The candidate JSON is well-structured and generally covers the main arguments of the fact sheet (Pi architecture, clankers ruining open source, and the need to slow down). However, it invents several highly specific details and examples not present in the ground truth, severely negatively impacting the faithfulness and precision scores.",
+  "total": 3.6,
+  "rationale": "The candidate JSON is well-structured and effectively summarizes the overarching narrative of the fact sheet, capturing the critique of bloated AI agents and the philosophy behind 'pi'. However, it suffers from poor faithfulness and precision because it injects multiple external details not present in the source text (hallucinations), such as specific Twitter users, an Amazon outage, CVEs, and incorrect project/channel names.",
   "hallucinations": [
-    "Mention of 'Major maintainers like Lil' Bro (git-auth)'",
-    "Claims regarding 'Amazon service downtime and Windows quality issues attributed to rapid AI code integration'",
-    "Reference to 'Graph comparisons showing agent code output skyrocketing'",
-    "Listing specific core tools 'read, write, edit, bash' for pi",
-    "Stating community members built 'pi-messenger, pi-nes, and pi-doom'"
+    "Identifies the channel as 'Maxi' instead of 'AI Engineer Europe'.",
+    "Mentions Twitter discussions by Tariq, Mitchell Hashimoto, and Erik Meijer.",
+    "Refers to an extension called 'pi-messenger' instead of 'pi-doom'.",
+    "Introduces an example of an 'Amazon service taken down by AI coding bot'.",
+    "Claims Claude Code had CVEs related to unauthenticated web server access via default headers."
   ],
-  "elapsed_seconds": 88.3988,
-  "cost_usd": 0.012072
+  "elapsed_seconds": 89.8355,
+  "cost_usd": 0.011288
 }

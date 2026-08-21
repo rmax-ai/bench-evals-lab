@@ -29,6 +29,13 @@ VIDEO_URL = "https://www.youtube.com/watch?v=I6aiEf3aEFQ"
 VIDEO_ID = "I6aiEf3aEFQ"
 
 
+@pytest.fixture(autouse=True)
+def _fake_api_key(monkeypatch):
+    """run_summarize() checks os.environ before the mocked HTTP layer, so the
+    tests need a dummy key even though no network request is ever made."""
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+
+
 class FakeResponse:
     """Minimal stand-in for httpx.Response: json()/text/status_code."""
 
@@ -162,3 +169,90 @@ def test_two_failures_error_path_exit_code(tmp_path, monkeypatch):
     assert content["retries"] == 2
     assert content["data"] is None
     assert content["validation_passed"] is False
+    assert content["contract_violations"] == 0
+
+
+def _topic_map_item(topic, timestamp_range):
+    return {
+        "topic": topic,
+        "timestamp_range": timestamp_range,
+        "explanation": "synthetic explanation",
+        "key_claims": [],
+        "examples": [],
+        "terminology": [],
+        "why_it_matters": "synthetic why",
+    }
+
+
+def test_timestamp_range_list_coerced_and_counted(tmp_path, monkeypatch):
+    summary = json.loads(json.dumps(VALID_SUMMARY))
+    summary["topic_map"] = [
+        _topic_map_item("First topic", [125, 248]),
+        _topic_map_item("Second topic", "40-80"),
+    ]
+
+    def fake_generate(model, api_key, payload, timeout=1800):
+        return FakeResponse(_native_payload(json.dumps(summary)))
+
+    monkeypatch.setattr(summarize_video, "native_generate", fake_generate)
+    out = _paths(tmp_path)
+    result = summarize_video.run_summarize(
+        candidate="gemini-2.5-pro", video_url=VIDEO_URL,
+        video_id=VIDEO_ID, output=out)
+    assert result["validation_passed"] is True
+    assert result["retries"] == 0
+    assert result["contract_violations"] == 1
+    topics = result["data"]["topic_map"]
+    assert topics[0]["timestamp_range"] == "125-248"
+    assert topics[1]["timestamp_range"] == "40-80"
+    written = json.loads(out.read_text(encoding="utf-8"))
+    assert written["contract_violations"] == 1
+
+
+def test_timestamp_range_string_passes_untouched(tmp_path, monkeypatch):
+    summary = json.loads(json.dumps(VALID_SUMMARY))
+    summary["topic_map"] = [_topic_map_item("First topic", "10-20")]
+
+    def fake_generate(model, api_key, payload, timeout=1800):
+        return FakeResponse(_native_payload(json.dumps(summary)))
+
+    monkeypatch.setattr(summarize_video, "native_generate", fake_generate)
+    out = _paths(tmp_path)
+    result = summarize_video.run_summarize(
+        candidate="gemini-2.5-pro", video_url=VIDEO_URL,
+        video_id=VIDEO_ID, output=out)
+    assert result["validation_passed"] is True
+    assert result["contract_violations"] == 0
+    assert result["data"]["topic_map"][0]["timestamp_range"] == "10-20"
+
+
+def test_build_prompt_uses_manifest_channel(tmp_path, monkeypatch):
+    manifest = {
+        "items": [{"video_id": VIDEO_ID, "title": "Synthetic", "channel": "Maxi"}],
+    }
+    manifest_path = tmp_path / "manifest.json"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    monkeypatch.setattr(summarize_video, "MANIFEST_PATH", manifest_path)
+
+    prompt = summarize_video.build_prompt(
+        "Synthetic", VIDEO_ID, summarize_video.resolve_channel(VIDEO_ID))
+    assert "Channel: Maxi" in prompt
+    assert "Video ID: I6aiEf3aEFQ" in prompt
+    # the {channel} placeholder must be the real channel, never the video id
+    assert "Channel: I6aiEf3aEFQ" not in prompt
+
+    # end to end: the manifest channel reaches the request prompt
+    captured = []
+
+    def fake_generate(model, api_key, payload, timeout=1800):
+        captured.append(payload)
+        return FakeResponse(_native_payload(json.dumps(VALID_SUMMARY)))
+
+    monkeypatch.setattr(summarize_video, "native_generate", fake_generate)
+    out = _paths(tmp_path)
+    summarize_video.run_summarize(
+        candidate="gemini-2.5-flash", video_url=VIDEO_URL,
+        video_id=VIDEO_ID, output=out)
+    prompt_text = captured[0]["contents"][0]["parts"][1]["text"]
+    assert "Channel: Maxi" in prompt_text
+    assert "Channel: I6aiEf3aEFQ" not in prompt_text

@@ -1,0 +1,24 @@
+{
+  "judged_candidate": "gemini-3.6-flash",
+  "judge_model": "gemini-3.1-pro-preview",
+  "scores": {
+    "structure": 5,
+    "faithfulness": 2,
+    "coverage": 4,
+    "precision": 2,
+    "compression": 4
+  },
+  "total": 3.4,
+  "rationale": "The candidate has excellent structure and covers the main themes of the fact sheet well, including the pi architecture, 'clankers', and the need for human friction. However, it suffers from significant hallucinations, inventing highly specific examples, CVEs, extensions, and anecdotes (like an Amazon outage) that are entirely absent from the provided ground truth.",
+  "hallucinations": [
+    "Identifies the channel as 'Maxi' instead of 'AI Engineer Europe'.",
+    "Mentions an 'OpenCode CORS security flaw allowing arbitrary web browser access' and references 'CVE-2026-22812'.",
+    "Claims a '/btw' extension was built in 5 minutes after an Anthropic announcement.",
+    "Mentions a 'pi-messenger chatroom extension' for multi-agent coordination.",
+    "References defensive countermeasures like 'Vouch', 'OSS Vacation', and a '3D spatial embedding tool for clustering PR spam'.",
+    "Invents an anecdote about an 'Amazon service outage caused by an AI coding bot' and a '90-day reset'.",
+    "Includes several quotes not present in the fact sheet, such as 'We need better ways to fuck around: self-modifying, malleable agents.', 'Strip away everything, build a minimal, extensible core...', 'Be in the code.', and 'All of this requires discipline and agency.'"
+  ],
+  "elapsed_seconds": 111.6744,
+  "cost_usd": 0.015314
+}

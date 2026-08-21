@@ -1,152 +1,335 @@
 {
   "speaker": "Will Brown",
-  "channel": "AI Engineer World's Fair",
-  "main_topic": "Engineering the future of AI: A deep dive into post-training with verifiers and prime-rl at Prime Intellect.",
+  "channel": "AI Engineer",
+  "main_topic": "Modern post-training for AI models, focusing on tools and frameworks built by Prime Intellect, specifically the open-source libraries `verifiers` and `prime-rl`.",
   "key_claims": [
     {
-      "claim": "Environments and evaluations (evals) are functionally identical in the context of post-training.",
-      "details": "Building evals is the first step, and the logic used to evaluate a model offline is the exact same unit of logic needed for post-training (e.g., RL, data generation for SFT)."
+      "claim": "Modern post-training requires a combination of open-source models and the ability to train them on proprietary workflows.",
+      "details": "The 'Open Superintelligence Stack' provides the tools necessary to do real training, offering control, deployment options, and customization."
     },
     {
-      "claim": "Decoupling environments into tasksets, harnesses, and runtimes provides essential flexibility for modern AI research.",
-      "details": "This separation allows researchers to swap out the execution context (runtime), the driver logic (harness), and the data/scoring (taskset) independently, supporting diverse architectures from simple loops to complex multi-agent setups."
+      "claim": "Environments are essential for specifying what a model should do.",
+      "details": "Environments encapsulate data, scenarios, interaction methods, and scoring mechanisms (evaluations) to determine what constitutes a good or bad outcome."
     },
     {
-      "claim": "Asynchronous reinforcement learning (RL) is necessary for efficient large-scale model training.",
-      "details": "Synchronous RL wastes GPU cycles waiting for the slowest rollouts to complete. Asynchronous RL decouples the rollout generation from the gradient updates, allowing continuous training and better resource utilization."
+      "claim": "Evaluations (evals) are the foundation of post-training.",
+      "details": "Evals are the same unit of logic needed for post-training; building evals is good product hygiene and unlocks the post-training flywheel."
     },
     {
-      "claim": "A dedicated 'renderer' abstraction is required to prevent tokenization drift.",
-      "details": "Moving back and forth between message text and tokens often causes subtle formatting changes (like extra newlines) that break training. A renderer ensures exact token matching between inference and training."
+      "claim": "Asynchronous reinforcement learning (Async RL) is crucial for large-scale training efficiency.",
+      "details": "Async RL decoupling forward progress speed from individual rollout speed allows for overlapping long rollouts without waiting for the slowest one, avoiding wasted GPU cycles."
+    },
+    {
+      "claim": "Decoupling algorithms into loss functions and data preparation logic provides flexibility.",
+      "details": "This separation allows for easier mixing and matching of algorithms without deep code modifications, enabling rapid experimentation with new research patterns."
+    },
+    {
+      "claim": "Prime Intellect is building an 'open superintelligence stack' to make large-scale, open-source AI research easier and enable companies to train and refine their own models.",
+      "details": "The stack covers the entire AI development lifecycle, from compute infrastructure (a decentralized marketplace of over 10,000 GPUs) to frontier model training. The goal is to provide an alternative to closed models by empowering users to improve open-source models for their specific use cases."
+    },
+    {
+      "claim": "The post-training loop (Build, Evaluate, Train, Deploy) is a central concept, and modern post-training requires a flexible and modular approach.",
+      "details": "This loop starts with building an environment, evaluating a model's performance, using that data to train the model further (via RL, SFT, DPO, etc.), and then deploying the improved version. The process is iterative and forms a flywheel for continuous model improvement."
+    },
+    {
+      "claim": "The `verifiers v1` library introduces a new, more powerful abstraction for environments by decomposing them into three swappable components: Taskset, Harness, and Runtime.",
+      "details": "This separation allows for greater flexibility. A 'Taskset' defines the data and scoring rules. A 'Harness' is the driver program that dictates the agent's interaction logic (e.g., reasoning-LM, code agent). A 'Runtime' is the execution environment (e.g., local subprocess, Docker, remote sandbox). This allows mixing and matching components without rewriting code."
+    },
+    {
+      "claim": "The `prime-rl` training framework is designed for asynchronous reinforcement learning at a massive scale.",
+      "details": "The architecture separates Inference, Orchestration, and Training into distinct processes. This disaggregation allows the system to handle long-tail rollouts (some taking hours) without blocking the training process, keeping throughput high. The trainer can step one iteration ahead of the inference policy, and weights are broadcast to update the policy in-flight."
+    },
+    {
+      "claim": "The Prime Intellect stack is highly extensible, allowing researchers and engineers to easily implement and experiment with custom algorithms.",
+      "details": "New algorithms can be added simply by creating a new class. The framework is designed to support a family of post-training methods, including GRPO, Max_RL, ECHO, OPD, OPSD, SFT, and DAgger, by composing different loss terms (RL loss, cross-entropy loss, reference KL loss)."
     }
   ],
   "frameworks": [
     {
+      "name": "The Open Superintelligence Stack",
+      "components": [
+        "Compute: Global marketplace of decentralized data centers.",
+        "Prime-RL: Open ML trainer.",
+        "Environments: Verifiers library and Environments Hub.",
+        "Lab: Hosted training, evals, inference, and sandboxes.",
+        "Frontier Model Training: Intellect series and customer models."
+      ]
+    },
+    {
+      "name": "The Post-Training Loop",
+      "components": [
+        "Build: An environment (taskset + rewards).",
+        "Evaluate: Score a model, read the rollouts.",
+        "Train: RL, SFT, OPD (post-training).",
+        "Deploy: Serve the trained adapter."
+      ]
+    },
+    {
+      "name": "Verifiers v1",
+      "components": [
+        "Taskset: Data + scoring (e.g., HF datasets, Harbor, Nemogym).",
+        "Harness: The driver program (e.g., default, rl, codex, mini-swe-agent).",
+        "Runtime: Where it runs (e.g., default, docker, prime sandbox)."
+      ]
+    },
+    {
+      "name": "Prime-RL Architecture",
+      "components": [
+        "Inference: vLLM servers serving the live policy, handling 1000s of concurrent rollouts.",
+        "Orchestrator: Manages rollouts, algorithms, scoring, and filters.",
+        "Trainer: FSDP2, 3-component loss, optimizer step on each batch."
+      ]
+    },
+    {
       "name": "Open Superintelligence Stack",
       "components": [
-        "Frontier Model Training (Intellect series, customer models)",
-        "Lab (hosted training, evals, inference, sandboxes)",
+        "Frontier Model Training (Top layer)",
+        "Lab (Hosted training, evals, inference, sandboxes)",
         "Environments (verifiers + Environments Hub)",
-        "prime-rl (open RL trainer)",
-        "Compute (decentralized marketplace)"
+        "Prime-RL (Open ML trainer)",
+        "Compute (Decentralized GPU marketplace)"
+      ]
+    },
+    {
+      "name": "Post-Training Loop",
+      "components": [
+        "Build: Create an environment with a taskset and rewards.",
+        "Evaluate: Score a model on the environment.",
+        "Train: Use the evaluation data (rollouts) for post-training (RL, SFT, DPO).",
+        "Deploy: Serve the newly trained model/adapter."
       ]
     },
     {
       "name": "Verifiers v1 Architecture",
       "components": [
-        "Taskset (Data and scoring rules, agent-agnostic)",
-        "Harness (The driver program that executes the interaction loop)",
-        "Runtime (The execution environment, e.g., local, Docker, prime sandbox)"
+        "Taskset: Defines the data and scoring logic (the 'world'). Examples include HF Datasets, Harbor, NemoGym, OpenFns.",
+        "Harness: The driver program for agent interaction. Examples include a default loop, RLM (Recursive Language Models), Codex (CLI agent), or custom harnesses.",
+        "Runtime: The execution environment where the harness runs. Examples include a local subprocess, Docker, or Prime Sandbox."
       ]
     },
     {
-      "name": "prime-rl Architecture",
+      "name": "Prime-RL Architecture (Asynchronous RL)",
       "components": [
-        "Inference (Serves the live policy, handles 1000s of concurrent rollouts)",
-        "Orchestrator (Manages rollouts, applies algorithms, scoring, and filters)",
-        "Trainer (Performs optimizer steps using FSDP2)"
+        "Inference: Serves the live policy, generates rollouts. Can handle thousands of concurrent rollouts.",
+        "Orchestrator: Manages the flow of data. Collects rollouts, applies algorithms/scoring/filters, and creates sample batches for the trainer.",
+        "Trainer: Receives sample batches and performs optimizer steps (e.g., using FSDP, DeepGEMM). Broadcasts weight updates back to the inference server."
       ]
     }
   ],
   "examples": [
     {
-      "example": "Applying a length penalty or conciseness bonus during RL.",
-      "lesson": "Models with chain-of-thought capabilities will generate unnecessarily long responses if unchecked. You must design reward functions with multiple objectives (correctness + efficiency) to guide the model properly."
+      "example": "On-Policy Distillation (OPD)",
+      "lesson": "Training individual RL experts on diverse environments and then distilling their knowledge into a single checkpoint is more reliable than training one model on all environments simultaneously."
     },
     {
-      "example": "Training on multiple diverse expert environments.",
-      "lesson": "Instead of training one model to do everything at once, it is more reliable to train individual RL expert models on separate environments (using the same base model), and then use distillation to combine their capabilities into a single checkpoint."
+      "example": "Multi-turn Agent Harness",
+      "lesson": "While a single loop for agent interaction was initially useful, it proved insufficient for complex workflows, leading to the development of specific harnesses for different agent types (e.g., CLI agents, MCP)."
+    },
+    {
+      "example": "Model Thinking Too Long",
+      "lesson": "Without a conciseness penalty or length penalty, models with long chains of thought (like open models) will take too long to generate answers; group rewards are needed to incentivize both correctness and efficiency."
+    },
+    {
+      "example": "Tokenizer Mismatch",
+      "lesson": "Re-tokenizing text after a model generates it can lead to tokenization drift, causing numerical problems in RL. The 'renderers' abstraction addresses this by managing token-in/token-out concatenation."
+    },
+    {
+      "example": "Swapping Harnesses and Runtimes",
+      "details": "The speaker shows CLI commands demonstrating how a single taskset (e.g., `gsm8k-v1`) can be run with different harnesses (e.g., `rlm` for reasoning, `codex` for a CLI agent) or how another taskset (`harbor`) can be run in different runtimes (`docker`, `prime`) with simple flag changes.",
+      "lesson": "This illustrates the modularity and flexibility of the `verifiers v1` architecture, allowing developers to easily switch between different agent behaviors and execution environments without altering the core task definition."
+    },
+    {
+      "example": "Group Rewards (GRPO++)",
+      "details": "A custom algorithm is shown where the advantage for a rollout is calculated as its reward minus the mean reward of the group. This is a simple modification to the base RL algorithm.",
+      "lesson": "The framework makes it easy to implement novel credit-assignment schemes and custom algorithms, often requiring just a few lines of code by inheriting from a base `Algorithm` class."
     }
   ],
   "terminology": [
     {
       "term": "Post-training",
-      "definition": "The phase of model development after initial pre-training, involving techniques like Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL) to adapt the model to specific tasks."
+      "definition": "The process of refining and training an AI model after its initial pre-training phase, often to adapt it to specific tasks or workflows."
     },
     {
       "term": "Environment",
-      "definition": "An encapsulation of data, scenarios, interaction rules, and scoring mechanisms used to evaluate or train an AI model."
-    },
-    {
-      "term": "Taskset",
-      "definition": "The component of an environment consisting of the dataset and the objective scoring rules, designed to be independent of the agent's implementation."
+      "definition": "A language or framework for specifying what a model should do, encapsulating data, interaction scenarios, and scoring mechanisms."
     },
     {
       "term": "Harness",
-      "definition": "The driver code that connects a model to a taskset, managing the interaction loop (e.g., tool use, multi-turn dialogue)."
+      "definition": "The execution logic or driver program that dictates how an environment runs and interacts with a model."
+    },
+    {
+      "term": "Taskset",
+      "definition": "The specific data and scoring criteria used within an environment, independent of the execution logic."
     },
     {
       "term": "Runtime",
-      "definition": "The underlying infrastructure where the harness and model code execute, ranging from local processes to isolated cloud sandboxes."
+      "definition": "The computational environment where an evaluation or training rollout executes (e.g., local container, remote sandbox)."
     },
     {
-      "term": "On-policy Distillation",
-      "definition": "A training method where a student model generates its own rollouts (on-policy), which are then scored or guided by a stronger teacher model."
+      "term": "Rollout",
+      "definition": "A single instance of a model interacting with an environment to generate a sequence of actions or text."
     },
     {
-      "term": "Trace Graph",
-      "definition": "A data structure used to track the branching paths of model rollouts, helping to manage variations in tokenization and logical steps."
+      "term": "SFT (Supervised Fine-Tuning)",
+      "definition": "A training method where a model is trained on a dataset of specific examples or demonstrations."
+    },
+    {
+      "term": "RL (Reinforcement Learning)",
+      "definition": "A training method where a model learns by interacting with an environment and receiving rewards or penalties based on its actions."
+    },
+    {
+      "term": "OPD (On-Policy Distillation)",
+      "definition": "A technique where a model learns to match the behavior or distribution of a 'teacher' model or expert policy."
+    },
+    {
+      "term": "Async RL",
+      "definition": "Asynchronous reinforcement learning, where the generation of rollouts and the updating of the model's weights occur independently, improving efficiency."
+    },
+    {
+      "term": "MCP (Model Context Protocol)",
+      "definition": "A backend framework used to interact with the runtime, often used for tools and user simulators."
     },
     {
       "term": "Renderer",
-      "definition": "A toolkit designed to turn typed conversations into exact token IDs and a sampled mask, avoiding tokenization drift between inference and training."
+      "definition": "A component that manages the conversion between text and tokens, specifically designed to prevent tokenization drift during RL training."
+    },
+    {
+      "term": "Verifiers",
+      "definition": "A Prime Intellect open-source library for creating and running environments to evaluate and train AI models. The v1 version is built on the concept of Tasksets, Harnesses, and Runtimes."
+    },
+    {
+      "term": "Prime-RL",
+      "definition": "A Prime Intellect open-source, asynchronous reinforcement learning framework designed for large-scale training of language models."
+    },
+    {
+      "term": "Interception Server",
+      "definition": "A proxy server that sits between the harness and the model, allowing the framework to intercept model calls to manage training, evaluation, and tokenization without modifying the harness code."
+    },
+    {
+      "term": "Trace Graph",
+      "definition": "A data structure representing the flow of an agent's execution, including branching paths for sub-agents or parallel reasoning, where each root-to-leaf path can be a training sample."
+    },
+    {
+      "term": "Group Rewards",
+      "definition": "A reward calculation method where an individual rollout's reward is adjusted based on the performance of other rollouts in the same batch (e.g., reward minus the group mean)."
     }
   ],
   "takeaways": [
-    "Prime Intellect is building an open-source stack to democratize post-training of large language models.",
-    "The 'verifiers' library standardizes the creation of environments by splitting them into tasksets, harnesses, and runtimes.",
-    "Asynchronous RL (via prime-rl) solves the compute inefficiency of long-tail rollout times by separating inference from training.",
-    "Effective reward design requires balancing multiple metrics, such as task correctness and token efficiency.",
-    "The Prime Intellect Lab provides hosted infrastructure to run complex training and evaluation pipelines without managing hardware."
+    "Open-source tools like `verifiers` and `prime-rl` are making large-scale AI research and post-training more accessible and efficient.",
+    "Environments, built from composable tasksets, harnesses, and runtimes, are the foundation of effective model evaluation and training.",
+    "Async RL is vital for scaling post-training, as it prevents slow rollouts from bottlenecking the entire training process.",
+    "Decoupling algorithms into loss terms and data preparation allows for rapid iteration and experimentation with new research techniques.",
+    "Addressing system-level challenges like tokenization drift and stateful APIs is necessary for robust, large-scale RL training.",
+    "The future of AI model development, especially for complex agents, lies in robust and scalable post-training infrastructure.",
+    "Open-source tools like `verifiers` and `prime-rl` can make advanced techniques like large-scale RL accessible to more developers and companies.",
+    "A modular architecture that decouples the task (`taskset`), the agent's logic (`harness`), and the execution environment (`runtime`) is key to flexibility and rapid iteration in AI research and engineering.",
+    "Asynchronous RL is a critical design pattern for efficiently training models on tasks with variable and potentially very long completion times, maximizing GPU utilization.",
+    "By abstracting away complexities like tokenization and system-level scaling, the focus can shift to the core research problems of algorithm and reward design."
   ],
   "notable_quotes": [
     {
-      "quote": "Environments and evals are essentially the same thing.",
-      "timestamp": "07:02"
+      "quote": "Our goal is to make doing large scale open source AI research easier.",
+      "timestamp": "01:25"
     },
     {
-      "quote": "Models will love to think and think and think if you let them. And if you don't give them some kind of pressure to be more efficient... they will grow out of control.",
-      "timestamp": "18:48"
+      "quote": "Environments are a language for specifying what you want your model to do.",
+      "timestamp": "05:53"
     },
     {
-      "quote": "If you're doing a full run on a frontier-size model on a proper real-world agent environment... it's a lot cheaper than what OpenAI is raising for.",
-      "timestamp": "22:36"
+      "quote": "Evals are the thing that opens the door to post training. And so environments and evals are essentially the same thing.",
+      "timestamp": "06:58"
+    },
+    {
+      "quote": "It is the age of research indeed.",
+      "timestamp": "05:17"
+    },
+    {
+      "quote": "We want a really nice back and forth between messages and tokens.",
+      "timestamp": "25:16"
+    },
+    {
+      "quote": "We do a lot of stuff around every part of the kind of AI research and infrastructure stack. Today is going to be about post-training, which is where I spend a lot of my time thinking and building.",
+      "timestamp": "00:40"
+    },
+    {
+      "quote": "We use the phrase 'the open superintelligence stack' to describe what we mean by this. And I think when we said this phrase like a year ago, it felt a little more like marketing. And now it feels a little bit more like, 'Oh, yeah, that's kind of what it is.'",
+      "timestamp": "01:54"
+    },
+    {
+      "quote": "What does it mean to kind of take a model and train it to be better at your task? What are all the parts? What are all the kind of gotchas? And how do you orchestrate this into a system that is actually easy for people to use?",
+      "timestamp": "03:42"
+    },
+    {
+      "quote": "The post-training loop in my mind kind of revolves around environments in the sense of environments are a language for specifying what you want your model to do.",
+      "timestamp": "05:48"
     }
   ],
   "statistics": [
+    "Prime Intellect operates over 10,000 GPUs.",
+    "Prime-RL achieved a GLM-5 step on 28 nodes in under 5 minutes.",
+    "Prime-RL supports a max sequence length of 131k context.",
+    "A 1000-step RL run can cost approximately $50k on a frontier-sized model.",
     {
-      "metric": "Compute GPUs operated globally",
+      "metric": "Number of GPUs in Prime Intellect's network",
       "value": "Over 10,000"
     },
     {
-      "metric": "prime-rl max sequence length tested",
-      "value": "131,000 tokens"
+      "metric": "Max sequence length for 1T scale RL run",
+      "value": "131k"
     },
     {
-      "metric": "prime-rl scaling run hardware (GLM-5)",
-      "value": "28 H200 nodes"
+      "metric": "Step time for 1T scale RL run",
+      "value": "< 5 minutes"
     },
     {
-      "metric": "Estimated cost for a 1,000-step RL run at scale",
-      "value": "~$50,000"
+      "metric": "Rollouts per batch for 1T scale RL run",
+      "value": "256"
     },
     {
-      "metric": "Prime Intellect Research Team Size",
-      "value": "<10 people"
+      "metric": "Number of H200 nodes for 1T scale RL run",
+      "value": "28"
     },
     {
-      "metric": "Prime Intellect Total Company Size",
-      "value": "<40 people"
+      "metric": "Cost of a 1000-step RL run on a frontier model",
+      "value": "About $50k"
+    },
+    {
+      "metric": "Time for a 1000-step RL run on a frontier model",
+      "value": "3 days"
+    },
+    {
+      "metric": "Improvement from router replay",
+      "value": "Cuts trainer-inference XL mismatch by >10x"
     }
   ],
   "metadata": {
-    "builder_model": "gemini-3.1-pro-preview",
     "video_id": "V-EDrhIhHzQ",
-    "elapsed_seconds": 83.4185,
-    "cost_usd": 0.532238,
-    "tokens": {
-      "prompt_tokens": 256003,
-      "completion_tokens": 1686
-    }
+    "builder_model": "gemini-3.1-pro-preview",
+    "builder_models": [
+      "gemini-3.1-pro-preview",
+      "gemini-2.5-pro"
+    ],
+    "builders": {
+      "gemini-3.1-pro-preview": {
+        "status": "ok",
+        "elapsed_seconds": 101.9676,
+        "cost_usd": 0.535958,
+        "tokens": {
+          "prompt_tokens": 256003,
+          "completion_tokens": 1996
+        }
+      },
+      "gemini-2.5-pro": {
+        "status": "ok",
+        "elapsed_seconds": 125.9801,
+        "cost_usd": 1.063895,
+        "tokens": {
+          "prompt_tokens": 829644,
+          "completion_tokens": 2684
+        }
+      }
+    },
+    "elapsed_seconds": 227.9484,
+    "cost_usd": 1.599853
   }
 }

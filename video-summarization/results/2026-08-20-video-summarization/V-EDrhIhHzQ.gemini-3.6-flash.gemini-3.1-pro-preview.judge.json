@@ -3,23 +3,19 @@
   "judge_model": "gemini-3.1-pro-preview",
   "scores": {
     "structure": 5,
-    "faithfulness": 2,
+    "faithfulness": 3,
     "coverage": 5,
-    "precision": 2,
-    "compression": 2
+    "precision": 4,
+    "compression": 4
   },
-  "total": 3.2,
-  "rationale": "The candidate JSON covers all the main topics, frameworks, and statistics present in the ground truth fact sheet. However, it suffers from severe faithfulness and precision issues by injecting a massive amount of highly specific external knowledge that is completely absent from the source text. This includes specific model architectures, external agent frameworks, external repositories, and specialized RL algorithms. While the structure is excellent and highly organized, the inclusion of unverified details heavily inflates the text, resulting in poor compression and precision.",
+  "total": 4.2,
+  "rationale": "The candidate JSON effectively captures the main topics, frameworks, and statistics from the fact sheet with great depth and structure. However, it introduces several details not found in the ground truth fact sheet, such as the channel name 'Maxi', 'TorchTitan', 'Megatron-LM', 'OpenAI's Harmony renderer', and specific model names like Qwen, DeepSeek, Claude, and GPT.",
   "hallucinations": [
-    "GLM-5 is a ~1 Trillion parameter MoE model",
-    "Model Context Protocol (MCP) integrations",
-    "Specific environments like Swe-grep, Wordle game environment, and Harbor",
-    "OpenAI Harmony / GPT-OS template handling and Thinking Machines Tinkerer cookbook",
-    "Specific algorithms and loss terms like DPPO, GRPO, OPSD, ECHO, and DAgger",
-    "Specific agent harnesses like Claude Code, Codex CLI, and SWE-agent",
-    "Specific runtimes like Modal/E2B",
-    "References to the public `lab-cookbook` repo on GitHub"
+    "Channel named 'Maxi' instead of 'AI Engineer'",
+    "Mention of 'TorchTitan' and 'Megatron-LM'",
+    "Mention of 'OpenAI's Harmony renderer'",
+    "Reference to Qwen, DeepSeek, Claude, and GPT models"
   ],
-  "elapsed_seconds": 101.9841,
-  "cost_usd": 0.01439
+  "elapsed_seconds": 99.266,
+  "cost_usd": 0.019594
 }
